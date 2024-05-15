@@ -23,8 +23,10 @@
     "vite": "^5.2.0"
   },
   "dependencies": {
+    "@smui/button": "^7.0.0",
     "axios": "^1.6.8",
     "path": "^0.12.7",
-    "svelte-materialify": "^0.3.11"
+    "svelte-forms": "^2.3.1",
+    "svelte-material-ui": "^7.0.0"
   }
 }

@@ -5,6 +5,7 @@
     import Contact from "./pages/Contact.svelte";
     import Programs from "./pages/Programs.svelte";
     import Exercises from "./pages/Exercises.svelte";
+    import Register from "./pages/Register.svelte";
   
     export let url: string = "";
 </script>
@@ -15,12 +16,14 @@
         <Link to="/exercices">Exercices</Link>
         <Link to="/programmes">Programmes</Link>
         <Link to="/contact">Contact</Link>
+        <Link to="/register">S'inscrire</Link>
     </nav>
 
     <div class="routeur-view">
         <Route path="/exercices" component={Exercises} />
         <Route path="/programmes" component={Programs} />
         <Route path="/contact" component={Contact} />
+        <Route paht="/register" component="{Register}"></Route>
         <Route path="/"><Home /></Route>
     </div>
 </Router>

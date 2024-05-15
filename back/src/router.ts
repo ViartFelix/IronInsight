@@ -17,5 +17,10 @@ export default class Router
                 res.send(user)
             })
         });
+
+        this.app.post('/register', (req, res) => {
+            console.log(req);
+            //userService.userExists(req)
+        })
     }
 }

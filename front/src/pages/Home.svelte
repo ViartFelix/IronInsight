@@ -1,7 +1,7 @@
 <script lang="ts">
     import axios from "axios";
-    import {Button} from "svelte-materialify";
     import "../hey.scss";
+    import Button from '@smui/button';
 
     function test()
     {
