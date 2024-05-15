@@ -1,9 +1,21 @@
-class Router
+import { Express } from "express";
+import { dbService } from "../services/db-service";
+import { userService } from "../services/UserService";
+
+export default class Router
 {
-    constructor() {
+    private app: Express;
+
+    constructor(app: Express) {
+        this.app = app;
+        this.bindRoutes();
     }
 
-    public get(url: string) {
-
+    private bindRoutes() {
+        this.app.get('/test', (req, res) => {
+            userService.getUserById(2).then((user) => {
+                res.send(user)
+            })
+        });
     }
 }

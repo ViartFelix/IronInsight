@@ -2,17 +2,20 @@ import express, { Express } from "express";
 import { createServer, Server } from "http";
 import cors from "cors";
 import helmet from "helmet";
-import dbService from "../services/db-service";
+import { dbService } from "../services/db-service";
+import Router from "./router";
 
 export class App {
 
-    app: Express;
+    private app: Express;
+    private router: Router
 
     constructor() {
         dbService.connect()
             .then(() => {
                 this.init();
-                this.bindRoutes();
+                //routes binder
+                this.router = new Router(this.app);
                 this.start();
             })
             .catch(err => {
@@ -30,13 +33,6 @@ export class App {
         }));
         //public path
         this.app.use('/public', express.static('public'));
-    }
-
-    private bindRoutes(): void
-    {
-        this.app.get('/test', (req, res) => {
-            res.send("hey")
-        });
     }
 
     private start() {
