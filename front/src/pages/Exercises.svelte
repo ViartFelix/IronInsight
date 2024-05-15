@@ -8,7 +8,6 @@ let exercisesList: Array<Exercise>;
 
 function requestExercises() {
     axios.get("/exercises").then((res) => {
-        console.log(res.data)
       exercisesList = res.data;
     }).catch((err) => {
       console.log(err);
@@ -26,7 +25,7 @@ function requestExercises() {
             {#each exercisesList as exercise}
             <li>
                 {exercise.wording}
-                <a href="/exercises/{exercise.code_exercise}"><Icon icon="ph:eye" height="{25}"/></a>
+                <a href="/exercices/{exercise.code_exercise}"><Icon icon="ph:eye" height="{25}"/></a>
             </li>
             {/each}
         </ul>
