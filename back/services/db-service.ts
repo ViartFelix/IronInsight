@@ -40,6 +40,4 @@ class DbService {
     }
 }
 
-const dbService = new DbService();
-
-export default dbService;
+export const dbService = new DbService();
