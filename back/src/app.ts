@@ -5,32 +5,44 @@ import helmet from "helmet";
 import dbService from "../services/db-service";
 
 export class App {
-    private collectionName: string = 'iron_insight';
+
+    app: Express;
 
     constructor() {
         dbService.connect()
             .then(() => {
                 this.init();
+                this.bindRoutes();
+                this.start();
             })
             .catch(err => {
-                console.error('Erreur de connexion à la base de données : ', err);
+                console.error('Erreur lors de la mise en route du service: ', err);
             });
     }
 
-    init() {
-        const app: Express = express();
-        app.use(cors());
-        app.use(helmet({
+    private init() {
+        this.app = express();
+        //cors
+        this.app.use(cors());
+        //for images
+        this.app.use(helmet({
             crossOriginResourcePolicy: false,
         }));
-        app.use('/public', express.static('public'));
-
-        const server: Server = createServer(app);
-
-        this.start(server);
+        //public path
+        this.app.use('/public', express.static('public'));
     }
 
-    start(server: Server) {
+    private bindRoutes(): void
+    {
+        this.app.get('/test', (req, res) => {
+            res.send("hey")
+        });
+    }
+
+    private start() {
+        //creating server
+        const server: Server = createServer(this.app);
+        //listening server
         server.listen(3333, () => {
             console.log('Serveur démarré sur le port 3333');
         });

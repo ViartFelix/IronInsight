@@ -1,5 +1,3 @@
-//General CSS
-import './app.css'
 //Main app
 import App from './App.svelte'
 

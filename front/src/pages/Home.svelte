@@ -1,5 +1,7 @@
 <script lang="ts">
     import axios from "axios";
+    import {Button} from "svelte-materialify";
+    import "../hey.scss";
 
     function test()
     {
@@ -12,11 +14,10 @@
 </script>
 
 <div>
-    <button on:click={test}>
+    <Button on:click={test}>
         Click me
-    </button>
+    </Button>
 </div>
 
-<style lang="css">
-
+<style lang="scss">
 </style>
