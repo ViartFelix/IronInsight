@@ -7,12 +7,12 @@ import { Exercise } from '../models/Exercise';
   providedIn: 'root'
 })
 export class ExercisesService {
-    url = 'http://localhost:3333';
+    private url = 'http://localhost:3333';
 
     constructor(private http: HttpClient) {}
 
     getExercises(): Observable<Exercise[]> {
-        return this.http.get<any>(`${this.url}/exercises`).pipe(
+        return this.http.get<Exercise[]>(`${this.url}/exercises`).pipe(
             map((data: Exercise[]) => {return data}),
             catchError((error: Error) => {
                 console.error(error);
