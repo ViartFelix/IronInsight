@@ -26,7 +26,11 @@ export class App {
     private init() {
         this.app = express();
         //cors
-        this.app.use(cors());
+        this.app.use(cors({
+            origin: 'http://localhost:4200',
+            methods: 'GET,POST',
+            allowedHeaders: 'Content-Type,Authorization',
+          }));
         //for images
         this.app.use(helmet({
             crossOriginResourcePolicy: false,

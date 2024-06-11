@@ -4,9 +4,9 @@ import { Component } from '@angular/core';
   selector: 'app-registe',
   standalone: true,
   imports: [],
-  templateUrl: './registe.component.html',
-  styleUrl: './registe.component.scss'
+  templateUrl: './register.component.html',
+  styleUrl: './register.component.scss'
 })
-export class RegisteComponent {
+export class RegisterComponent {
 
 }
