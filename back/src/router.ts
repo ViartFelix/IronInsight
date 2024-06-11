@@ -4,37 +4,40 @@ import { userService } from "../services/UserService";
 import { exerciseService } from "../services/ExerciseService";
 import { programService } from "../services/ProgramService";
 
-export default class Router
+class Router
 {
     private app: Express;
 
-    constructor(app: Express) {
+    constructor() {}
+
+    public init(app: Express): void
+    {
         this.app = app;
-        this.bindRoutes();
     }
 
-    private bindRoutes() {
-        this.app.get('/test', (req, res) => {
-            userService.getUserById(2).then((user) => {
-                res.send(user)
-            })
-        });
-
-        this.app.post('/register', (req, res) => {
-            console.log(req);
-            //userService.userExists(req)
+    /**
+     * Get request
+     * @param url
+     * @param callback
+     */
+    public get(url: string, callback: Function)
+    {
+        this.app.get(url, (req, res) => {
+            callback(req, res);
         })
+    }
 
-        this.app.get('/exercises', (req, res) => {
-            exerciseService.getAllExercises().then((exercises) => {
-                res.send(exercises)
-            })
-        });
-
-        this.app.get('/programs', (req, res) => {
-            programService.getAllPrograms().then((programs) => {
-                res.send(programs)
-            })
-        });
+    /**
+     * Post request
+     * @param url
+     * @param callback
+     */
+    public post(url: string, callback: Function)
+    {
+        this.app.post(url, (req, res) => {
+            callback(req, res);
+        })
     }
 }
+
+export const router = new Router();

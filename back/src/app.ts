@@ -3,19 +3,22 @@ import { createServer, Server } from "http";
 import cors from "cors";
 import helmet from "helmet";
 import { dbService } from "../services/db-service";
-import Router from "./router";
+import {router} from "./router";
+import {userController} from "../controllers/userController";
+import {exerciseController} from "../controllers/exerciseController";
+import {programsController} from "../controllers/programsController";
 
 export class App {
 
     private app: Express;
-    private router: Router
 
     constructor() {
         dbService.connect()
             .then(() => {
                 this.init();
-                //routes binder
-                this.router = new Router(this.app);
+                //routes init
+                router.init(this.app);
+                this.initControllers();
                 this.start();
             })
             .catch(err => {
@@ -31,8 +34,20 @@ export class App {
         this.app.use(helmet({
             crossOriginResourcePolicy: false,
         }));
+        this.app.use(express.json());
         //public path
         this.app.use('/public', express.static('public'));
+    }
+
+    /**
+     * Init controllers
+     * @private
+     */
+    private initControllers()
+    {
+        userController.init()
+        exerciseController.init()
+        programsController.init()
     }
 
     private start() {

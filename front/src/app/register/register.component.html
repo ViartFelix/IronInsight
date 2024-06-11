@@ -1,1 +1,15 @@
-<p>registe works!</p>
+<div class="register-main">
+  <form [formGroup]="registerForm" action="#" (ngSubmit)="onRegisterSubmit()">
+    <label for="username">Username: </label>
+    <input id="username" type="text" formControlName="username">
+
+    <label for="email">Email: </label>
+    <input id="email" type="email" formControlName="email">
+
+    <label for="password">Password: </label>
+    <input id="password" type="password" formControlName="password">
+
+    <p>Complete the form to enable button.</p>
+    <button type="submit" [disabled]="!registerForm.valid">Submit</button>
+  </form>
+</div>

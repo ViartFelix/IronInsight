@@ -4,9 +4,27 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="de7ca3ed-f100-490d-a07e-8e730243af48" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+    <list default="true" id="de7ca3ed-f100-490d-a07e-8e730243af48" name="Changes" comment="(+) revert back">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/back/controllers/exerciseController.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/back/controllers/programsController.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/back/controllers/userController.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/front/src/interfaces/user.interface.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/front/src/services/user.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/back/services/UserService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/back/services/UserService.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/services/db-service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/back/services/db-service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/src/app.ts" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/app.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/src/router.ts" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/router.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/angular.json" beforeDir="false" afterPath="$PROJECT_DIR$/front/angular.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/app/app.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/app/app.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/app/app.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/app/app.component.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/app/app.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/app/app.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/app/app.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/app/app.config.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/app/app.routes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/app/app.routes.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/app/register/register.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/app/register/register.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/app/register/register.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/app/register/register.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,46 +34,75 @@
   <component name="ComposerSettings">
     <execution />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTTP Request" />
+        <option value="TypeScript File" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "ViartFelix"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;ViartFelix&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/ViartFelix/IronInsight.git",
-    "accountId": "cfac2eb9-ac42-4671-a546-97743bc9009f"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/ViartFelix/IronInsight.git&quot;,
+    &quot;accountId&quot;: &quot;cfac2eb9-ac42-4671-a546-97743bc9009f&quot;
   }
-}]]></component>
+}</component>
   <component name="PhpWorkspaceProjectConfiguration" interpreter_name="/bin/php" />
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 7
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 7
+}</component>
   <component name="ProjectId" id="2hjVRl0gdGTKixkdjTUla2BwVrA" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "master",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "ts.external.directory.path": "/snap/phpstorm/400/plugins/javascript-plugin/jsLanguageServicesImpl/external",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;HTTP Request.All in test register.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.test register | #1.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.test register | GET request to example server.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/home/rd-dev/PhpstormProjects/IronInsight/front/node_modules/typescript/lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
+  <component name="RunManager" selected="HTTP Request.test register | #1">
+    <configuration name="All in test register" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$PROJECT_DIR$/back/test register.http">
+      <method v="2" />
+    </configuration>
+    <configuration name="test register | GET request to example server" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/back/test register.http" requestIdentifier="GET request to example server" runType="Run single request">
+      <method v="2" />
+    </configuration>
+    <configuration name="test register | #1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/back/test register.http" requestIdentifier="#1" runType="Run single request">
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="HTTP Request.test register | #1" />
+        <item itemvalue="HTTP Request.All in test register" />
+        <item itemvalue="HTTP Request.test register | GET request to example server" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -73,7 +120,19 @@
       <option name="presentableId" value="Default" />
       <updated>1718107471509</updated>
       <workItem from="1718107477115" duration="383000" />
+      <workItem from="1718107879920" duration="469000" />
+      <workItem from="1718108711024" duration="6817000" />
+      <workItem from="1718115760249" duration="2612000" />
     </task>
+    <task id="LOCAL-00001" summary="(+) revert back">
+      <option name="closed" value="true" />
+      <created>1718107998069</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1718107998069</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -89,5 +148,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="(+) revert back" />
+    <option name="LAST_COMMIT_MESSAGE" value="(+) revert back" />
   </component>
 </project>
