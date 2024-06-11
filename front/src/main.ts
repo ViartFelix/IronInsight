@@ -1,12 +1,6 @@
-//Main app
-import App from './App.svelte'
+import { bootstrapApplication } from '@angular/platform-browser';
+import { appConfig } from './app/app.config';
+import { AppComponent } from './app/app.component';
 
-//Plugins
-import Plugins from "../plugins/index";
-new Plugins();
-
-const app = new App({
-  target: document.getElementById('app')!,
-})
-
-export default app
+bootstrapApplication(AppComponent, appConfig)
+  .catch((err) => console.error(err));
