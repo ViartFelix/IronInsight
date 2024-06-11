@@ -14,12 +14,10 @@ class UserService
         return r as User;
     }
 
-    /*
     public async registerUser(user: User): Promise<boolean>
     {
-
+        
     }
-     */
 
     public async userExists(user: User): Promise<boolean>
     {
