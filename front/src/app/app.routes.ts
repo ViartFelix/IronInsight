@@ -4,6 +4,7 @@ import { ExercisesComponent } from './exercises/exercises.component';
 import { ProgramsComponent } from './programs/programs.component';
 import { ContactComponent } from './contact/contact.component';
 import { RegisterComponent } from './register/register.component';
+import { ExerciseDetailComponent } from './exercises/exercise-detail/exercise-detail.component';
 
 export const routes: Routes = [
     {
@@ -13,6 +14,10 @@ export const routes: Routes = [
     {
         path: 'exercices',
         component: ExercisesComponent
+    },
+    {
+        path: 'exercise-detail/:id',
+        component: ExerciseDetailComponent
     },
     {
         path: 'programmes',

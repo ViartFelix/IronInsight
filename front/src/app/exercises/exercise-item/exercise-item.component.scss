@@ -1,0 +1,23 @@
+.item {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    width: 10rem;
+    height: 15rem;
+    padding: 0.8rem;
+
+    &__header {
+        text-decoration: underline;
+    }
+
+    &__body {
+        img {
+            max-width: 10rem;
+        }
+    }
+    
+    &__footer {
+        text-align: center;
+    }
+}

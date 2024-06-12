@@ -1,2 +1,6 @@
-<span>Test</span>
-<pre>{{ response | json }}</pre>
+<ng-container>
+    <h1>Liste des exercices</h1>
+    <div class="exercises">
+        <app-exercise-item *ngFor="let exercise of response" [exercise]="exercise"></app-exercise-item>
+    </div>
+</ng-container>
