@@ -7,10 +7,10 @@ class DbService {
 
     async connect(): Promise<void> {
         this.connection = mysql.createConnection({
-            host: 'localhost',
-            user: 'root',
-            password: '',
-            database: 'iron_insight'
+            host: process.env.DB_HOST,
+            user: process.env.DB_USER,
+            password: process.env.DB_PASS,
+            database: process.env.DB_NAME,
         });
 
         this.connection.connect((err: MysqlError) => {
