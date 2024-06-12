@@ -1,13 +1,13 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { catchError, map, Observable } from 'rxjs';
+import { catchError, EMPTY, map, Observable } from 'rxjs';
 import { TrainingProgram } from '../models/Programs';
 import { environment } from '../environnment';
 
 @Injectable({
   providedIn: 'root'
 })
-export class ExercisesService {
+export class ProgramsService {
 
     constructor(private http: HttpClient) {}
 
@@ -19,5 +19,15 @@ export class ExercisesService {
                 return [];
             })
         );
+    }
+
+    getOneProgram(id: string) {
+        return this.http.get<TrainingProgram>(`${environment.apiUrl}/program/${id}`).pipe(
+            map((data: TrainingProgram) => data),
+            catchError((error: Error) => {
+                console.error(error);
+                return EMPTY;
+            })
+        )
     }
 }

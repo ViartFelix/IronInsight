@@ -22,7 +22,6 @@ export class ExercisesService {
     }
 
     getOneExercise(id: string) {
-        console.log(id);
         return this.http.get<Exercise>(`${environment.apiUrl}/exercise/${id}`).pipe(
             map((data: Exercise) => data),
             catchError((error: Error) => {

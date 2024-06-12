@@ -1,1 +1,6 @@
-<p>programs works!</p>
+<ng-container>
+    <h1>Liste des programmes</h1>
+    <div class="programs">
+        <app-program-item *ngFor="let program of response" [program]="program"></app-program-item>
+    </div>
+</ng-container>
