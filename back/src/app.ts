@@ -7,6 +7,8 @@ import {router} from "./router";
 import {userController} from "../controllers/userController";
 import {exerciseController} from "../controllers/exerciseController";
 import {programsController} from "../controllers/programsController";
+import 'dotenv/config';
+
 
 export class App {
 
