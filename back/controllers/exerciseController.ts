@@ -8,10 +8,17 @@ class ExerciseController {
     {
         router.get('/exercises', this.handleAllExercises)
         router.get('/exercise/:id', this.handleOneExercises)
+        router.get('/exercises-from-program/:id', this.handleAllExercisesFromOneProgram)
     }
 
     private handleAllExercises(req, res) {
         exerciseService.getAllExercises().then((exercises) => {
+            res.send(exercises)
+        })
+    }
+
+    private handleAllExercisesFromOneProgram(req, res) {
+        exerciseService.getAllExercisesFromProgram(req.params.id).then((exercises) => {
             res.send(exercises)
         })
     }
