@@ -8,8 +8,8 @@ class DbService {
     async connect(): Promise<void> {
         this.connection = mysql.createConnection({
             host: 'localhost',
-            user: 'admin',
-            password: 'admin',
+            user: 'root',
+            password: '',
             database: 'iron_insight'
         });
 
