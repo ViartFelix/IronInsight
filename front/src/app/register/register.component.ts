@@ -2,6 +2,7 @@ import {Component, Inject} from '@angular/core';
 import {FormControl, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
 import {User} from "../../interfaces/user.interface";
 import {UserService} from "../../services/user.service";
+import {MatSnackBar, MatSnackBarModule} from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-register',
@@ -18,8 +19,12 @@ import {UserService} from "../../services/user.service";
 
 export class RegisterComponent {
 
+  private readonly duration: number = 100
+
+
   constructor(
-    @Inject(UserService) private userService: UserService
+    @Inject(UserService) private userService: UserService,
+    private _snackBar: MatSnackBar
   ) {
   }
 
@@ -56,7 +61,12 @@ export class RegisterComponent {
       } as User
 
       this.userService.registerUser(userReq).subscribe((data: any) => {
-        console.log(data)
+        const snackClass = data.status ? 'success' : 'error';
+
+        this._snackBar.open(data.message, "OK", {
+          duration: this.duration * 1000,
+          panelClass: [snackClass]
+        });
       });
     }
   }

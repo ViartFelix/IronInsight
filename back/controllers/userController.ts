@@ -9,18 +9,35 @@ class UserController {
         router.post('/register', this.handlerRegister)
     }
 
-    public handlerRegister(req: any, res: any): void
+    public async handlerRegister(req: any, res: any): Promise<void>
     {
-        const data = req.body;
-        /*
-        userService.userExists(req.body).then((exists) => {
-        }).catch(() => {
-            res.send({
-                status: false,
-            })
-        })
+        let status = true;
+        let message = "User registration successful"
 
-         */
+        try {
+            const data = req.body;
+
+            const doesExist = await userService.userExists(data);
+
+            if(doesExist) {
+                status = false;
+                message = "User already exists."
+            } else {
+                const registerAttempt = await userService.registerUser(data);
+
+                if(!registerAttempt) {
+                    message = "Something went wrong when registering your account."
+                }
+            }
+        } catch(e: any) {
+            status = false;
+            message = "Something went wrong."
+        } finally {
+            res.send({
+                status: status,
+                message: message
+            })
+        }
     }
 }
 
