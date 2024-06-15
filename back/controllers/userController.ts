@@ -1,6 +1,7 @@
 import {router} from "../src/router";
 import {userService} from "../services/UserService";
-import { expressjwt, Request as JWTRequest } from "express-jwt";
+import User from "../models/User";
+import bcrypt from "bcrypt";
 
 
 class UserController {
@@ -50,19 +51,36 @@ class UserController {
      */
     public async handlerLogin(req: any, res: any): Promise<void>
     {
-        let status = true;
-        let message = "User logged in"
-
         try {
-            const data = req.body;
+            const data = req.body as User;
+
             //if the user exists in the db
             const doesExist = await userService.userExists(data);
 
             if(doesExist) {
-                res.send({
-                    cock: true
+                //take the user from the db
+                const user: User = await userService.getUserByUsername(data.username);
+                //compare the stored password with the provided one
+                await bcrypt.compare(data.password, user.password, function(err, isSame) {
+                    if (err || !isSame) {
+                        res.send({
+                            status: false,
+                            message: "Invalid credentials"
+                        })
+                    }
+                    //if passwords match
+                    if (isSame) {
+                        //we remove the password from the user object
+                        user.password = undefined
+
+                        res.send({
+                            //then we send the token back
+                            status: true,
+                            token: userService.loginUser(user),
+                            data: user,
+                        })
+                    }
                 })
-                //const user = await userService.getUser(data);
             } else {
                 res.send({
                     status: false,

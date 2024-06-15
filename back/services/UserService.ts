@@ -1,10 +1,10 @@
-import { dbService } from "./db-service";
+import {dbService} from "./db-service";
 import User from "../models/User";
 import bcrypt from "bcrypt";
+import jwt from "jsonwebtoken";
 
 class UserService
 {
-
     constructor()
     {
 
@@ -21,14 +21,15 @@ class UserService
      */
     public async registerUser(user: User): Promise<boolean>
     {
-        const userPwd = await bcrypt.hash(user.password, 10)
+        const userPwd = await this.hashPassword(user.password);
 
         return await dbService.query(
             "INSERT INTO users (username, email, password, weight, height, created_at, updated_at) VALUES (?,?,?,?,?,?,?)",
             [user.username, user.email, userPwd, -1, -1, new Date(), new Date()]
         ).then((r) => {
             return true
-        }).catch(() => {
+        }).catch((e) => {
+            console.log(e)
             return false;
         })
     }
@@ -69,6 +70,39 @@ class UserService
         )
 
         console.log(raw)
+    }
+
+    /**
+     * Fetches an user by it's username
+     * @param username
+     */
+    public async getUserByUsername(username: string|undefined): Promise<User>
+    {
+        const raw = await dbService.query(
+            "SELECT * FROM users WHERE username =?",
+            [username]
+        )
+
+        return raw[0] as User;
+    }
+
+    /**
+     * Logins an user and returns the token response
+     * @param user
+     */
+    public loginUser(user: User): string {
+        const userData = {
+            username: user.username,
+            email: user.email,
+            id: user.id_user
+        }
+
+        return jwt.sign(userData, process.env.JWT_SECRET, {expiresIn: '1h'});
+    }
+
+    public async hashPassword(password: string): Promise<string>
+    {
+        return await bcrypt.hash(password, 10)
     }
 }
 

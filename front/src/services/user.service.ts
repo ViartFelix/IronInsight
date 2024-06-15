@@ -20,4 +20,11 @@ export class UserService {
 
     return this.http.post<boolean>(`${environment.apiUrl}/register`, JSON.stringify(user), headers);
   }
+
+  public loginUser(user: User): Observable<boolean>
+  {
+    const headers = {'headers': { 'content-type': 'application/json' }}
+
+    return this.http.post<boolean>(`${environment.apiUrl}/login`, JSON.stringify(user), headers);
+  }
 }

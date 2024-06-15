@@ -6,6 +6,7 @@ import { ContactComponent } from './contact/contact.component';
 import { RegisterComponent } from './register/register.component';
 import { ExerciseDetailComponent } from './exercises/exercise-detail/exercise-detail.component';
 import { ProgramDetailComponent } from './programs/program-detail/program-detail.component';
+import {LoginComponent} from "./login/login.component";
 
 export const routes: Routes = [
     {
@@ -35,5 +36,9 @@ export const routes: Routes = [
     {
         path: 'inscription',
         component: RegisterComponent
+    },
+    {
+        path: "connexion",
+        component: LoginComponent
     }
 ];
