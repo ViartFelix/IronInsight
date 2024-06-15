@@ -18,3 +18,8 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     --mat-snack-bar-button-color: #fff;
   }
 }
+
+body {
+  overflow: hidden visible;
+  width: 100vw;
+}

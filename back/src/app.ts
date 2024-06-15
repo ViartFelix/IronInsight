@@ -8,6 +8,7 @@ import {userController} from "../controllers/userController";
 import {exerciseController} from "../controllers/exerciseController";
 import {programsController} from "../controllers/programsController";
 import 'dotenv/config';
+import { expressjwt } from "express-jwt"
 
 
 export class App {

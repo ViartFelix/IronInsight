@@ -19,24 +19,39 @@ class Router
      * Get request
      * @param url
      * @param callback
+     * @param middleware
      */
-    public get(url: string, callback: Function)
+    public get(url: string, callback: Function, middleware: any|null = null)
     {
-        this.app.get(url, (req, res) => {
-            callback(req, res);
-        })
+        if(middleware) {
+            this.app.get(url, middleware, (req, res) => {
+                callback(req, res);
+            })
+        } else {
+            this.app.get(url, (req, res) => {
+                callback(req, res);
+            })
+        }
+
     }
 
     /**
      * Post request
      * @param url
      * @param callback
+     * @param middleware Middleware express
      */
-    public post(url: string, callback: Function)
+    public post(url: string, callback: Function, middleware: any|null = null)
     {
-        this.app.post(url, (req, res) => {
-            callback(req, res);
-        })
+        if(middleware) {
+            this.app.post(url, middleware, (req, res) => {
+                callback(req, res);
+            })
+        } else {
+            this.app.post(url, (req, res) => {
+                callback(req, res);
+            })
+        }
     }
 }
 
