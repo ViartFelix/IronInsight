@@ -13,7 +13,7 @@ class ProgramService
 
     public async getOneProgram(id: string): Promise<Program> {
         const r = await dbService.query("SELECT * FROM training_program WHERE id_program = ?", [id]);
-        return r as Program;
+        return r[0] as Program;
     }
 }
 
