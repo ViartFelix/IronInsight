@@ -1,273 +1,682 @@
-POST http://localhost:3333/login
-Content-Type: application/json
-Content-Length: 46
-User-Agent: IntelliJ HTTP Client/WebStorm 2024.1.3
-Accept-Encoding: br, deflate, gzip, x-gzip
-Accept: */*
-
-{
-  "username": "jean",
-  "password": "jean"
-}
-
-<> 2024-06-15T232402.200.json
-
-###
-
-POST http://localhost:3333/login
-Content-Type: application/json
-Content-Length: 46
-User-Agent: IntelliJ HTTP Client/WebStorm 2024.1.3
-Accept-Encoding: br, deflate, gzip, x-gzip
-Accept: */*
-
-{
-  "username": "jean",
-  "password": "jean"
-}
-
-<> 2024-06-15T232145.200.json
-
-###
-
-POST http://localhost:3333/login
-Content-Type: application/json
-Content-Length: 48
-User-Agent: IntelliJ HTTP Client/WebStorm 2024.1.3
-Accept-Encoding: br, deflate, gzip, x-gzip
-Accept: */*
-
-{
-  "username": "jean",
-  "password": "zzzzzz"
-}
-
-<> 2024-06-15T232139.200.json
-
-###
-
-POST http://localhost:3333/login
-Content-Type: application/json
-Content-Length: 48
-User-Agent: IntelliJ HTTP Client/WebStorm 2024.1.3
-Accept-Encoding: br, deflate, gzip, x-gzip
-Accept: */*
-
-{
-  "username": "jean",
-  "password": "zzzzzz"
-}
-
-<> 2024-06-15T232123.200.json
-
-###
-
-POST http://localhost:3333/login
-Content-Type: application/json
-Content-Length: 46
-User-Agent: IntelliJ HTTP Client/WebStorm 2024.1.3
-Accept-Encoding: br, deflate, gzip, x-gzip
-Accept: */*
-
-{
-  "username": "jean",
-  "password": "jean"
-}
-
-<> 2024-06-15T231846.200.json
-
-###
-
-POST http://localhost:3333/login
-Content-Type: application/json
-Content-Length: 46
-User-Agent: IntelliJ HTTP Client/WebStorm 2024.1.3
-Accept-Encoding: br, deflate, gzip, x-gzip
-Accept: */*
-
-{
-  "username": "jean",
-  "password": "jean"
-}
-
-<> 2024-06-15T231830.200.json
-
-###
-
-POST http://localhost:3333/login
-Content-Type: application/json
-Content-Length: 46
-User-Agent: IntelliJ HTTP Client/WebStorm 2024.1.3
-Accept-Encoding: br, deflate, gzip, x-gzip
-Accept: */*
-
-{
-  "username": "jean",
-  "password": "jean"
-}
-
-<> 2024-06-15T231540.200.json
-
-###
-
-POST http://localhost:3333/login
-Content-Type: application/json
-Content-Length: 46
-User-Agent: IntelliJ HTTP Client/WebStorm 2024.1.3
-Accept-Encoding: br, deflate, gzip, x-gzip
-Accept: */*
-
-{
-  "username": "jjjj",
-  "password": "jjjj"
-}
-
-<> 2024-06-15T231354.200.json
-
-###
-
-POST http://localhost:3333/login
-Content-Type: application/json
-Content-Length: 46
-User-Agent: IntelliJ HTTP Client/WebStorm 2024.1.3
-Accept-Encoding: br, deflate, gzip, x-gzip
-Accept: */*
-
-{
-  "username": "jjjj",
-  "password": "jjjj"
-}
-
-<> 2024-06-15T231334.200.json
-
-###
-
-POST http://localhost:3333/login
-Content-Type: application/json
-Content-Length: 46
-User-Agent: IntelliJ HTTP Client/WebStorm 2024.1.3
-Accept-Encoding: br, deflate, gzip, x-gzip
-Accept: */*
-
-{
-  "username": "jjjj",
-  "password": "jjjj"
-}
-
-<> 2024-06-15T230821.200.json
-
-###
-
-POST http://localhost:3333/login
-Content-Type: application/json
-Content-Length: 46
-User-Agent: IntelliJ HTTP Client/WebStorm 2024.1.3
-Accept-Encoding: br, deflate, gzip, x-gzip
-Accept: */*
-
-{
-  "username": "jjjj",
-  "password": "jjjj"
-}
-
-<> 2024-06-15T230746.200.json
-
-###
-
-POST http://localhost:3333/login
-Content-Type: application/json
-Content-Length: 46
-User-Agent: IntelliJ HTTP Client/WebStorm 2024.1.3
-Accept-Encoding: br, deflate, gzip, x-gzip
-Accept: */*
-
-{
-  "username": "jean",
-  "password": "jean"
-}
-
-<> 2024-06-15T230634.200.json
-
-###
-
-POST http://localhost:3333/login
-Content-Type: application/json
-Content-Length: 46
-User-Agent: IntelliJ HTTP Client/WebStorm 2024.1.3
-Accept-Encoding: br, deflate, gzip, x-gzip
-Accept: */*
-
-{
-  "username": "jean",
-  "password": "jean"
-}
-
-<> 2024-06-15T230617.200.json
-
-###
-
-POST http://localhost:3333/login
-Content-Type: application/json
-Content-Length: 46
-User-Agent: IntelliJ HTTP Client/WebStorm 2024.1.3
-Accept-Encoding: br, deflate, gzip, x-gzip
-Accept: */*
-
-{
-  "username": "jean",
-  "password": "jean"
-}
-
-<> 2024-06-15T230541.200.json
-
-###
-
-POST http://localhost:3333/login
-Content-Type: application/json
-Content-Length: 46
-User-Agent: IntelliJ HTTP Client/WebStorm 2024.1.3
-Accept-Encoding: br, deflate, gzip, x-gzip
-Accept: */*
-
-{
-  "username": "jean",
-  "password": "jean"
-}
-
-<> 2024-06-15T224910.200.json
-
-###
-
-POST http://localhost:3333/login
-Content-Type: application/json
-Content-Length: 46
-User-Agent: IntelliJ HTTP Client/PhpStorm 2024.1.3
-Accept-Encoding: br, deflate, gzip, x-gzip
-Accept: */*
-
-{
-  "username": "jean",
-  "password": "jean"
-}
-
-<> 2024-06-12T170249.200.json
-
-###
-
 POST http://localhost:3333/register
 Content-Type: application/json
-Content-Length: 77
-User-Agent: IntelliJ HTTP Client/PhpStorm 2024.1.3
+Content-Length: 72
+User-Agent: IntelliJ HTTP Client/PhpStorm 2024.1.4
 Accept-Encoding: br, deflate, gzip, x-gzip
 Accept: */*
 
 {
   "username": "jean",
   "password": "jean",
-  "email": "jean@example.com"
+  "email": "jean@michel"
 }
 
-<> 2024-06-11T161944.200.json
+<> 2024-07-01T101426.401.json
+
+###
+
+POST http://localhost:3333/login
+Content-Type: application/json
+Content-Length: 46
+User-Agent: IntelliJ HTTP Client/PhpStorm 2024.1.4
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+  "username": "jean",
+  "password": "jean"
+}
+
+<> 2024-07-01T101413.200.json
+
+###
+
+POST http://localhost:3333/login
+Content-Type: application/json
+Content-Length: 46
+User-Agent: IntelliJ HTTP Client/PhpStorm 2024.1.4
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+  "username": "jean",
+  "password": "jean"
+}
+
+<> 2024-07-01T101141.200.json
+
+###
+
+GET http://localhost:3333/hey
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.W29iamVjdCBPYmplY3Rd.N2sK3WpFilcJBgUjsWTQ8P97nwh8iCrlbsioZ34-WQ4
+User-Agent: IntelliJ HTTP Client/PhpStorm 2024.1.4
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+content-length: 0
+
+<> 2024-07-01T094652.404.json
+
+###
+
+POST http://localhost:3333/login
+Content-Type: application/json
+Content-Length: 46
+User-Agent: IntelliJ HTTP Client/PhpStorm 2024.1.4
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+  "username": "jean",
+  "password": "jean"
+}
+
+<> 2024-07-01T094652.200.json
+
+###
+
+GET http://localhost:3333/hey
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.W29iamVjdCBPYmplY3Rd.N2sK3WpFilcJBgUjsWTQ8P97nwh8iCrlbsioZ34-WQ4
+User-Agent: IntelliJ HTTP Client/PhpStorm 2024.1.4
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+content-length: 0
+
+<> 2024-07-01T094612.404.json
+
+###
+
+POST http://localhost:3333/login
+Content-Type: application/json
+Content-Length: 46
+User-Agent: IntelliJ HTTP Client/PhpStorm 2024.1.4
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+  "username": "jean",
+  "password": "jean"
+}
+
+<> 2024-07-01T094611.200.json
+
+###
+
+GET http://localhost:3333/hey
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.W29iamVjdCBPYmplY3Rd.N2sK3WpFilcJBgUjsWTQ8P97nwh8iCrlbsioZ34-WQ4
+User-Agent: IntelliJ HTTP Client/PhpStorm 2024.1.4
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+content-length: 0
+
+<> 2024-07-01T094555.404.html
+
+###
+
+POST http://localhost:3333/login
+Content-Type: application/json
+Content-Length: 46
+User-Agent: IntelliJ HTTP Client/PhpStorm 2024.1.4
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+  "username": "jean",
+  "password": "jean"
+}
+
+<> 2024-07-01T094555.200.json
+
+###
+
+GET http://localhost:3333/hey
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.W29iamVjdCBPYmplY3Rd.N2sK3WpFilcJBgUjsWTQ8P97nwh8iCrlbsioZ34-WQ4
+User-Agent: IntelliJ HTTP Client/PhpStorm 2024.1.4
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+content-length: 0
+
+<> 2024-07-01T094440.500.html
+
+###
+
+POST http://localhost:3333/login
+Content-Type: application/json
+Content-Length: 46
+User-Agent: IntelliJ HTTP Client/PhpStorm 2024.1.4
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+  "username": "jean",
+  "password": "jean"
+}
+
+<> 2024-07-01T094440.200.json
+
+###
+
+GET http://localhost:3333/hey
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.W29iamVjdCBPYmplY3Rd.N2sK3WpFilcJBgUjsWTQ8P97nwh8iCrlbsioZ34-WQ4
+User-Agent: IntelliJ HTTP Client/PhpStorm 2024.1.4
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+content-length: 0
+
+<> 2024-07-01T094313.500.html
+
+###
+
+POST http://localhost:3333/login
+Content-Type: application/json
+Content-Length: 46
+User-Agent: IntelliJ HTTP Client/PhpStorm 2024.1.4
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+  "username": "jean",
+  "password": "jean"
+}
+
+<> 2024-07-01T094313.200.json
+
+###
+
+GET http://localhost:3333/hey
+Authorization: Bearer null
+User-Agent: IntelliJ HTTP Client/PhpStorm 2024.1.4
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+content-length: 0
+
+<> 2024-07-01T094028.404.json
+
+###
+
+POST http://localhost:3333/login
+Content-Type: application/json
+Content-Length: 46
+User-Agent: IntelliJ HTTP Client/PhpStorm 2024.1.4
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+  "username": "jean",
+  "password": "jean"
+}
+
+<> 2024-07-01T094028.500.json
+
+###
+
+GET http://localhost:3333/hey
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.W29iamVjdCBPYmplY3Rd.N2sK3WpFilcJBgUjsWTQ8P97nwh8iCrlbsioZ34-WQ4
+User-Agent: IntelliJ HTTP Client/PhpStorm 2024.1.4
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+content-length: 0
+
+<> 2024-07-01T093952.404.json
+
+###
+
+POST http://localhost:3333/login
+Content-Type: application/json
+Content-Length: 46
+User-Agent: IntelliJ HTTP Client/PhpStorm 2024.1.4
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+  "username": "jean",
+  "password": "jean"
+}
+
+<> 2024-07-01T093951.200.json
+
+###
+
+GET http://localhost:3333/hey
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.W29iamVjdCBPYmplY3Rd.N2sK3WpFilcJBgUjsWTQ8P97nwh8iCrlbsioZ34-WQ4
+User-Agent: IntelliJ HTTP Client/PhpStorm 2024.1.4
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+content-length: 0
+
+<> 2024-07-01T093715.404.html
+
+###
+
+POST http://localhost:3333/login
+Content-Type: application/json
+Content-Length: 46
+User-Agent: IntelliJ HTTP Client/PhpStorm 2024.1.4
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+  "username": "jean",
+  "password": "jean"
+}
+
+<> 2024-07-01T093715.200.json
+
+###
+
+GET http://localhost:3333/hey
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.W29iamVjdCBPYmplY3Rd.N2sK3WpFilcJBgUjsWTQ8P97nwh8iCrlbsioZ34-WQ4
+User-Agent: IntelliJ HTTP Client/PhpStorm 2024.1.4
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+content-length: 0
+
+<> 2024-07-01T093643.404.html
+
+###
+
+POST http://localhost:3333/login
+Content-Type: application/json
+Content-Length: 46
+User-Agent: IntelliJ HTTP Client/PhpStorm 2024.1.4
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+  "username": "jean",
+  "password": "jean"
+}
+
+<> 2024-07-01T093643.200.json
+
+###
+
+GET http://localhost:3333/hey
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.W29iamVjdCBPYmplY3Rd.N2sK3WpFilcJBgUjsWTQ8P97nwh8iCrlbsioZ34-WQ4
+User-Agent: IntelliJ HTTP Client/PhpStorm 2024.1.4
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+content-length: 0
+
+<> 2024-07-01T093506.404.html
+
+###
+
+POST http://localhost:3333/login
+Content-Type: application/json
+Content-Length: 46
+User-Agent: IntelliJ HTTP Client/PhpStorm 2024.1.4
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+  "username": "jean",
+  "password": "jean"
+}
+
+<> 2024-07-01T093506.200.json
+
+###
+
+GET http://localhost:3333/hey
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.W29iamVjdCBPYmplY3Rd.N2sK3WpFilcJBgUjsWTQ8P97nwh8iCrlbsioZ34-WQ4
+User-Agent: IntelliJ HTTP Client/PhpStorm 2024.1.4
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+content-length: 0
+
+<> 2024-07-01T092828.404.html
+
+###
+
+POST http://localhost:3333/login
+Content-Type: application/json
+Content-Length: 46
+User-Agent: IntelliJ HTTP Client/PhpStorm 2024.1.4
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+  "username": "jean",
+  "password": "jean"
+}
+
+<> 2024-07-01T092828.200.json
+
+###
+
+GET http://localhost:3333/hey
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.W29iamVjdCBPYmplY3Rd.N2sK3WpFilcJBgUjsWTQ8P97nwh8iCrlbsioZ34-WQ4
+User-Agent: IntelliJ HTTP Client/PhpStorm 2024.1.4
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+content-length: 0
+
+<> 2024-07-01T092743.404.html
+
+###
+
+POST http://localhost:3333/login
+Content-Type: application/json
+Content-Length: 46
+User-Agent: IntelliJ HTTP Client/PhpStorm 2024.1.4
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+  "username": "jean",
+  "password": "jean"
+}
+
+<> 2024-07-01T092742.200.json
+
+###
+
+GET http://localhost:3333/hey
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.W29iamVjdCBPYmplY3Rd.N2sK3WpFilcJBgUjsWTQ8P97nwh8iCrlbsioZ34-WQ4
+User-Agent: IntelliJ HTTP Client/PhpStorm 2024.1.4
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+content-length: 0
+
+<> 2024-07-01T092712.404.html
+
+###
+
+POST http://localhost:3333/login
+Content-Type: application/json
+Content-Length: 46
+User-Agent: IntelliJ HTTP Client/PhpStorm 2024.1.4
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+  "username": "jean",
+  "password": "jean"
+}
+
+<> 2024-07-01T092712.200.json
+
+###
+
+GET http://localhost:3333/hey
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.W29iamVjdCBPYmplY3Rd.N2sK3WpFilcJBgUjsWTQ8P97nwh8iCrlbsioZ34-WQ4
+User-Agent: IntelliJ HTTP Client/PhpStorm 2024.1.4
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+content-length: 0
+
+<> 2024-07-01T092600.404.html
+
+###
+
+POST http://localhost:3333/login
+Content-Type: application/json
+Content-Length: 46
+User-Agent: IntelliJ HTTP Client/PhpStorm 2024.1.4
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+  "username": "jean",
+  "password": "jean"
+}
+
+<> 2024-07-01T092600.200.json
+
+###
+
+GET http://localhost:3333/hey
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.W29iamVjdCBPYmplY3Rd.N2sK3WpFilcJBgUjsWTQ8P97nwh8iCrlbsioZ34-WQ4
+User-Agent: IntelliJ HTTP Client/PhpStorm 2024.1.4
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+content-length: 0
+
+<> 2024-07-01T091716.404.html
+
+###
+
+POST http://localhost:3333/login
+Content-Type: application/json
+Content-Length: 46
+User-Agent: IntelliJ HTTP Client/PhpStorm 2024.1.4
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+  "username": "jean",
+  "password": "jean"
+}
+
+<> 2024-07-01T091716.200.json
+
+###
+
+GET http://localhost:3333/hey
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.W29iamVjdCBPYmplY3Rd.N2sK3WpFilcJBgUjsWTQ8P97nwh8iCrlbsioZ34-WQ4
+User-Agent: IntelliJ HTTP Client/PhpStorm 2024.1.4
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+content-length: 0
+
+<> 2024-07-01T091653.404.html
+
+###
+
+POST http://localhost:3333/login
+Content-Type: application/json
+Content-Length: 46
+User-Agent: IntelliJ HTTP Client/PhpStorm 2024.1.4
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+  "username": "jean",
+  "password": "jean"
+}
+
+<> 2024-07-01T091653.200.json
+
+###
+
+GET http://localhost:3333/hey
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.W29iamVjdCBPYmplY3Rd.N2sK3WpFilcJBgUjsWTQ8P97nwh8iCrlbsioZ34-WQ4
+User-Agent: IntelliJ HTTP Client/PhpStorm 2024.1.4
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+content-length: 0
+
+<> 2024-07-01T091610.404.html
+
+###
+
+POST http://localhost:3333/login
+Content-Type: application/json
+Content-Length: 46
+User-Agent: IntelliJ HTTP Client/PhpStorm 2024.1.4
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+  "username": "jean",
+  "password": "jean"
+}
+
+<> 2024-07-01T091610.200.json
+
+###
+
+GET http://localhost:3333/hey
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.W29iamVjdCBPYmplY3Rd.N2sK3WpFilcJBgUjsWTQ8P97nwh8iCrlbsioZ34-WQ4
+User-Agent: IntelliJ HTTP Client/PhpStorm 2024.1.4
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+content-length: 0
+
+<> 2024-07-01T091547.404.html
+
+###
+
+POST http://localhost:3333/login
+Content-Type: application/json
+Content-Length: 46
+User-Agent: IntelliJ HTTP Client/PhpStorm 2024.1.4
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+  "username": "jean",
+  "password": "jean"
+}
+
+<> 2024-07-01T091547.200.json
+
+###
+
+GET http://localhost:3333/hey
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.W29iamVjdCBPYmplY3Rd.N2sK3WpFilcJBgUjsWTQ8P97nwh8iCrlbsioZ34-WQ4
+User-Agent: IntelliJ HTTP Client/PhpStorm 2024.1.4
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+content-length: 0
+
+<> 2024-07-01T091330.404.html
+
+###
+
+POST http://localhost:3333/login
+Content-Type: application/json
+Content-Length: 46
+User-Agent: IntelliJ HTTP Client/PhpStorm 2024.1.4
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+  "username": "jean",
+  "password": "jean"
+}
+
+<> 2024-07-01T091330.200.json
+
+###
+
+GET http://localhost:3333/hey
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.W29iamVjdCBPYmplY3Rd.N2sK3WpFilcJBgUjsWTQ8P97nwh8iCrlbsioZ34-WQ4
+User-Agent: IntelliJ HTTP Client/PhpStorm 2024.1.4
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+content-length: 0
+
+<> 2024-07-01T090937.404.html
+
+###
+
+POST http://localhost:3333/login
+Content-Type: application/json
+Content-Length: 46
+User-Agent: IntelliJ HTTP Client/PhpStorm 2024.1.4
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+  "username": "jean",
+  "password": "jean"
+}
+
+<> 2024-07-01T090937.200.json
+
+###
+
+GET http://localhost:3333/hey
+Authorization: Bearer null
+User-Agent: IntelliJ HTTP Client/PhpStorm 2024.1.4
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+content-length: 0
+
+<> 2024-07-01T085510.401.html
+
+###
+
+POST http://localhost:3333/login
+Content-Type: application/json
+Content-Length: 46
+User-Agent: IntelliJ HTTP Client/PhpStorm 2024.1.4
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+  "username": "ffff",
+  "password": "jean"
+}
+
+<> 2024-07-01T085509.401.json
+
+###
+
+GET http://localhost:3333/hey
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.W29iamVjdCBPYmplY3Rd.N2sK3WpFilcJBgUjsWTQ8P97nwh8iCrlbsioZ34-WQ4
+User-Agent: IntelliJ HTTP Client/PhpStorm 2024.1.4
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+content-length: 0
+
+<> 2024-07-01T085450.200.json
+
+###
+
+POST http://localhost:3333/login
+Content-Type: application/json
+Content-Length: 46
+User-Agent: IntelliJ HTTP Client/PhpStorm 2024.1.4
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+  "username": "jean",
+  "password": "jean"
+}
+
+<> 2024-07-01T085449.200.json
+
+###
+
+GET http://localhost:3333/hey
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.W29iamVjdCBPYmplY3Rd.N2sK3WpFilcJBgUjsWTQ8P97nwh8iCrlbsioZ34-WQ4
+User-Agent: IntelliJ HTTP Client/PhpStorm 2024.1.4
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+content-length: 0
+
+<> 2024-07-01T085300-1.200.json
+
+###
+
+POST http://localhost:3333/login
+Content-Type: application/json
+Content-Length: 46
+User-Agent: IntelliJ HTTP Client/PhpStorm 2024.1.4
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+  "username": "jean",
+  "password": "jean"
+}
+
+<> 2024-07-01T085300.200.json
+
+###
+
+GET http://localhost:3333/hey
+Accept: application/json
+User-Agent: IntelliJ HTTP Client/PhpStorm 2024.1.4
+Accept-Encoding: br, deflate, gzip, x-gzip
+content-length: 107
+
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.W29iamVjdCBPYmplY3Rd.N2sK3WpFilcJBgUjsWTQ8P97nwh8iCrlbsioZ34-WQ4
+
+<> 2024-07-01T085213.401.html
 
 ###
 

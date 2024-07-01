@@ -1,11 +1,14 @@
 import {router} from "../src/router";
 import {userService} from "../services/UserService";
+import auth from "../middlewares/authMiddleware";
+import {jwtService} from "../services/JwtService";
 import User from "../models/User";
 import bcrypt from "bcrypt";
 
 
 class UserController {
-    constructor() {}
+    constructor() {
+    }
 
     public init(): void
     {
@@ -15,7 +18,7 @@ class UserController {
 
     public async handlerRegister(req: any, res: any): Promise<void>
     {
-        let status = true;
+        let status = 200;
         let message = "User registration successful"
 
         try {
@@ -24,7 +27,7 @@ class UserController {
             const doesExist = await userService.userExists(data);
 
             if(doesExist) {
-                status = false;
+                status = 401;
                 message = "User already exists."
             } else {
                 const registerAttempt = await userService.registerUser(data);
@@ -34,11 +37,10 @@ class UserController {
                 }
             }
         } catch(e: any) {
-            status = false;
+            status = 500;
             message = "Something went wrong."
         } finally {
-            res.send({
-                status: status,
+            res.status(status).send({
                 message: message
             })
         }
@@ -53,17 +55,16 @@ class UserController {
     {
         try {
             const data = req.body as User;
-
+            data.username = data.email = req.body.userOrEmail
             //if the user exists in the db
             const doesExist = await userService.userExists(data);
 
             if(doesExist) {
-                //take the user from the db
-                const user: User = await userService.getUserByUsername(data.username);
-                //compare the stored password with the provided one
+                const user: User = await userService.getUser(data.email, data.username);
+
                 await bcrypt.compare(data.password, user.password, function(err, isSame) {
                     if (err || !isSame) {
-                        res.send({
+                        res.status(401).send({
                             status: false,
                             message: "Invalid credentials"
                         })
@@ -73,28 +74,27 @@ class UserController {
                         //we remove the password from the user object
                         user.password = undefined
 
-                        res.send({
-                            //then we send the token back
-                            status: true,
-                            token: userService.loginUser(user),
+                        //generates token
+                        const token = jwtService.generateToken(user.toString());
+
+                        res.status(200).send({
+                            token: token,
                             data: user,
                         })
                     }
                 })
             } else {
-                res.send({
+                res.status(403).send({
                     status: false,
                     message: "Invalid credentials"
                 })
             }
         } catch (e) {
-            res.send({
+            res.status(500).send({
                 status: false,
                 message: "Something went wrong."
             })
         }
-
-
     }
 }
 

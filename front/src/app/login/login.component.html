@@ -1,17 +1,17 @@
 <div class="login">
-    <form [formGroup]="loginForm" action="#" (ngSubmit)="onSubmit()">
-        <mat-form-field class="example-full-width">
-            <mat-label>Username</mat-label>
-            <input type="email" matInput formControlName="username" placeholder="john@iron.com">
-        </mat-form-field>
+  <form [formGroup]="loginForm" action="#" (ngSubmit)="onSubmit()">
+    <mat-form-field class="example-full-width">
+      <mat-label>Username or email</mat-label>
+      <input type="email" matInput formControlName="userOrEmail" placeholder="john@iron.com">
+    </mat-form-field>
 
-        <mat-form-field class="example-full-width">
-            <mat-label>Password</mat-label>
-            <input type="password" matInput formControlName="password" placeholder="john@iron.com">
-        </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <mat-label>Password</mat-label>
+      <input type="password" matInput formControlName="password" placeholder="john@iron.com">
+    </mat-form-field>
 
-        <button type="submit" mat-button>
-            Connexion
-        </button>
-    </form>
+    <button type="submit" mat-button>
+      Connexion
+    </button>
+  </form>
 </div>

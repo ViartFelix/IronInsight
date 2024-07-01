@@ -4,7 +4,7 @@ import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatButtonModule} from '@angular/material/button';
 import {UserService} from "../../services/user.service";
-import {User} from "../../interfaces/user.interface";
+import {MatSnackBar} from "@angular/material/snack-bar";
 
 @Component({
   selector: 'app-login',
@@ -16,7 +16,7 @@ import {User} from "../../interfaces/user.interface";
     MatButtonModule
   ],
   providers: [
-      UserService
+    UserService
   ],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss'
@@ -26,15 +26,17 @@ export class LoginComponent {
 
   private _loginForm: any;
 
+  private readonly duration: number = 100
+
   constructor(
     @Inject(UserService) private userService: UserService,
+    private _snackBar: MatSnackBar
   ) {
   }
 
-  public ngOnInit(): void
-  {
+  public ngOnInit(): void {
     this._loginForm = new FormGroup({
-      username: new FormControl('', [
+      userOrEmail: new FormControl('', [
         Validators.required,
         Validators.minLength(3),
         Validators.maxLength(15),
@@ -49,26 +51,34 @@ export class LoginComponent {
     });
   }
 
-  public onSubmit(): void
-  {
-    if(this._loginForm.valid)
-    {
+  public onSubmit(): void {
+    if (this._loginForm.valid) {
       const data = this._loginForm.value;
 
+      //not casted as user for the back, as it need user or email as the same field.
       const userReq = {
-        username: data.username,
-        password:  data.password,
-      } as User;
+        userOrEmail: data.userOrEmail,
+        password: data.password,
+      };
 
       this.userService.loginUser(userReq).subscribe((res: any) => {
-          console.log(res);
+          this._snackBar.open(`Hello, ${res.data.username}`, 'OK', {
+            duration: this.duration * 1000,
+            panelClass: ["success"]
+          });
         },
         (err: any) => {
-          console.log(err);
+          console.log(err)
+          this._snackBar.open(err.error.message, 'OK',{
+            duration: this.duration * 1000,
+            panelClass: ["error"]
+          });
         }
       )
     }
   }
 
-  get loginForm(): any { return this._loginForm; }
+  get loginForm(): any {
+    return this._loginForm;
+  }
 }
