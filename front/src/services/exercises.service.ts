@@ -1,8 +1,9 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError, EMPTY, map, Observable } from 'rxjs';
 import { Exercise } from '../models/Exercise';
 import { environment } from '../environnment';
+import { ExerciseFilters } from '../models/ExerciseFilters';
 
 @Injectable({
   providedIn: 'root'
@@ -39,5 +40,22 @@ export class ExercisesService {
                 return EMPTY;
             })
         );
+    }
+
+    getExercisesFromFilters(filters: ExerciseFilters): Observable<Exercise[]> {
+        let params = new HttpParams();
+        for (let key in filters) {
+          if (filters.hasOwnProperty(key) && filters[key as keyof ExerciseFilters] != null) {
+            params = params.append(key, filters[key as keyof ExerciseFilters]!);
+          }
+        }
+
+        return this.http.get<Exercise[]>(`${environment.apiUrl}/exercises`, { params }).pipe(
+            map((data: Exercise[]) => data),
+            catchError((error: Error) => {
+              console.error(error);
+              return EMPTY;
+            })
+          );
     }
 }
