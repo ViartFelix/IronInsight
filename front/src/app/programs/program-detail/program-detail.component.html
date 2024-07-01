@@ -2,9 +2,15 @@
     <h1>{{ program.name }} - {{ program.id_program }}</h1>
     <p>{{ program.description }}</p>
 
-    <hr>
+    <hr />
 
     <div class="exercises">
         <app-exercise-item *ngFor="let exercise of exercises" [exercise]="exercise"></app-exercise-item>
+    </div>
+
+    <hr />
+
+    <div class="comments">
+        <app-comment-item *ngFor="let comment of comments" [comment]="comment"></app-comment-item>
     </div>
 </ng-container>

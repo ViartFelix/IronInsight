@@ -1,4 +1,4 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError, EMPTY, map, Observable } from 'rxjs';
 import { Exercise } from '../models/Exercise';
@@ -16,7 +16,7 @@ export class ExercisesService {
             map((data: Exercise[]) => {return data}),
             catchError((error: Error) => {
                 console.error(error);
-                return [];
+                return EMPTY;
             })
         );
     }
@@ -36,7 +36,7 @@ export class ExercisesService {
             map((data: Exercise[]) => {return data}),
             catchError((error: Error) => {
                 console.error(error);
-                return [];
+                return EMPTY;
             })
         );
     }

@@ -16,7 +16,7 @@ export class ProgramsService {
             map((data: TrainingProgram[]) => {return data}),
             catchError((error: Error) => {
                 console.error(error);
-                return [];
+                return EMPTY;
             })
         );
     }

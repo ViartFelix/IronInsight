@@ -8,7 +8,8 @@ import {userController} from "../controllers/userController";
 import {exerciseController} from "../controllers/exerciseController";
 import {programsController} from "../controllers/programsController";
 import 'dotenv/config';
-import { expressjwt } from "express-jwt"
+import { commentController } from "../controllers/commentController";
+import { expressjwt } from "express-jwt";
 
 
 export class App {
@@ -55,6 +56,7 @@ export class App {
         userController.init()
         exerciseController.init()
         programsController.init()
+        commentController.init()
     }
 
     private start() {
