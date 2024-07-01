@@ -51,25 +51,14 @@ class UserService
         })
     }
 
-    /**
-     * Returns a token for the user
-     * @param user
-     */
-    public async getToken(user: User): Promise<void>
+    public async getUser(email: string|undefined, username: string|undefined): Promise<User>
     {
-    }
-
-    public async getUser(email: string|undefined, username: string|undefined): Promise<void>
-    {
-        //column to query for
-        const col = (email ? 'email' : 'username');
-
         const raw = await dbService.query(
-            "SELECT * FROM users WHERE ? = ?",
-            [col, (email ? email : username)]
+            "SELECT * FROM users WHERE email = ? OR username = ?",
+            [email ?? "", username ?? ""]
         )
 
-        console.log(raw)
+        return raw[0] as User
     }
 
     /**

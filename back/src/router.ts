@@ -32,7 +32,6 @@ class Router
                 callback(req, res);
             })
         }
-
     }
 
     /**
