@@ -1,0 +1,22 @@
+<div>
+  <table matSort>
+    <thead>
+      <tr>
+        <th>Ajouter</th>
+        <th mat-sort-header="wording">Nom</th>
+        <th mat-sort-header="duration">Durée</th>
+        <th mat-sort-header="category">Catégorie</th>
+        <th mat-sort-header="difficulty">Difficulté</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let e of data.allExercises">
+        <td><mat-checkbox [value]="e.code_exercise.toString()" [checked]="allChecked.includes(e)" (change)="checkManage(e)" ></mat-checkbox></td>
+        <td>{{ e.wording }}</td>
+        <td>{{ e.duration }}</td>
+        <td> 3 </td>
+        <td> 1 </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

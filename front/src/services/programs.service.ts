@@ -3,13 +3,19 @@ import { Injectable } from '@angular/core';
 import { catchError, EMPTY, map, Observable } from 'rxjs';
 import { TrainingProgram } from '../models/Programs';
 import { environment } from '../environnment';
+import AuthService from "./auth.service";
+import {Exercise} from "../models/Exercise";
+import {User} from "../interfaces/user.interface";
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProgramsService {
 
-    constructor(private http: HttpClient) {}
+    constructor(
+      private http: HttpClient,
+      private authService: AuthService,
+    ) {}
 
     getPrograms(): Observable<TrainingProgram[]> {
         return this.http.get<TrainingProgram[]>(`${environment.apiUrl}/programs`).pipe(
@@ -30,4 +36,37 @@ export class ProgramsService {
             })
         )
     }
+
+  /**
+   * Plublishes the newly created training program to the back-end
+   * @param data {TrainingProgramSubmit}
+   */
+  publishProgram(data: TrainingProgramSubmit)
+    {
+      const headers = {'headers':
+        {
+          'content-type': 'application/json',
+        }
+      }
+
+      let userSend
+      //getting the current user
+      this.authService.user.subscribe((user) => {
+        userSend = user
+      })
+
+      const toSend = {
+        user: userSend,
+        ...data
+      }
+
+      return this.http.post<boolean>(`${environment.apiUrl}/program-add`, JSON.stringify(toSend), headers);
+    }
+}
+
+export interface TrainingProgramSubmit
+{
+  name: string;
+  description: string;
+  exercises: Exercise[];
 }

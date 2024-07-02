@@ -73,13 +73,13 @@ export class LoginComponent {
           return of(null);
         })
       ).subscribe((res: any) => {
-        const token = res.token
-        const user = res.data as User
+          const token = res.token
+          const user = res.data as User
 
-        this._snackBar.open(`Hello, ${user.username}`, 'OK', {
-          duration: this.duration * 1000,
-          panelClass: ["success"]
-        });
+          this._snackBar.open(`Hello, ${user.username}`, 'OK', {
+            duration: this.duration * 1000,
+            panelClass: ["success"]
+          });
 
           this.authService.makeUserLoggedIn(token, user)
         }

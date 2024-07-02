@@ -14,7 +14,6 @@ export default class AuthService
   private readonly _token: BehaviorSubject<string>
 
   constructor(
-    @Inject(CookieService) private cookieService: CookieService,
     @Inject(UserService) private userService: UserService
   ) {
     this._user = new BehaviorSubject<User>({} as User)

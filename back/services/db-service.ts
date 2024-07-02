@@ -1,5 +1,7 @@
 import mysql, { Connection, MysqlError } from 'mysql';
 
+type QueryCallback<T> = (err: MysqlError | null, result?: T, fields?: any) => void;
+
 class DbService {
     private connection: Connection | null = null;
 
@@ -22,20 +24,29 @@ class DbService {
         });
     }
 
-    async query<T>(sql: string, values?: any[]): Promise<T> {
+  /**
+   * Executes SQL query with a callback if needed
+   * @param sql
+   * @param values
+   * @param callBack (err, result, fields)
+   */
+    async query<T>(sql: string, values?: any[], callBack?: QueryCallback<T>): Promise<T> {
         return new Promise<T>((resolve, reject) => {
-            if (!this.connection) {
-                reject(new Error('La connexion à la base de données n\'est pas établie.'));
-                return;
-            }
+          if (!this.connection) {
+            reject(new Error('La connexion à la base de données n\'est pas établie.'));
+            return;
+          }
 
-            this.connection.query(sql, values, (error: MysqlError | null, results?: T, fields?: any) => {
-                if (error) {
-                    reject(error);
-                } else {
-                    resolve(results as T);
-                }
-            });
+          this.connection.query(sql, values, (error: MysqlError | null, results?: T, fields?: any) => {
+            if (error) {
+              reject(error);
+            } else {
+              if (callBack) {
+                callBack(error, results, fields);
+              }
+              resolve(results as T);
+            }
+          });
         });
     }
 }

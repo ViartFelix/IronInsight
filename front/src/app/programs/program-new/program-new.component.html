@@ -1,0 +1,36 @@
+<form [formGroup]="new_program" (ngSubmit)="onSubmit();$event.preventDefault()" >
+  <mat-form-field class="example-full-width">
+    <mat-label>Nom du programme</mat-label>
+    <input type="text" matInput formControlName="programName" placeholder="">
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <mat-label>Description du programme</mat-label>
+    <textarea matInput formControlName="programDescription"></textarea>
+  </mat-form-field>
+
+  <hr>
+
+  <button type="button" (click)="addExercise()" mat-button>Ajouter un exercice</button>
+
+  <ul>
+    <mat-card *ngFor="let exercise of checked_exos; let i = index">
+      <mat-card-header>
+        <mat-card-title>{{ exercise.wording }}</mat-card-title>
+      </mat-card-header>
+
+      <mat-card-content>
+        <p>{{ exercise.duration }}</p>
+        <hr>
+        <div>
+          <p>Catégorie: 4</p>
+          <p>Difficultée: 2</p>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </ul>
+
+  <hr>
+
+  <button type="submit" mat-button>Envoyer !</button>
+</form>

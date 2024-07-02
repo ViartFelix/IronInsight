@@ -11,7 +11,11 @@
         <button [routerLink]="'/connexion'">Connexion</button>
     </div>
     <div class="navbar__profile-section">
+      @if (authService.isLoggedIn()) {
         <i class="material-icons profile-icon">account_circle</i>
         <a [routerLink]="'/profile'">Profil</a>
+      } @else {
+        <p>Veuillez vous <a [routerLink]="'/connexion'">connecter</a></p>
+      }
     </div>
 </nav>

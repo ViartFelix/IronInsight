@@ -1,6 +1,9 @@
 <ng-container>
-    <h1>Liste des programmes</h1>
-    <div class="programs">
-        <app-program-item *ngFor="let program of response" [program]="program"></app-program-item>
-    </div>
+  <h1>Liste des programmes</h1>
+
+  <button *ngIf="authService.isLoggedIn()" mat-button [routerLink]="['/programme-new']">Créer un programme</button>
+
+  <div class="programs">
+    <app-program-item *ngFor="let program of response" [program]="program"></app-program-item>
+  </div>
 </ng-container>

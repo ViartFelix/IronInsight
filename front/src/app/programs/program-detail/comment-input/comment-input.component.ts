@@ -24,10 +24,15 @@ export class CommentInputComponent {
   protected form!: FormGroup;
   private actualUser: any;
 
-  constructor(private commentsService: CommentsService, private route: ActivatedRoute, protected authService: AuthService, private snackBar: MatSnackBar) {}
+  constructor(
+    private commentsService: CommentsService,
+    private route: ActivatedRoute,
+    protected authService: AuthService,
+    private snackBar: MatSnackBar
+  ) {}
 
   ngOnInit() {
-    this.actualUser = this.authService.user.getValue();
+    this.actualUser = this.authService.user;
     this.form = new FormGroup({
       comment: new FormControl('', Validators.required),
     });
