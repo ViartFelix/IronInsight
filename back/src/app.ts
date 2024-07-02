@@ -13,7 +13,6 @@ import { expressjwt } from "express-jwt"
 import {errorHandler} from "../middlewares/errorMiddleware";
 import { recordController } from "../controllers/recordController";
 
-
 export class App {
 
     private app: Express;
@@ -25,7 +24,7 @@ export class App {
                 //routes init
                 router.init(this.app);
                 this.initControllers();
-                this.errorHandlers();
+                this.errorHandlers()
                 this.start();
             })
             .catch(err => {
@@ -59,15 +58,6 @@ export class App {
         userController.init()
         exerciseController.init()
         programsController.init()
-        commentController.init()
-        recordController.init()
-        this.app.get('/error', (req, res, next) => {
-            const err = new Error('This is an error');
-            res.send({
-                mqzdlmzd: "lkdklzkzqldzkld"
-            })
-            next(err);
-        });
     }
 
     private start() {

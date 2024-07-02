@@ -5,6 +5,8 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatButtonModule} from '@angular/material/button';
 import {UserService} from "../../services/user.service";
 import {MatSnackBar} from "@angular/material/snack-bar";
+import AuthService from "../../services/authService";
+import {User} from "../../interfaces/user.interface";
 
 @Component({
   selector: 'app-login',
@@ -16,7 +18,7 @@ import {MatSnackBar} from "@angular/material/snack-bar";
     MatButtonModule
   ],
   providers: [
-    UserService
+    UserService,
   ],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss'
@@ -25,11 +27,11 @@ import {MatSnackBar} from "@angular/material/snack-bar";
 export class LoginComponent {
 
   private _loginForm: any;
-
   private readonly duration: number = 100
 
   constructor(
     @Inject(UserService) private userService: UserService,
+    @Inject(AuthService) private authService: AuthService,
     private _snackBar: MatSnackBar
   ) {
   }
@@ -62,14 +64,18 @@ export class LoginComponent {
       };
 
       this.userService.loginUser(userReq).subscribe((res: any) => {
-          this._snackBar.open(`Hello, ${res.data.username}`, 'OK', {
-            duration: this.duration * 1000,
-            panelClass: ["success"]
-          });
+        const token = res.token
+        const user = res.data as User
+
+        this._snackBar.open(`Hello, ${user.username}`, 'OK', {
+          duration: this.duration * 1000,
+          panelClass: ["success"]
+        });
+
+          this.authService.makeUserLoggedIn(token, user)
         },
         (err: any) => {
-          console.log(err)
-          this._snackBar.open(err.error.message, 'OK',{
+          this._snackBar.open(err.error.message, 'OK', {
             duration: this.duration * 1000,
             panelClass: ["error"]
           });
