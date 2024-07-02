@@ -8,6 +8,7 @@ import { ExerciseDetailComponent } from './exercises/exercise-detail/exercise-de
 import { ProgramDetailComponent } from './programs/program-detail/program-detail.component';
 import {LoginComponent} from "./login/login.component";
 import { ProfileComponent } from './profile/profile.component';
+import {AuthGuard} from "./profile/profile.guard";
 
 export const routes: Routes = [
     { path: '', component: HomeComponent },
@@ -15,7 +16,7 @@ export const routes: Routes = [
     { path: 'exercise-detail/:id', component: ExerciseDetailComponent },
     { path: 'program-detail/:id', component: ProgramDetailComponent },
     { path: 'programmes', component: ProgramsComponent },
-    { path: "profile", component: ProfileComponent },
+    { path: "profile", component: ProfileComponent, canActivate: [AuthGuard] },
     { path: 'contact', component: ContactComponent },
     { path: 'inscription', component: RegisterComponent },
     { path: "connexion", component: LoginComponent }
