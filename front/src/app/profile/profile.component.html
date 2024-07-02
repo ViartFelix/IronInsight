@@ -1,6 +1,32 @@
 <div>
-    <h1>Profile Page works !</h1>
-    <div>
-        {{ record | json }}
+  <h1>Profil</h1>
+
+  <div id="records">
+    <h2>Mes records</h2>
+
+
+    <div id="pb-container">
+      @if(hasLoaded) {
+        <div id="pb-display">
+          <mat-card *ngFor="let pb of records; let i = index">
+            <mat-card-header>
+              <mat-card-title>Nom exo</mat-card-title>
+            </mat-card-header>
+
+            <mat-card-content>
+              <p> Record </p>
+              <p> Date </p>
+            </mat-card-content>
+          </mat-card>
+        </div>
+      } @else {
+        <div id="pb-loading">
+
+        </div>
+      }
     </div>
+    <ul>
+
+    </ul>
+  </div>
 </div>
