@@ -1,6 +1,6 @@
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { catchError, EMPTY, map, Observable } from 'rxjs';
+import { catchError, EMPTY, map, Observable, tap } from 'rxjs';
 import { Exercise } from '../models/Exercise';
 import { environment } from '../environnment';
 import { ExerciseFilters } from '../models/ExerciseFilters';
@@ -42,20 +42,23 @@ export class ExercisesService {
         );
     }
 
-    getExercisesFromFilters(filters: ExerciseFilters): Observable<Exercise[]> {
-        let params = new HttpParams();
-        for (let key in filters) {
-          if (filters.hasOwnProperty(key) && filters[key as keyof ExerciseFilters] != null) {
-            params = params.append(key, filters[key as keyof ExerciseFilters]!);
-          }
-        }
+    retrieveFilters() : Observable<ExerciseFilters[]> {
+        return this.http.get<ExerciseFilters[]>(`${environment.apiUrl}/exercise-filters`).pipe(
+            map((data: ExerciseFilters[]) => data),
+            catchError((error: Error) => {
+                console.error(error);
+                return EMPTY;
+            })
+        );
+    }
 
-        return this.http.get<Exercise[]>(`${environment.apiUrl}/exercises`, { params }).pipe(
+    getExerciseFromFilters(filters: ExerciseFilters): Observable<Exercise[]> {
+        return this.http.post<Exercise[]>(`${environment.apiUrl}/exercise-from-filters`, filters).pipe(
             map((data: Exercise[]) => data),
             catchError((error: Error) => {
-              console.error(error);
-              return EMPTY;
+                console.error(error);
+                return EMPTY;
             })
-          );
+        );
     }
 }

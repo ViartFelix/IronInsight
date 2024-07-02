@@ -1,0 +1,23 @@
+<div>
+    <form [formGroup]="form" action="#" (ngSubmit)="submitFilters()">
+        <label>
+            Nom:
+            <input type="text" formControlName="wording">
+        </label>
+        <label>
+            Catégorie:
+            <select type="text" formControlName="category" [disabled]="!categoriesFilter">
+                <option value="">Aucun</option>
+                <option *ngFor="let category of categoriesFilter" [value]="category.code">{{ category.wording }}</option>
+            </select>
+        </label>
+        <label>
+            Difficulté:
+            <select type="text" formControlName="difficulty" [disabled]="!difficultiesFilter">
+                <option value="">Aucun</option>
+                <option *ngFor="let difficulty of difficultiesFilter" [value]="difficulty.id">{{ difficulty.wording }}</option>
+            </select>
+        </label>
+        <button type="submit">Se connecter</button>
+    </form>
+</div>

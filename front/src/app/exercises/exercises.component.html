@@ -1,5 +1,8 @@
 <ng-container>
     <h1>Liste des exercices</h1>
+    <div class="exercises-filters">
+        <app-exercise-filters (filters)="searchFromFilters($event)"></app-exercise-filters>
+    </div>
     <div class="exercises">
         <app-exercise-item *ngFor="let exercise of response" [exercise]="exercise"></app-exercise-item>
     </div>

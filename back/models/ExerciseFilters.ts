@@ -1,5 +1,5 @@
 export interface ExerciseFilters {
     wording?: string;
-    category?: string;
-    difficulty?: string;
+    category?: string[];
+    difficulty?: string[];
 }
