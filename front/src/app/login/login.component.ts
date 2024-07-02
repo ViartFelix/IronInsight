@@ -5,8 +5,9 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatButtonModule} from '@angular/material/button';
 import {UserService} from "../../services/user.service";
 import {MatSnackBar} from "@angular/material/snack-bar";
-import AuthService from "../../services/authService";
+import AuthService from "../../services/auth.service";
 import {User} from "../../interfaces/user.interface";
+import { catchError, of } from 'rxjs';
 
 @Component({
   selector: 'app-login',
@@ -63,7 +64,15 @@ export class LoginComponent {
         password: data.password,
       };
 
-      this.userService.loginUser(userReq).subscribe((res: any) => {
+      this.userService.loginUser(userReq).pipe(
+        catchError((error: Error) => {
+          this._snackBar.open(error.message, 'OK', {
+            duration: this.duration * 1000,
+            panelClass: ["error"]
+          });
+          return of(null);
+        })
+      ).subscribe((res: any) => {
         const token = res.token
         const user = res.data as User
 
@@ -73,12 +82,6 @@ export class LoginComponent {
         });
 
           this.authService.makeUserLoggedIn(token, user)
-        },
-        (err: any) => {
-          this._snackBar.open(err.error.message, 'OK', {
-            duration: this.duration * 1000,
-            panelClass: ["error"]
-          });
         }
       )
     }
