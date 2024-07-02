@@ -18,7 +18,7 @@ export class ExerciseFiltersComponent {
 
   @Output() filters = new EventEmitter<ExerciseFilters>();
 
-  constructor(private exercisesService: ExercisesService, private fb: FormBuilder) {}
+  constructor(private exercisesService: ExercisesService) {}
 
   ngOnInit() {
     this.exercisesService.retrieveFilters().subscribe(

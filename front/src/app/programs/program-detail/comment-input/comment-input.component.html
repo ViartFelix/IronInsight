@@ -1,0 +1,16 @@
+<ng-container *ngIf="authService.isLoggedIn(); else notConnected">
+    <div>New Comment Container</div>
+    <form [formGroup]="form" action='#' (ngSubmit)="insertNewComment()">
+        <mat-form-field class="example-full-width">
+          <mat-label>Ajouter un commentaire:</mat-label>
+          <textarea matInput formControlName="comment" placeholder="Programme très intérréssant..."></textarea>
+        </mat-form-field>
+    
+        <button type="submit" mat-button>
+          Ajouter le commentaire
+        </button>
+    </form>
+</ng-container>
+<ng-template #notConnected>
+  <p>Connectez-vous pour commenter le programme d'entrainement.</p>
+</ng-template>

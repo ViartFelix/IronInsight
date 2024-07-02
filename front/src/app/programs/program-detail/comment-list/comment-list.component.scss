@@ -1,0 +1,15 @@
+.comments {
+    &__comment {
+        &__header {
+            font-size: 1.2rem;
+        }
+
+        &__content {
+            text-decoration: none;
+        }
+
+        &__footer {
+            font-style: italic;
+        }
+    }
+}

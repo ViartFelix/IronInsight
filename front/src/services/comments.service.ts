@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError, EMPTY, map, Observable } from 'rxjs';
 import { environment } from '../environnment';
@@ -14,6 +14,16 @@ export class CommentsService {
     getCommentsFromPrograms(id_program: string): Observable<Comment[]> {
         return this.http.get<Comment[]>(`${environment.apiUrl}/comment-from-program/${id_program}`).pipe(
             map((data: Comment[]) => {return data}),
+            catchError((error: Error) => {
+                console.error(error);
+                return EMPTY;
+            })
+        );
+    }
+
+    postNewComment(comment: Comment): Observable<string> {
+        return this.http.post<string>(`${environment.apiUrl}/new-comment`, comment).pipe(
+            map((data: string) => data),
             catchError((error: Error) => {
                 console.error(error);
                 return EMPTY;

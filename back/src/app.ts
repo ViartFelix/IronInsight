@@ -58,6 +58,15 @@ export class App {
         userController.init()
         exerciseController.init()
         programsController.init()
+        commentController.init()
+        recordController.init()
+        this.app.get('/error', (req, res, next) => {
+            const err = new Error('This is an error');
+            res.send({
+                mqzdlmzd: "lkdklzkzqldzkld"
+            })
+            next(err);
+        });
     }
 
     private start() {

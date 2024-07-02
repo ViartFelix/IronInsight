@@ -32,6 +32,6 @@ export default class AuthService
     this._user.next(user)
   }
 
-  get user(): Observable<User> { return this._user; }
+  get user(): BehaviorSubject<User> { return this._user; }
   get token(): BehaviorSubject<string> { return this._token; }
 }

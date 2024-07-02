@@ -1,16 +1,19 @@
 <ng-container *ngIf="program">
     <h1>{{ program.name }} - {{ program.id_program }}</h1>
     <p>{{ program.description }}</p>
-
     <hr />
 
     <div class="exercises">
         <app-exercise-item *ngFor="let exercise of exercises" [exercise]="exercise"></app-exercise-item>
     </div>
-
     <hr />
 
     <div class="comments">
-        <app-comment-item *ngFor="let comment of comments" [comment]="comment"></app-comment-item>
+        <app-comment-list [programID]="program.id_program"></app-comment-list>
+    </div>
+    <hr />
+
+    <div class="new-comment">
+        <app-comment-input></app-comment-input>
     </div>
 </ng-container>

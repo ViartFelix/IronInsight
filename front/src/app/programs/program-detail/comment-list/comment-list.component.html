@@ -1,0 +1,7 @@
+<ng-container *ngIf="comments">
+    <div class="comments" *ngFor="let comment of comments">
+        <div class="comments__comment__content">
+            {{ comment.comment }}
+        </div>
+    </div>
+</ng-container>
