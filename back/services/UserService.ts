@@ -75,20 +75,6 @@ class UserService
         return raw[0] as User;
     }
 
-    /**
-     * Logins an user and returns the token response
-     * @param user
-     */
-    public loginUser(user: User): string {
-        const userData = {
-            username: user.username,
-            email: user.email,
-            id: user.id_user
-        }
-
-        return jwt.sign(userData, process.env.JWT_SECRET, {expiresIn: '1h'});
-    }
-
     public async hashPassword(password: string): Promise<string>
     {
         return await bcrypt.hash(password, 10)
