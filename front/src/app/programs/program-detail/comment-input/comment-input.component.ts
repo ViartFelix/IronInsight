@@ -8,9 +8,9 @@ import { MatButton } from '@angular/material/button';
 import Comment from '../../../../models/Comment';
 import { ActivatedRoute } from '@angular/router';
 import AuthService from '../../../../services/auth.service';
-import { catchError, EMPTY, map } from 'rxjs';
-import { User } from '../../../../interfaces/user.interface';
+import { catchError, EMPTY } from 'rxjs';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { User } from '../../../../models/User';
 
 @Component({
   selector: 'app-comment-input',
@@ -22,7 +22,6 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 export class CommentInputComponent {
   protected newComment!: Comment;
   protected form!: FormGroup;
-  private actualUser: any;
 
   constructor(
     private commentsService: CommentsService,
@@ -32,7 +31,6 @@ export class CommentInputComponent {
   ) {}
 
   ngOnInit() {
-    this.actualUser = this.authService.user;
     this.form = new FormGroup({
       comment: new FormControl('', Validators.required),
     });
@@ -42,7 +40,7 @@ export class CommentInputComponent {
     if(this.form.valid) {
       this.newComment = {
         id_program: this.route.snapshot.paramMap.get('id')!,
-        id_user: this.actualUser.id_user.toString(),
+        id_user: this.authService.user.value.id_user.toString(),
         comment: this.form.controls['comment'].value,
       }
       this.commentsService.postNewComment(this.newComment)

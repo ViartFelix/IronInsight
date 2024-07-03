@@ -1,4 +1,4 @@
-import { User } from "../interfaces/user.interface";
+import { User } from "./User";
 import { Exercise } from "./Exercise";
 
 export interface Record {

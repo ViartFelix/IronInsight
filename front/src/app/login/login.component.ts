@@ -6,7 +6,7 @@ import {MatButtonModule} from '@angular/material/button';
 import {UserService} from "../../services/user.service";
 import {MatSnackBar} from "@angular/material/snack-bar";
 import AuthService from "../../services/auth.service";
-import {User} from "../../interfaces/user.interface";
+import {User} from "../../models/User";
 import { catchError, of } from 'rxjs';
 
 @Component({

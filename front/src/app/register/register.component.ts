@@ -1,6 +1,6 @@
 import {Component, Inject} from '@angular/core';
 import {FormControl, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
-import {User} from "../../interfaces/user.interface";
+import {User} from "../../models/User";
 import {UserService} from "../../services/user.service";
 import {MatSnackBar, MatSnackBarModule} from '@angular/material/snack-bar';
 
