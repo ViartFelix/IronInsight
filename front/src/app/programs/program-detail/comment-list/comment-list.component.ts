@@ -1,7 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
 import { CommentsService } from '../../../../services/comments.service';
-import { catchError, map, tap } from 'rxjs';
 import Comment from '../../../../models/Comment';
 
 @Component({
@@ -18,6 +17,9 @@ export class CommentListComponent {
   constructor(private commentService: CommentsService) {}
 
   ngOnInit() {
-    this.commentService.getCommentsFromPrograms(this.programID.toString()).subscribe((result: Comment[]) => this.comments = result);
+    this.commentService.getCommentsFromPrograms(this.programID.toString()).subscribe((result) => {
+      this.comments = result;
+      console.log(result);
+    });
   }
 }

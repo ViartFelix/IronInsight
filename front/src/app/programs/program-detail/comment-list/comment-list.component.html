@@ -1,7 +1,9 @@
 <ng-container *ngIf="comments">
+    <h3>Commentaires</h3>
     <div class="comments" *ngFor="let comment of comments">
         <div class="comments__comment__content">
-            {{ comment.comment }}
+            {{ comment.username }} - {{ comment.comment }}
         </div>
+        <div class="comments__comment__footer">{{ comment.created_at | date }}</div>
     </div>
 </ng-container>
