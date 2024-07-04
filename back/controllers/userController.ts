@@ -18,30 +18,29 @@ class UserController {
   }
 
   public async handlerRegister(req: any, res: any): Promise<void> {
-    let status = 200;
-    let message = "User registration successful"
-
     try {
-      const data = req.body;
-
-      const doesExist = await userService.userExists(data);
+      //cast the request to a new user
+      const userReq = userService.toUser(req.body, true);
+      const doesExist = await userService.userExists(userReq);
 
       if (doesExist) {
-        status = 401;
-        message = "User already exists."
+        res.status(401).json({
+          message: "User already exists."
+        })
       } else {
-        const registerAttempt = await userService.registerUser(data);
+        const registerAttempt = await userService.registerUser(userReq);
 
         if (!registerAttempt) {
-          message = "Something went wrong when registering your account."
+          throw new Error("Something went wrong when registering your account.")
+        } else {
+          res.status(200).json({
+            message: "User registration successful"
+          })
         }
       }
     } catch (e: any) {
-      status = 500;
-      message = "Something went wrong."
-    } finally {
-      res.status(status).send({
-        message: message
+      res.status(500).json({
+        message: "Something went wrong when registering your account."
       })
     }
   }
@@ -53,33 +52,34 @@ class UserController {
    */
   public async handlerLogin(req: any, res: any): Promise<void> {
     try {
-      const data = req.body as User;
-      data.username = data.email = req.body.userOrEmail
+      const userReq = userService.toUser(req.body);
+      //same email and username for the comparaison in the login (in the front-end, the filed is 'user or email')
+      userReq.username = userReq.email = req.body.userOrEmail
       //if the user exists in the db
-      const doesExist = await userService.userExists(data);
+      const doesExist = await userService.userExists(userReq);
 
       if (doesExist) {
-        const user: User = await userService.getUser(data.email, data.username);
+        //'clean' user, with all the data form the db
+        const user: User = await userService.getUser(userReq.email, userReq.username);
 
-        await bcrypt.compare(data.password, user.password, function (err, isSame) {
+        await bcrypt.compare(userReq.password, user.password, function (err, isSame) {
+          //if an error or is not the same password
           if (err || !isSame) {
             res.status(401).send({
-              message: "Invalid credentials: err ou not is same"
+              message: "Invalid credentials."
             })
           }
-          //if passwords match
-          if (isSame) {
-            //we remove the password from the user object
-            user.password = undefined
+          //else the passwords match and no error happened, great !
+          //we remove the password from the user object
+          user.password = undefined
 
-            //generates token
-            const token = jwtService.generateToken(user.toString());
+          //generates token
+          const token = jwtService.generateToken(user.toString());
 
-            res.status(200).send({
-              token: token,
-              data: user,
-            })
-          }
+          res.status(200).send({
+            token: token,
+            data: user,
+          })
         })
       } else {
         res.status(403).send({

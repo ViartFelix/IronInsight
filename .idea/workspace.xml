@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="de7ca3ed-f100-490d-a07e-8e730243af48" name="Changes" comment="(-) deleted useless console log">
+    <list default="true" id="de7ca3ed-f100-490d-a07e-8e730243af48" name="Changes" comment="(+) updated register &amp; login to the new server responses">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/src/app/login/login.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/app/login/login.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/src/app/register/register.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/app/register/register.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/controllers/userController.ts" beforeDir="false" afterPath="$PROJECT_DIR$/back/controllers/userController.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -163,7 +162,7 @@
       <workItem from="1719922430214" duration="6838000" />
       <workItem from="1720008885843" duration="217000" />
       <workItem from="1720095359620" duration="1966000" />
-      <workItem from="1720098412058" duration="4580000" />
+      <workItem from="1720098412058" duration="5057000" />
     </task>
     <task id="LOCAL-00001" summary="(+) revert back">
       <option name="closed" value="true" />
@@ -237,7 +236,15 @@
       <option name="project" value="LOCAL" />
       <updated>1720103206576</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="(+) updated register &amp; login to the new server responses">
+      <option name="closed" value="true" />
+      <created>1720103665227</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1720103665227</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -273,7 +280,8 @@
     <MESSAGE value="(+) user change credentials ok, need to reconnect / update jwt token afterward" />
     <MESSAGE value="(+) user change ok" />
     <MESSAGE value="(-) deleted useless console log" />
-    <option name="LAST_COMMIT_MESSAGE" value="(-) deleted useless console log" />
+    <MESSAGE value="(+) updated register &amp; login to the new server responses" />
+    <option name="LAST_COMMIT_MESSAGE" value="(+) updated register &amp; login to the new server responses" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
