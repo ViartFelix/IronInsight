@@ -4,18 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="de7ca3ed-f100-490d-a07e-8e730243af48" name="Changes" comment="(+) user change credentials ok, need to reconnect / update jwt token afterward">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/controllers/controller.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/controllers/userController.ts" beforeDir="false" afterPath="$PROJECT_DIR$/back/controllers/userController.ts" afterDir="false" />
+    <list default="true" id="de7ca3ed-f100-490d-a07e-8e730243af48" name="Changes" comment="(+) user change ok">
       <change beforePath="$PROJECT_DIR$/back/services/UserService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/back/services/UserService.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/src/app/app.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/app/app.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/src/app/login/login.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/app/login/login.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/src/app/profile/profile-change-dialog/profile-change-dialog.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/app/profile/profile-change-dialog/profile-change-dialog.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/src/app/profile/profile-change-dialog/profile-change-dialog.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/app/profile/profile-change-dialog/profile-change-dialog.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/src/app/profile/profile.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/app/profile/profile.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/src/app/profile/profile.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/app/profile/profile.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/src/app/register/register.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/app/register/register.component.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -171,7 +161,7 @@
       <workItem from="1719922430214" duration="6838000" />
       <workItem from="1720008885843" duration="217000" />
       <workItem from="1720095359620" duration="1966000" />
-      <workItem from="1720098412058" duration="3922000" />
+      <workItem from="1720098412058" duration="4150000" />
     </task>
     <task id="LOCAL-00001" summary="(+) revert back">
       <option name="closed" value="true" />
@@ -229,7 +219,15 @@
       <option name="project" value="LOCAL" />
       <updated>1720097285411</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="(+) user change ok">
+      <option name="closed" value="true" />
+      <created>1720103087258</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1720103087258</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -263,7 +261,8 @@
     <MESSAGE value="(+) register system ok" />
     <MESSAGE value="(+) login system ok" />
     <MESSAGE value="(+) user change credentials ok, need to reconnect / update jwt token afterward" />
-    <option name="LAST_COMMIT_MESSAGE" value="(+) user change credentials ok, need to reconnect / update jwt token afterward" />
+    <MESSAGE value="(+) user change ok" />
+    <option name="LAST_COMMIT_MESSAGE" value="(+) user change ok" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
