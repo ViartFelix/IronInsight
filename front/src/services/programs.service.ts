@@ -5,6 +5,7 @@ import { TrainingProgram } from '../models/Programs';
 import { environment } from '../environnment';
 import AuthService from "./auth.service";
 import {Exercise} from "../models/Exercise";
+import {User} from "../models/User";
 
 @Injectable({
   providedIn: 'root'

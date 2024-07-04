@@ -3,6 +3,7 @@ import {FormControl, FormGroup, ReactiveFormsModule, Validators} from "@angular/
 import {User} from "../../models/User";
 import {UserService} from "../../services/user.service";
 import {MatSnackBar, MatSnackBarModule} from '@angular/material/snack-bar';
+import {catchError, EMPTY, map} from "rxjs";
 
 @Component({
   selector: 'app-register',
@@ -19,12 +20,12 @@ import {MatSnackBar, MatSnackBarModule} from '@angular/material/snack-bar';
 
 export class RegisterComponent {
 
-  private readonly duration: number = 100
+  private readonly duration: number = 5
 
 
   constructor(
     @Inject(UserService) private userService: UserService,
-    private _snackBar: MatSnackBar
+    private snackBar: MatSnackBar
   ) {
   }
 
@@ -60,12 +61,20 @@ export class RegisterComponent {
         updated_at: new Date()
       } as User
 
-      this.userService.registerUser(userReq).subscribe((data: any) => {
-        const snackClass = data.status ? 'success' : 'error';
-
-        this._snackBar.open(data.message, "OK", {
+      this.userService.registerUser(userReq).pipe(
+        map((res) => res),
+        catchError((err: any) => {
+          this.snackBar.open(err.error.message ?? "Unknown error", "OK", {
+            duration: this.duration * 1000,
+            panelClass: ['error']
+          });
+          //return empty to prevent subscribe to fire.
+          return EMPTY;
+        })
+      ).subscribe((data: any) => {
+        this.snackBar.open(data.message, "OK", {
           duration: this.duration * 1000,
-          panelClass: [snackClass]
+          panelClass: ['success']
         });
       });
     }

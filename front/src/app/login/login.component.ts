@@ -7,7 +7,7 @@ import {UserService} from "../../services/user.service";
 import {MatSnackBar} from "@angular/material/snack-bar";
 import AuthService from "../../services/auth.service";
 import {User} from "../../models/User";
-import { catchError, of } from 'rxjs';
+import {catchError, EMPTY, map, of} from 'rxjs';
 
 @Component({
   selector: 'app-login',
@@ -28,7 +28,7 @@ import { catchError, of } from 'rxjs';
 export class LoginComponent {
 
   private _loginForm: any;
-  private readonly duration: number = 100
+  private readonly duration: number = 5
 
   constructor(
     @Inject(UserService) private userService: UserService,
@@ -65,25 +65,25 @@ export class LoginComponent {
       };
 
       this.userService.loginUser(userReq).pipe(
-        catchError((error: Error) => {
-          this._snackBar.open(error.message, 'OK', {
+        map((res) => res),
+        catchError((error: any) => {
+          this._snackBar.open(error.error.message, 'OK', {
             duration: this.duration * 1000,
             panelClass: ["error"]
           });
-          return of(null);
+          return EMPTY;
         })
       ).subscribe((res: any) => {
-          const token = res.token
-          const user = res.data as User
+        const token = res.token
+        const user = res.data as User
 
-          this._snackBar.open(`Hello, ${user.username}`, 'OK', {
-            duration: this.duration * 1000,
-            panelClass: ["success"]
-          });
+        this._snackBar.open(`Hello, ${user.username}`, 'OK', {
+          duration: this.duration * 1000,
+          panelClass: ["success"]
+        });
 
-          this.authService.makeUserLoggedIn(token, user)
-        }
-      )
+        this.authService.makeUserLoggedIn(token, user)
+      })
     }
   }
 
