@@ -70,7 +70,6 @@ export class LoginComponent {
             duration: this.duration * 1000,
             panelClass: ["error"]
           });
-          console.log(error)
           return of(null);
         })
       ).subscribe((res: any) => {
@@ -85,8 +84,7 @@ export class LoginComponent {
 
           this.authService.makeUserLoggedIn(token, user)
         }
-        }
-      )
+      })
     }
   }
 

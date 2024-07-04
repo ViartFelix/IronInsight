@@ -10,7 +10,7 @@ class UserService {
 
   public async getUserById(id: number): Promise<User> {
     const r = await dbService.query("SELECT * FROM users WHERE id_user = ?", [id]);
-    return r as User;
+    return r[0] as User;
   }
 
   /**

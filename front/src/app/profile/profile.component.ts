@@ -1,5 +1,5 @@
 import {Component, inject} from '@angular/core';
-import { RouterModule } from '@angular/router';
+import {Router, RouterModule} from '@angular/router';
 import { ProfileService } from '../../services/profile.service';
 import { Record } from '../../models/Record';
 import { CommonModule } from '@angular/common';
@@ -10,7 +10,6 @@ import {MatButton} from "@angular/material/button";
 import {MatSnackBar} from "@angular/material/snack-bar";
 import {MatDialog} from "@angular/material/dialog";
 import {ProfileChangeDialogComponent} from "./profile-change-dialog/profile-change-dialog.component";
-import {FormGroup, ReactiveFormsModule} from "@angular/forms";
 
 @Component({
   selector: 'app-profile',
@@ -32,23 +31,26 @@ export class ProfileComponent {
   private _records: Record[] = [];
   public hasLoaded: boolean = false;
 
-  private readonly _user: User;
+  private _user!: User;
 
   private readonly dialog = inject(MatDialog);
 
   constructor(
-    private _profileService: ProfileService,
+    private profileService: ProfileService,
     private authService: AuthService,
+    private router: Router
   ) {
-    this._user = this.authService.user.value
+    this.getUser();
   }
+
+
 
   ngOnInit() {
     //take the current auth ID
     const profile_id: number = this.authService.user.value.id_user
     const strProfile = profile_id.toString()
 
-    this._profileService
+    this.profileService
       .getRecords(strProfile)
       .subscribe((records: Record[]) => {
         this._records = records
@@ -56,9 +58,20 @@ export class ProfileComponent {
       });
   }
 
+  public getUser()
+  {
+    this._user = this.authService.user.value
+  }
+
   profileChangeOpen(): void
   {
-    const dialog = this.dialog.open(ProfileChangeDialogComponent)
+    const dialog = this.dialog.open(ProfileChangeDialogComponent, {
+      disableClose: true,
+    })
+
+    dialog.afterClosed().subscribe(values => {
+      this.getUser()
+    })
   }
 
   get records(): Record[] { return this._records; }

@@ -106,26 +106,26 @@ class UserController {
       } else {
         const isUpdated = await userService.editUserData(usrReq);
 
-        if(isUpdated){
-          usrReq.password = undefined
+        if(isUpdated) {
           const renewToken = jwtService.generateToken(usrReq.toString())
+          //fetch the new user's data to give back to the front-end
+          const updatedUser = await userService.getUserById(usrReq.id_user)
 
-          res.status(200).send({
+          res.status(200).json({
             token: renewToken,
-            message: "Mise à jour OK. Veuillez vous reconnecter.",
-            data: usrReq
+            message: "Mise à jour OK.",
+            user: updatedUser
           })
         } else {
           throw new Error("Can't update !")
         }
       }
     } catch (e) {
-      res.status(500).send({
+      res.status(500).json({
         status: false,
         message: "Something went wrong."
       })
     }
-
   }
 }
 

@@ -60,6 +60,7 @@ export class RegisterComponent {
         updated_at: new Date()
       } as User
 
+      //TODO: Change this to be adapted to the new status code system in the back-end
       this.userService.registerUser(userReq).subscribe((data: any) => {
         const snackClass = data.status ? 'success' : 'error';
 

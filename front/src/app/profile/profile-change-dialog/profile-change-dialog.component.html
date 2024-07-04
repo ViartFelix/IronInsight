@@ -33,6 +33,7 @@
 </mat-dialog-content>
 
 <mat-dialog-actions>
+  <mat-spinner *ngIf="isLoading"></mat-spinner>
   <button mat-button type="button" (click)="onSubmit()">Changer</button>
   <button mat-button type="button" mat-dialog-close>Annuler</button>
 </mat-dialog-actions>
