@@ -1,8 +1,6 @@
 import {Inject, Injectable} from "@angular/core";
 import {BehaviorSubject, Observable} from "rxjs";
-import {User} from "../interfaces/user.interface";
-import {CookieService} from "ngx-cookie-service";
-import {environment} from "../environnment";
+import {User} from "../models/User";
 import {UserService} from "./user.service";
 
 @Injectable({

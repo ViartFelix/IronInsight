@@ -1,27 +1,60 @@
 <div>
   <h1>Profil</h1>
 
+  <div class="profile-edit">
+    <button type="button" mat-button (click)="profileChangeOpen()">
+      Modifier mon profil
+    </button>
+
+    <hr>
+
+    <h2> Mes infos </h2>
+
+    <div>
+      <p>Utilisateur: {{ user.username }}</p>
+      <p>Email: {{ user.email }}</p>
+      <p>
+        Poids (Kg):
+        @if(user.weight < 0) {
+          <span class="untold">(Non renseigné)</span>
+        } @else {
+          {{ user.weight }}
+        }
+      </p>
+      <p>Taille (cm):
+        @if(user.height < 0) {
+          <span class="untold">(Non renseigné)</span>
+        } @else {
+          {{ user.height }}
+        }
+      </p>
+      <p>Compte créé le: {{ user.created_at }}</p>
+    </div>
+  </div>
+
+  <hr>
+
   <div id="records">
     <h2>Mes records</h2>
-
 
     <div id="pb-container">
       @if(hasLoaded) {
         <div id="pb-display">
           <mat-card *ngFor="let pb of records; let i = index">
             <mat-card-header>
-              <mat-card-title>Nom exo</mat-card-title>
+              <mat-card-title>{{ pb.exercise.wording }}</mat-card-title>
             </mat-card-header>
 
             <mat-card-content>
-              <p> Record </p>
-              <p> Date </p>
+              <p> {{ pb.best_weight }} Kg </p>
+              <p> {{ pb.realised_at.toString() }} </p>
             </mat-card-content>
           </mat-card>
         </div>
       } @else {
         <div id="pb-loading">
-
+          Loading...
+          <span class="material-symbols-outlined">sync</span>
         </div>
       }
     </div>

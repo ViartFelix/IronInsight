@@ -1,0 +1,40 @@
+<mat-dialog-content>
+  <form (submit)="onSubmit();$event.preventDefault()" [formGroup]="change_profile">
+    <mat-form-field>
+      <mat-label>Utilisateur</mat-label>
+      <input matInput formControlName="username">
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>E-mail</mat-label>
+      <input matInput formControlName="email">
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Mot de passe</mat-label>
+      <input matInput formControlName="password">
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Confirmer mot de passe</mat-label>
+      <input matInput formControlName="passwordConfirm">
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Poids (Kg)</mat-label>
+      <input matInput formControlName="weight">
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Taille (cm)</mat-label>
+      <input matInput formControlName="height">
+    </mat-form-field>
+  </form>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+  <button mat-button type="button" (click)="onSubmit()">Changer</button>
+  <button mat-button type="button" mat-dialog-close>Annuler</button>
+</mat-dialog-actions>
+
+

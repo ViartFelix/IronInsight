@@ -6,7 +6,7 @@ import {MatButtonModule} from '@angular/material/button';
 import {UserService} from "../../services/user.service";
 import {MatSnackBar} from "@angular/material/snack-bar";
 import AuthService from "../../services/auth.service";
-import {User} from "../../interfaces/user.interface";
+import {User} from "../../models/User";
 import { catchError, of } from 'rxjs';
 
 @Component({
@@ -28,7 +28,7 @@ import { catchError, of } from 'rxjs';
 export class LoginComponent {
 
   private _loginForm: any;
-  private readonly duration: number = 100
+  private readonly duration: number = 5
 
   constructor(
     @Inject(UserService) private userService: UserService,
@@ -65,14 +65,16 @@ export class LoginComponent {
       };
 
       this.userService.loginUser(userReq).pipe(
-        catchError((error: Error) => {
-          this._snackBar.open(error.message, 'OK', {
+        catchError((error: any) => {
+          this._snackBar.open(error.error.message, 'OK', {
             duration: this.duration * 1000,
             panelClass: ["error"]
           });
+          console.log(error)
           return of(null);
         })
       ).subscribe((res: any) => {
+        if(res !== null) {
           const token = res.token
           const user = res.data as User
 
@@ -82,6 +84,7 @@ export class LoginComponent {
           });
 
           this.authService.makeUserLoggedIn(token, user)
+        }
         }
       )
     }

@@ -53,6 +53,21 @@ class ExerciseService
         const r = await dbService.query(query, params);
         return r as Exercise;
     }
+
+  /**
+   * Converts the data provided to a Exercise model
+   * @param data A mySQL row object (if possible)
+   * @param data
+   */
+  public toExercise(data: any): Exercise
+    {
+      return {
+        id_exercise: data.id_exercise,
+        wording: data.wording,
+        duration: data.duration,
+        image: data.image
+      } as unknown as Exercise
+    }
 }
 
 export const exerciseService = new ExerciseService();

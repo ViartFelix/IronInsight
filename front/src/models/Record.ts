@@ -1,8 +1,9 @@
-import { User } from "../interfaces/user.interface";
-import { Exercise } from "./Exercise";
+import {User} from "../models/User";
+import {Exercise} from "./Exercise";
 
 export interface Record {
-    user: User,
-    exercise: Exercise,
-    bestweight: number
+  user: User,
+  exercise: Exercise,
+  best_weight: number,
+  realised_at: Date,
 }

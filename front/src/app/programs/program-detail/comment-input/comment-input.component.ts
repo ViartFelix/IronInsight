@@ -9,7 +9,7 @@ import Comment from '../../../../models/Comment';
 import { ActivatedRoute } from '@angular/router';
 import AuthService from '../../../../services/auth.service';
 import { catchError, EMPTY, map } from 'rxjs';
-import { User } from '../../../../interfaces/user.interface';
+import { User } from '../../../../models/User';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({

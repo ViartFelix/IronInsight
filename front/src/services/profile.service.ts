@@ -12,7 +12,7 @@ import {error} from "@angular/compiler-cli/src/transformers/util";
 export class ProfileService {
   constructor(
     private http: HttpClient,
-    private _authService: AuthService  // injecting AuthService to get user's id_user'
+    private _authService: AuthService
   ) {
   }
 
@@ -28,7 +28,5 @@ export class ProfileService {
     );
   }
 
-  get authService(): AuthService {
-    return this._authService;
-  }
+  get authService(): AuthService { return this._authService; }
 }
