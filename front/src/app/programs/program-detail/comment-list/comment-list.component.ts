@@ -19,7 +19,6 @@ export class CommentListComponent {
   ngOnInit() {
     this.commentService.getCommentsFromPrograms(this.programID.toString()).subscribe((result) => {
       this.comments = result;
-      console.log(result);
     });
   }
 }
