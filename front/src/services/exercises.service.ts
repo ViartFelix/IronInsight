@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { catchError, EMPTY, map, Observable, tap } from 'rxjs';
+import { catchError, EMPTY, map, Observable, of, tap } from 'rxjs';
 import { Exercise } from '../models/Exercise';
 import { environment } from '../environnment';
 import { ExerciseFilters } from '../models/ExerciseFilters';
@@ -61,4 +61,19 @@ export class ExercisesService {
             })
         );
     }
+
+  postNewExercise(file: File, exercise: Exercise, cat: string, dif: string): Observable<string> {
+    const formData = new FormData();
+    formData.append('file', file, file.name);
+    formData.append('exercise', JSON.stringify(exercise));
+    formData.append('category', cat);
+    formData.append('difficulty', dif);
+
+    return this.http.post<string>(`${environment.apiUrl}/new-exercise`, formData).pipe(
+      catchError((error: Error) => {
+        console.error('Error posting new exercise:', error);
+        return EMPTY;
+      })
+    );
+  }
 }

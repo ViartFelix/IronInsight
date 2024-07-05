@@ -1,5 +1,8 @@
 <ng-container>
     <h1>Liste des exercices</h1>
+    <div class="exercise-creation">
+        <button *ngIf="1===1" mat-button [routerLink]="['/exercice-creation']">Créer un exercice</button>
+    </div>
     <div class="exercises-filters">
         <app-exercise-filters (filters)="searchFromFilters($event)"></app-exercise-filters>
     </div>

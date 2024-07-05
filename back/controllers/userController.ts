@@ -65,7 +65,7 @@ class UserController {
         await bcrypt.compare(userReq.password, user.password, function (err, isSame) {
           //if an error or is not the same password
           if (err || !isSame) {
-            res.status(401).send({
+            res.status(403).send({
               message: "Invalid credentials."
             })
           }
@@ -83,7 +83,7 @@ class UserController {
         })
       } else {
         res.status(403).send({
-          message: "Invalid credentials: not found"
+          message: "Invalid credentials."
         })
       }
     } catch (e) {

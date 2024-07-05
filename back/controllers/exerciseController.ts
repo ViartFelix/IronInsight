@@ -1,5 +1,7 @@
 import {router} from "../src/router";
 import {exerciseService} from "../services/ExerciseService";
+import uploadMiddleware from "../middlewares/fileMiddleware";
+import Exercise from "../models/Exercise";
 
 class ExerciseController {
     constructor() {}
@@ -11,6 +13,7 @@ class ExerciseController {
         router.get('/exercises-from-program/:id', this.handleAllExercisesFromOneProgram)
         router.get('/exercise-filters', this.handleLoadFilters)
         router.post('/exercise-from-filters', this.handleAllExercisesFromFilters)
+        router.post('/new-exercise', this.handleNewExercise, uploadMiddleware)
     }
 
     private handleAllExercises(req, res) {
@@ -40,6 +43,13 @@ class ExerciseController {
     private handleAllExercisesFromFilters(req, res) {
         exerciseService.getExerciseFromFilters(req.body).then((exercises) => {
             res.send(exercises)
+        })
+    }
+
+    private handleNewExercise(req, res) {
+        const { exercise, category, difficulty } = req.body;
+        exerciseService.postNewExercise({ exercise, category, difficulty }, req.file.filename).then((response) => {
+            res.send(response)
         })
     }
 }

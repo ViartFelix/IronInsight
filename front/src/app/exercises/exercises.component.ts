@@ -5,11 +5,14 @@ import { Exercise } from '../../models/Exercise';
 import { ExerciseItemComponent } from './exercise-item/exercise-item.component';
 import { ExerciseFiltersComponent } from './exercise-filters/exercise-filters.component';
 import { ExerciseFilters } from '../../models/ExerciseFilters';
+import AuthService from '../../services/auth.service';
+import { RouterLink } from '@angular/router';
+import { MatButton } from '@angular/material/button';
 
 @Component({
   selector: 'app-exercises',
   standalone: true,
-  imports: [CommonModule, ExerciseItemComponent, ExerciseFiltersComponent],
+  imports: [CommonModule, ExerciseItemComponent, ExerciseFiltersComponent, RouterLink, MatButton],
   templateUrl: './exercises.component.html',
   styleUrl: './exercises.component.scss'
 })
@@ -18,7 +21,7 @@ export class ExercisesComponent {
 
   protected exampleResponse: Exercise = {} as Exercise;
 
-  constructor(private exercisesService: ExercisesService) {}
+  constructor(private exercisesService: ExercisesService, protected authService: AuthService) {}
 
   ngOnInit() {
     this.exercisesService.getExercises().subscribe((exercises) => {
@@ -31,4 +34,5 @@ export class ExercisesComponent {
       this.response = exercises
     });
   }
+  
 }

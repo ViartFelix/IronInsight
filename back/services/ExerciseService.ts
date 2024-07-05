@@ -28,7 +28,7 @@ class ExerciseService
 
         const filters = await Promise.all([categoryQuery, difficultyQuery]);
 
-        return filters;
+        return filters as ExerciseFilters[];
     }
 
     public async getExerciseFromFilters(filters: ExerciseFilters): Promise<Exercise> {
@@ -52,6 +52,11 @@ class ExerciseService
 
         const r = await dbService.query(query, params);
         return r as Exercise;
+    }
+
+    public async postNewExercise(formData: any, filename: string): Promise<string>{
+        const r = await dbService.query("INSERT INTO exercise (wording, duration, image, category, difficulty) VALUES (?, ?, ?, ?, ?);", [JSON.parse(formData.exercise).wording, JSON.parse(formData.exercise).duration, filename, formData.category, formData.difficulty]);
+        return r as string;
     }
 
   /**

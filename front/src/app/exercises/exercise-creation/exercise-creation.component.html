@@ -1,0 +1,32 @@
+<div class="exercise-creation-form">
+    <form [formGroup]="form" action="#" (ngSubmit)="submitExerciseCreation()" enctype="multipart/form-data">
+        <label>
+            Nom:
+            <input type="text" formControlName="exerciseName">
+        </label>
+        <label>
+            Durée:
+            <input type="time" formControlName="exerciseDuration">
+        </label>
+        <label>
+            Image:
+            <input type="file" formControlName="exerciseImage" (change)="onFileSelected($event)" accept=".jpg,.png,.gif,.webp,.jpeg">
+        </label>
+        <span *ngIf="file?.errors?.['invalidExtension']" class="error-message">
+            L'extension du fichier est invalide.
+        </span>
+        <label>
+            Catégorie:
+            <select formControlName="exerciseCategory">
+                <option *ngFor="let category of categoriesFilter" [value]="category.code">{{ category.wording }}</option>
+            </select>
+        </label>
+        <label>
+            Difficulté:
+            <select formControlName="exerciseDifficulty">
+                <option *ngFor="let difficulty of difficultiesFilter" [value]="difficulty.id">{{ difficulty.wording }}</option>
+            </select>
+        </label>
+        <button type="submit">Créer l'exercice</button>
+    </form>
+</div>
