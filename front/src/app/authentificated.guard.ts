@@ -10,7 +10,6 @@ export class AuthentificatedGuard implements CanActivate {
   constructor(private authService: AuthService, private router: Router) {}
 
   canActivate(): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    console.log('Logged : ', this.authService.isLoggedIn());
     if(this.authService.isLoggedIn()) {
       return true;
     } else {

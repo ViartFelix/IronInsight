@@ -4,10 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="de7ca3ed-f100-490d-a07e-8e730243af48" name="Changes" comment="(+) wip profile">
+    <list default="true" id="de7ca3ed-f100-490d-a07e-8e730243af48" name="Changes" comment="(~) fix login">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/controllers/userController.ts" beforeDir="false" afterPath="$PROJECT_DIR$/back/controllers/userController.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/src/router.ts" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/router.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/app/authentificated.guard.ts" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/app/authentificated.guard.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/app/home/home.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/app/home/home.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/services/user.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/services/user.service.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,7 +43,7 @@
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/ViartFelix/IronInsight.git&quot;,
-    &quot;accountId&quot;: &quot;cfac2eb9-ac42-4671-a546-97743bc9009f&quot;
+    &quot;accountId&quot;: &quot;1e0a2593-eaf5-460c-a405-3358234cd4d7&quot;
   }
 }</component>
   <component name="PhpWorkspaceProjectConfiguration" interpreter_name="/bin/php" />
@@ -80,7 +81,7 @@
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;proofread&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
     &quot;ts.external.directory.path&quot;: &quot;C:\\Users\\Félix\\Desktop\\projets\\ironInsight\\front\\node_modules\\typescript\\lib&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
@@ -131,7 +132,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-WS-241.17011.90" />
+        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-WS-241.18034.50" />
       </set>
     </attachedChunks>
   </component>
@@ -164,7 +165,10 @@
       <workItem from="1720095359620" duration="1966000" />
       <workItem from="1720098412058" duration="5057000" />
       <workItem from="1720246093263" duration="97000" />
-      <workItem from="1720351932288" duration="837000" />
+      <workItem from="1720351932288" duration="2105000" />
+      <workItem from="1720355431867" duration="1899000" />
+      <workItem from="1720376110367" duration="145000" />
+      <workItem from="1720376259061" duration="62000" />
     </task>
     <task id="LOCAL-00001" summary="(+) revert back">
       <option name="closed" value="true" />
@@ -246,7 +250,15 @@
       <option name="project" value="LOCAL" />
       <updated>1720103665227</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="(~) fix login">
+      <option name="closed" value="true" />
+      <created>1720352888530</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1720352888530</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -283,7 +295,8 @@
     <MESSAGE value="(+) user change ok" />
     <MESSAGE value="(-) deleted useless console log" />
     <MESSAGE value="(+) updated register &amp; login to the new server responses" />
-    <option name="LAST_COMMIT_MESSAGE" value="(+) updated register &amp; login to the new server responses" />
+    <MESSAGE value="(~) fix login" />
+    <option name="LAST_COMMIT_MESSAGE" value="(~) fix login" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

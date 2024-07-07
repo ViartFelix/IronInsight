@@ -1,9 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import {inject, Injectable} from "@angular/core";
 import {User} from "../models/User";
-import {map, Observable, of, Subscription} from "rxjs";
+import {catchError, EMPTY, map, Observable, of, Subscription} from "rxjs";
 import { environment } from '../environnment';
 import AuthService from "./auth.service";
+import {TrainingProgram} from "../models/Programs";
 
 
 @Injectable({
@@ -36,4 +37,16 @@ export class UserService {
 
     return this.http.post<boolean>(`${environment.apiUrl}/change-user`, JSON.stringify(userData), headers)
   }
+
+  public getHomePosts(): Observable<TrainingProgram[]>
+  {
+    return this.http.get<TrainingProgram[]>(`${environment.apiUrl}/home-programs`).pipe(
+      map((data: TrainingProgram[]) => {return data}),
+      catchError((error: Error) => {
+        console.log(error)
+        return EMPTY;
+      })
+    );
+  }
 }
+
