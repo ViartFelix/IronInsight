@@ -25,7 +25,7 @@ class UserController {
 
       if (doesExist) {
         res.status(401).json({
-          message: "User already exists."
+          message: "The username or email already exists."
         })
       } else {
         const registerAttempt = await userService.registerUser(userReq);
@@ -52,7 +52,8 @@ class UserController {
    */
   public async handlerLogin(req: any, res: any): Promise<void> {
     try {
-      const userReq = userService.toUser(req.body);
+      //FIXED: Login didn't work because flashPwd is set to false by default
+      const userReq = userService.toUser(req.body, true);
       //same email and username for the comparaison in the login (in the front-end, the filed is 'user or email')
       userReq.username = userReq.email = req.body.userOrEmail
       //if the user exists in the db
@@ -66,8 +67,11 @@ class UserController {
           //if an error or is not the same password
           if (err || !isSame) {
             res.status(403).send({
-              message: "Invalid credentials."
+              message: "Invalid credentials.",
+              isSame: isSame,
             })
+
+            return;
           }
           //else the passwords match and no error happened, great !
           //we remove the password from the user object
@@ -83,7 +87,7 @@ class UserController {
         })
       } else {
         res.status(403).send({
-          message: "Invalid credentials."
+          message: "Invalid credentials. Not found"
         })
       }
     } catch (e) {

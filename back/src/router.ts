@@ -19,7 +19,7 @@ class Router
      * Get request
      * @param url
      * @param callback
-     * @param middleware
+     * @param middleware Express middleware
      */
     public get(url: string, callback: Function, middleware: any|null = null)
     {
