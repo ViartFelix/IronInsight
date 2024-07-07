@@ -15,6 +15,7 @@ class UserController {
     router.post('/register', this.handlerRegister)
     router.post('/login', this.handlerLogin)
     router.post('/change-user', this.handleUserChange, auth)
+    router.get("/home-programs", this.randomPosts)
   }
 
   public async handlerRegister(req: any, res: any): Promise<void> {
@@ -126,8 +127,34 @@ class UserController {
       }
     } catch (e) {
       res.status(500).json({
-        status: false,
         message: "Something went wrong."
+      })
+    }
+  }
+
+  /**
+   * Gets random posts for the homepage
+   * @param req
+   * @param res
+   * @private
+   */
+  private async randomPosts(req, res)
+  {
+    try {
+      const limit = 20
+
+      const result = userService.getRandomPosts(limit);
+      result.then((r) => {
+        res.status(200).send(r)
+      }).catch(e => {
+        res.status(500).json({
+          message: "Something went wrong when fetching posts."
+        })
+      })
+
+    } catch (e) {
+      res.status(500).json({
+        message: "Something went wrong when fetching posts."
       })
     }
   }

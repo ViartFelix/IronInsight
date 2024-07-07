@@ -1,7 +1,8 @@
 import {dbService} from "./db-service";
 import User from "../models/User";
 import bcrypt from "bcrypt";
-import jwt from "jsonwebtoken";
+import TrainingProgram from "../models/TrainingProgram";
+import {programService} from "./ProgramService";
 
 class UserService {
   constructor() {
@@ -60,6 +61,7 @@ class UserService {
 
   /**
    * Fetches an user by it's username
+   * @deprecated
    * @param username
    */
   public async getUserByUsername(username: string | undefined): Promise<User> {
@@ -125,7 +127,31 @@ class UserService {
       created_at: data.created_at,
       updated_at: data.updated_at,
       password: (flashPwd ? data.password : undefined)
-    } as unknown as User;
+    } as User;
+  }
+
+  /**
+   * Takes random posts in the DB, to give them back.
+   * @param limit Number of posts to fetch
+   */
+  public async getRandomPosts(limit: number): Promise<TrainingProgram[]>
+  {
+    //we fetch first random posts
+    const rawResult = await dbService.query("SELECT * FROM training_done " +
+      "JOIN users ON training_done.id_user = users.id_user " +
+      "JOIN training_program ON training_done.id_program = training_program.id_program " +
+      "ORDER BY RAND() LIMIT " + limit
+    ) as Array<any>;
+
+    //what will be returned
+    const final: TrainingProgram[] = [];
+    //for some god-knows-what reason, making an array.map will make the return value Promise<Promise<TrainingProgram[]>>
+    //so i did a simple for of loop that just works
+    for(let row of rawResult) {
+      final.push(await programService.toProgram(row))
+    }
+
+    return final;
   }
 }
 

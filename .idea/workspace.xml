@@ -4,11 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="de7ca3ed-f100-490d-a07e-8e730243af48" name="Changes" comment="(~) fix login">
+    <list default="true" id="de7ca3ed-f100-490d-a07e-8e730243af48" name="Changes" comment="(+) begin home posts">
+      <change afterPath="$PROJECT_DIR$/back/img/.gitkeep" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/src/app/authentificated.guard.ts" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/app/authentificated.guard.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/back/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/controllers/userController.ts" beforeDir="false" afterPath="$PROJECT_DIR$/back/controllers/userController.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/services/ExerciseService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/back/services/ExerciseService.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/services/ProgramService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/back/services/ProgramService.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/services/UserService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/back/services/UserService.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/app/home/home.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/app/home/home.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/front/src/app/home/home.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/app/home/home.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/src/services/user.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/services/user.service.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -168,7 +173,7 @@
       <workItem from="1720351932288" duration="2105000" />
       <workItem from="1720355431867" duration="1899000" />
       <workItem from="1720376110367" duration="145000" />
-      <workItem from="1720376259061" duration="62000" />
+      <workItem from="1720376259061" duration="5050000" />
     </task>
     <task id="LOCAL-00001" summary="(+) revert back">
       <option name="closed" value="true" />
@@ -258,7 +263,15 @@
       <option name="project" value="LOCAL" />
       <updated>1720352888530</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="(+) begin home posts">
+      <option name="closed" value="true" />
+      <created>1720376429954</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1720376429954</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -296,7 +309,8 @@
     <MESSAGE value="(-) deleted useless console log" />
     <MESSAGE value="(+) updated register &amp; login to the new server responses" />
     <MESSAGE value="(~) fix login" />
-    <option name="LAST_COMMIT_MESSAGE" value="(~) fix login" />
+    <MESSAGE value="(+) begin home posts" />
+    <option name="LAST_COMMIT_MESSAGE" value="(+) begin home posts" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

@@ -1,6 +1,10 @@
 import {dbService} from "./db-service";
 import Program from "../models/TrainingProgram";
 import User from "../models/User";
+import TrainingProgram from "../models/TrainingProgram";
+import {userService} from "./UserService";
+import Exercise from "../models/Exercise";
+import {exerciseService} from "./ExerciseService";
 
 class ProgramService {
 
@@ -58,6 +62,28 @@ class ProgramService {
     } catch (err) {
       return false;
     }
+  }
+
+  /**
+   * Will attempt to convert provided data into a TrainingProgram Model
+   * @param data
+   */
+  public async toProgram(data: any): Promise<TrainingProgram>
+  {
+    const exercises: Exercise[] = await exerciseService.getAllExercisesFromProgram(data.id_program)
+    const created_at: Date = new Date(data.created_at);
+    const user = userService.toUser(data)
+
+    return {
+      id_program: data.id_program,
+      name: data.name,
+      description: data.description,
+      created_at: created_at,
+
+      user: user,
+      exercises: exercises,
+
+    } as TrainingProgram
   }
 }
 
