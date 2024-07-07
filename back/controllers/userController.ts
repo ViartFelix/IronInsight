@@ -5,6 +5,7 @@ import {jwtService} from "../services/JwtService";
 import User from "../models/User";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
+import TrainingProgram from "../models/TrainingProgram";
 
 
 class UserController {
@@ -141,17 +142,18 @@ class UserController {
   private async randomPosts(req, res)
   {
     try {
+      //TODO: half random posts, the other half the last post from friends
       const limit = 20
 
-      const result = userService.getRandomPosts(limit);
-      result.then((r) => {
+      const result: Promise<TrainingProgram[]> = userService.getRandomPosts(limit);
+      result.then((r: TrainingProgram[]) => {
         res.status(200).send(r)
-      }).catch(e => {
+      })
+      result.catch((e: any) => {
         res.status(500).json({
           message: "Something went wrong when fetching posts."
         })
       })
-
     } catch (e) {
       res.status(500).json({
         message: "Something went wrong when fetching posts."

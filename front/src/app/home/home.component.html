@@ -1,3 +1,31 @@
-<p>Home works!</p>
+<div>
+  <h1> Mon feed </h1>
 
-<button (click)="getHomePosts()" mat-button>Recharger les posts</button>
+  <div class="main">
+    @if(isLoaded) {
+      <div class="single-card">
+        @for(post of homePosts; track $index ) {
+          <mat-card>
+            <mat-card-header>
+              <mat-card-title>{{ post.user.username }}</mat-card-title>
+              <mat-card-subtitle>{{ post.name }} le {{ post.done_at }}</mat-card-subtitle>
+            </mat-card-header>
+
+            <mat-card-content>
+              <h3>Liste exercises</h3>
+
+              <ul>
+                @for(exercise of post.exercises; track $index) {
+                  <li>{{ exercise.wording }}</li>
+                }
+              </ul>
+            </mat-card-content>
+          </mat-card>
+        }
+
+      </div>
+    } @else {
+      <mat-progress-spinner></mat-progress-spinner>
+    }
+  </div>
+</div>

@@ -5,6 +5,7 @@ import TrainingProgram from "../models/TrainingProgram";
 import {userService} from "./UserService";
 import Exercise from "../models/Exercise";
 import {exerciseService} from "./ExerciseService";
+import TrainingTime from "../models/TrainingTime";
 
 class ProgramService {
 
@@ -74,6 +75,9 @@ class ProgramService {
     const created_at: Date = new Date(data.created_at);
     const user = userService.toUser(data)
 
+    const timeTaken = new TrainingTime(data.time as string)
+    timeTaken.parse()
+
     return {
       id_program: data.id_program,
       name: data.name,
@@ -83,6 +87,8 @@ class ProgramService {
       user: user,
       exercises: exercises,
 
+      done_at: data.done_at,
+      time: timeTaken.toObject(),
     } as TrainingProgram
   }
 }
