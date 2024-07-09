@@ -44,12 +44,12 @@ class ExerciseService {
     }
 
     if (filters.category) {
-      query += ' AND exc.code = ?';
+      query += ' AND exe.category = ?';
       params.push(filters.category);
     }
 
     if (filters.difficulty) {
-      query += ' AND exd.id = ?';
+      query += ' AND exe.difficulty = ?';
       params.push(filters.difficulty);
     }
 
