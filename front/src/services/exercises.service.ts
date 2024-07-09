@@ -14,7 +14,12 @@ export class ExercisesService {
 
     getExercises(): Observable<Exercise[]> {
         return this.http.get<Exercise[]>(`${environment.apiUrl}/exercises`).pipe(
-            map((data: Exercise[]) => {return data}),
+            map((data: Exercise[]) => {
+                return data.map(exercise => ({
+                    ...exercise,
+                    image: `${environment.apiUrl}/images/${exercise.image}`
+                } as Exercise));
+            }),
             catchError((error: Error) => {
                 console.error(error);
                 return EMPTY;
@@ -24,7 +29,12 @@ export class ExercisesService {
 
     getOneExercise(id: string) {
         return this.http.get<Exercise>(`${environment.apiUrl}/exercise/${id}`).pipe(
-            map((data: Exercise) => data),
+            map((data: Exercise) => {
+                return {
+                    ...data,
+                    image: `${environment.apiUrl}/images/${data.image}`
+                } as Exercise
+            }),
             catchError((error: Error) => {
                 console.error(error);
                 return EMPTY;
@@ -34,7 +44,12 @@ export class ExercisesService {
 
     getExercisesFromPrograms(id_program: string): Observable<Exercise[]> {
         return this.http.get<Exercise[]>(`${environment.apiUrl}/exercises-from-program/${id_program}`).pipe(
-            map((data: Exercise[]) => {return data}),
+            map((data: Exercise[]) => {
+                return data.map(exercise => ({
+                    ...exercise,
+                    image: `${environment.apiUrl}/images/${exercise.image}`
+                } as Exercise));
+            }),
             catchError((error: Error) => {
                 console.error(error);
                 return EMPTY;
@@ -54,7 +69,12 @@ export class ExercisesService {
 
     getExerciseFromFilters(filters: ExerciseFilters): Observable<Exercise[]> {
         return this.http.post<Exercise[]>(`${environment.apiUrl}/exercise-from-filters`, filters).pipe(
-            map((data: Exercise[]) => data),
+            map((data: Exercise[]) => {
+                return data.map(exercise => ({
+                    ...exercise,
+                    image: `${environment.apiUrl}/images/${exercise.image}`
+                } as Exercise));
+            }),
             catchError((error: Error) => {
                 console.error(error);
                 return EMPTY;

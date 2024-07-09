@@ -1,7 +1,8 @@
 import {router} from "../src/router";
 import {exerciseService} from "../services/ExerciseService";
 import uploadMiddleware from "../middlewares/fileMiddleware";
-import Exercise from "../models/Exercise";
+import path = require("path");
+import fs = require("fs");
 
 class ExerciseController {
     constructor() {}
@@ -12,6 +13,7 @@ class ExerciseController {
         router.get('/exercise/:id', this.handleOneExercises)
         router.get('/exercises-from-program/:id', this.handleAllExercisesFromOneProgram)
         router.get('/exercise-filters', this.handleLoadFilters)
+        router.get('/images/:imageName', this.serveImage)
         router.post('/exercise-from-filters', this.handleAllExercisesFromFilters)
         router.post('/new-exercise', this.handleNewExercise, uploadMiddleware)
     }
@@ -51,6 +53,19 @@ class ExerciseController {
         exerciseService.postNewExercise({ exercise, category, difficulty }, req.file.filename).then((response) => {
             res.send(response)
         })
+    }
+
+    private serveImage(req, res) {
+        const imageName = req.params.imageName;
+        const imagePath = path.join(__dirname, '../img', imageName);
+
+        fs.access(imagePath, fs.constants.F_OK, (err) => {
+            if (err) {
+                return res.status(404).send('Image not found');
+            }
+
+            res.sendFile(imagePath);
+        });
     }
 }
 

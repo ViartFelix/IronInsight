@@ -7,6 +7,12 @@
     height: 15rem;
     padding: 0.8rem;
 
+    &__image {
+        img {
+            width: 10rem;
+        }
+    }
+
     &__header {
         text-decoration: underline;
     }
