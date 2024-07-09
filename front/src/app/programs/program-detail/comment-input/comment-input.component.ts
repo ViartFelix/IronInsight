@@ -8,7 +8,7 @@ import { MatButton } from '@angular/material/button';
 import Comment from '../../../../models/Comment';
 import { ActivatedRoute } from '@angular/router';
 import AuthService from '../../../../services/auth.service';
-import { catchError, EMPTY, map } from 'rxjs';
+import { BehaviorSubject, catchError, EMPTY, map } from 'rxjs';
 import { User } from '../../../../models/User';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
@@ -22,7 +22,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 export class CommentInputComponent {
   protected newComment!: Comment;
   protected form!: FormGroup;
-  private actualUser: any;
+  private actualUser!: BehaviorSubject<User>;
 
   constructor(
     private commentsService: CommentsService,
@@ -42,7 +42,7 @@ export class CommentInputComponent {
     if(this.form.valid) {
       this.newComment = {
         id_program: this.route.snapshot.paramMap.get('id')!,
-        id_user: this.actualUser.id_user.toString(),
+        id_user: this.actualUser.getValue().id_user.toString(),
         comment: this.form.controls['comment'].value,
       }
       this.commentsService.postNewComment(this.newComment)
