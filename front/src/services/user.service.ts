@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
 import {inject, Injectable} from "@angular/core";
 import {User} from "../models/User";
 import {catchError, EMPTY, map, Observable, of, Subscription} from "rxjs";
@@ -15,7 +15,8 @@ export class UserService {
 
   private http = inject(HttpClient);
 
-  constructor() {}
+  constructor(
+  ) {}
 
   public registerUser(user: User): Observable<boolean>
   {
@@ -41,12 +42,27 @@ export class UserService {
   public getHomePosts(): Observable<TrainingProgram[]>
   {
     return this.http.get<TrainingProgram[]>(`${environment.apiUrl}/home-programs`).pipe(
-      map((data: TrainingProgram[]) => {return data}),
+      map((data: TrainingProgram[]) => data),
       catchError((error: Error) => {
         console.log(error)
         return EMPTY;
       })
     );
+  }
+
+  public fetchContacts(user: User): Observable<User[]>
+  {
+    const headers = new HttpHeaders({ 'Content-Type': 'application/json' })
+    //putting idUser as the param
+    const params = new HttpParams().set('user', user.id_user);
+
+    return this.http.get<User[]>(`${environment.apiUrl}/friends`, { headers, params }).pipe(
+      map((data: User[], usr) => data),
+      catchError((error: Error) => {
+        console.log(error)
+        return EMPTY;
+      })
+    )
   }
 }
 

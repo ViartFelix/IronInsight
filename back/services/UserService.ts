@@ -153,6 +153,39 @@ class UserService {
 
     return final;
   }
+
+  /**
+   * Returns a list of the user's friends.
+   * @param userId
+   */
+  public async getUserFriends(userId: number): Promise<User[]>
+  {
+    const r = await dbService.query(
+      "SELECT * FROM friend " +
+      "JOIN users ON friend.id_user_1 = users.id_user OR friend.id_user_2 = users.id_user " +
+      "WHERE friend.id_user_1 = ? OR friend.id_user_2 = ?" ,
+      [userId, userId]
+    ) as Array<any>
+
+    //final array
+    const final: User[] = [];
+
+    for (let userRow of r)
+    {
+      //convert the data line to a User
+      const userFriend: User = userService.toUser(userRow);
+      //wtf, userId is considered as a string. Words can't describe my confusion
+      const numberUserId: number = parseInt(String(userId)) as number
+
+      //if it's not the same person as the one that requested contacts infos
+      if(userFriend.id_user !== numberUserId) {
+        //then we push the user
+        final.push(userFriend)
+      }
+    }
+
+    return final
+  }
 }
 
 export const userService = new UserService();

@@ -32,7 +32,6 @@ export default class TrainingTime
     //foreach in all time fragments of the original string
     splitedOG.forEach((timeFrag: string, index: number) => {
       //if the element can't be bound
-      console.log(index < orderProperties.length)
       if(index < orderProperties.length) {
         //we get the property of TrainingTime to bind to this
         const propertyToBind = orderProperties.at(index)

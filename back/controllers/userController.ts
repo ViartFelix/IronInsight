@@ -17,6 +17,7 @@ class UserController {
     router.post('/login', this.handlerLogin)
     router.post('/change-user', this.handleUserChange, auth)
     router.get("/home-programs", this.randomPosts)
+    router.get("/friends", this.handleContacts, auth)
   }
 
   public async handlerRegister(req: any, res: any): Promise<void> {
@@ -157,6 +158,22 @@ class UserController {
     } catch (e) {
       res.status(500).json({
         message: "Something went wrong when fetching posts."
+      })
+    }
+  }
+
+  private async handleContacts(req, res)
+  {
+    try {
+      const userId = req.query.user
+
+      const allFriends: User[] = await userService.getUserFriends(userId as number)
+
+      res.status(200).json(allFriends)
+    } catch (e) {
+      res.status(500).json({
+        error: e.toString(),
+        message: "Something went wrong when fetching your contacts."
       })
     }
   }
