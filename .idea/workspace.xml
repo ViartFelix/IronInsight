@@ -4,13 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="de7ca3ed-f100-490d-a07e-8e730243af48" name="Changes" comment="(+) random posts on front-end css remain">
+    <list default="true" id="de7ca3ed-f100-490d-a07e-8e730243af48" name="Changes" comment="(+) friends list display ok">
+      <change afterPath="$PROJECT_DIR$/back/middlewares/jwtDecoderMiddleware.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/back/controllers/userController.ts" beforeDir="false" afterPath="$PROJECT_DIR$/back/controllers/userController.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/models/TrainingTime.ts" beforeDir="false" afterPath="$PROJECT_DIR$/back/models/TrainingTime.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/services/JwtService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/back/services/JwtService.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/back/services/UserService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/back/services/UserService.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/src/app.ts" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/app.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/front/src/app/contact/contact.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/app/contact/contact.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/front/src/app/contact/contact.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/app/contact/contact.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/interceptors/token.interceptor.ts" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/interceptors/token.interceptor.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/front/src/services/user.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/services/user.service.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -174,7 +177,7 @@
       <workItem from="1720376259061" duration="5837000" />
       <workItem from="1720382149204" duration="3660000" />
       <workItem from="1720545099359" duration="27000" />
-      <workItem from="1720639266847" duration="4739000" />
+      <workItem from="1720639266847" duration="6877000" />
     </task>
     <task id="LOCAL-00001" summary="(+) revert back">
       <option name="closed" value="true" />
@@ -288,7 +291,15 @@
       <option name="project" value="LOCAL" />
       <updated>1720385809272</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="(+) friends list display ok">
+      <option name="closed" value="true" />
+      <created>1720644078685</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1720644078685</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -329,7 +340,8 @@
     <MESSAGE value="(+) begin home posts" />
     <MESSAGE value="(+) random posts back-end ok" />
     <MESSAGE value="(+) random posts on front-end css remain" />
-    <option name="LAST_COMMIT_MESSAGE" value="(+) random posts on front-end css remain" />
+    <MESSAGE value="(+) friends list display ok" />
+    <option name="LAST_COMMIT_MESSAGE" value="(+) friends list display ok" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

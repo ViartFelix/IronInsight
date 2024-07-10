@@ -6,6 +6,7 @@ import User from "../models/User";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 import TrainingProgram from "../models/TrainingProgram";
+import {jwtDecoderMiddleware} from "../middlewares/jwtDecoderMiddleware";
 
 
 class UserController {
@@ -17,7 +18,7 @@ class UserController {
     router.post('/login', this.handlerLogin)
     router.post('/change-user', this.handleUserChange, auth)
     router.get("/home-programs", this.randomPosts)
-    router.get("/friends", this.handleContacts, auth)
+    router.get("/friends", this.handleContacts, [auth, jwtDecoderMiddleware])
   }
 
   public async handlerRegister(req: any, res: any): Promise<void> {
@@ -81,7 +82,7 @@ class UserController {
           user.password = undefined
 
           //generates token
-          const token = jwtService.generateToken(user.toString());
+          const token = jwtService.generateToken(user);
 
           res.status(200).send({
             token: token,
@@ -114,7 +115,7 @@ class UserController {
         const isUpdated = await userService.editUserData(usrReq);
 
         if(isUpdated) {
-          const renewToken = jwtService.generateToken(usrReq.toString())
+          const renewToken = jwtService.generateToken(usrReq)
           //fetch the new user's data to give back to the front-end
           const updatedUser = await userService.getUserById(usrReq.id_user)
 
@@ -165,9 +166,9 @@ class UserController {
   private async handleContacts(req, res)
   {
     try {
-      const userId = req.query.user
+      const userReq: User = req.user;
 
-      const allFriends: User[] = await userService.getUserFriends(userId as number)
+      const allFriends: User[] = await userService.getUserFriends(userReq)
 
       res.status(200).json(allFriends)
     } catch (e) {

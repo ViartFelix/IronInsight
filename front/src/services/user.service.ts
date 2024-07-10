@@ -50,13 +50,9 @@ export class UserService {
     );
   }
 
-  public fetchContacts(user: User): Observable<User[]>
+  public fetchContacts(): Observable<User[]>
   {
-    const headers = new HttpHeaders({ 'Content-Type': 'application/json' })
-    //putting idUser as the param
-    const params = new HttpParams().set('user', user.id_user);
-
-    return this.http.get<User[]>(`${environment.apiUrl}/friends`, { headers, params }).pipe(
+    return this.http.get<User[]>(`${environment.apiUrl}/friends`).pipe(
       map((data: User[], usr) => data),
       catchError((error: Error) => {
         console.log(error)

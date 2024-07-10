@@ -18,7 +18,7 @@ export function tokenInterceptor(request: HttpRequest<any>, next: HttpHandlerFn)
 
     request = request.clone({
       setHeaders: {
-        Authorization: `Bearer ${token}`
+        'authorization': `Bearer ${token}`
       }
     });
   }

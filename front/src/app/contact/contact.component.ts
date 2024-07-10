@@ -34,12 +34,18 @@ export class ContactComponent {
 
   ngOnInit()
   {
-    const user = this.authSevice.user.value
-
-    this.userService.fetchContacts(user).subscribe((data: User[]) => {
+    this.userService.fetchContacts().subscribe((data: User[]) => {
       this._isFetching = false;
       this._allContacts = data
     })
+  }
+
+  /**
+   * Makes a request to delete a friend on the database
+   */
+  deleteFriend()
+  {
+    return false;
   }
 
   get allContacts(): User[] { return this._allContacts; }
