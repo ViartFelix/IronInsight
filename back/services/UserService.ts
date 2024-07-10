@@ -218,6 +218,51 @@ class UserService {
       }
     )
   }
+
+  /**
+   * Determines if the relation can be inserted (is not already in the DB)
+   * @param userReq
+   * @param idOtherUser
+   */
+  public async canAddFriend(userReq: User, idOtherUser: number): Promise<boolean>
+  {
+    let isOk = false;
+
+    //used for the two queries
+    const sqlParams = [userReq.id_user, idOtherUser, idOtherUser, userReq.id_user]
+    //comment where clause used for the two sql queries
+    const whereClause: string = "WHERE (id_user_1 = ? AND id_user_2 = ?) OR (id_user_1 = ? AND id_user_2 = ?)"
+
+    await dbService.query("SELECT * FROM friend " + whereClause, sqlParams, function (err, result: any, fields) {
+      //if no error happened, and that no row exists
+      if(!err && result.length < 1) {
+        isOk = true;
+      }
+    })
+
+    return isOk;
+  }
+
+  /**
+   * Will attempt to insert a new friend in the DB
+   * @param userReq
+   * @param idOtherUser
+   */
+  public async addFriendRelation(userReq: User, idOtherUser: number): Promise<boolean>
+  {
+    let isOk = false;
+
+    await dbService.query("INSERT INTO friend " +
+      "(id_user_1, id_user_2) VALUES" +
+      "(?,?)",
+      [userReq.id_user, idOtherUser],
+      function (err, result, fields) {
+        //if any error happened, then we return false
+        isOk = (typeof err !== "undefined")
+      })
+
+    return isOk
+  }
 }
 
 export const userService = new UserService();

@@ -123,8 +123,19 @@ export class ProfileChangeDialogComponent {
         duration: 5000,
         panelClass: ['success']
       });
+
+      const rawContacts = (data.contacts.length > 0 ? data.contacts : []) as User[]
+
+      const finalContactList: number[] = [];
+
+      if(rawContacts.length > 0) {
+        rawContacts.forEach((user: User) => {
+          finalContactList.push(user.id_user)
+        })
+      }
+
       //updating the jwt token with the new user's infos
-      this.authService.makeUserLoggedIn(data.token, data.user)
+      this.authService.makeUserLoggedIn(data.token, data.user, finalContactList)
       this.dialogRef.close();
     })
   }

@@ -20,6 +20,19 @@
                 }
               </ul>
             </mat-card-content>
+
+          @if(authService.isLoggedIn()) {
+            @if (areFriends(post.user.id_user)) {
+              <mat-card-actions>
+                <button mat-button (click)="deleteFriend(post.user.id_user, post.user.username)">Retirer l'ami</button>
+              </mat-card-actions>
+            } @else {
+              <mat-card-actions>
+                <button mat-button (click)="addFriend(post.user.id_user, post.user.username)">Ajouter ami</button>
+              </mat-card-actions>
+            }
+
+          }
           </mat-card>
         }
 

@@ -19,7 +19,8 @@ class UserController {
     router.post('/change-user', this.handleUserChange, auth)
     router.get("/home-programs", this.randomPosts)
     router.get("/friends", this.handleContacts, [auth, jwtDecoderMiddleware])
-    router.delete('/friends/delete/:id' ,this.handleDeleteFriend, [auth, jwtDecoderMiddleware])
+    router.delete('/friends/delete/:id', this.handleDeleteFriend, [auth, jwtDecoderMiddleware])
+    router.post('/friends/add/:id', this.addFriend, [auth, jwtDecoderMiddleware])
   }
 
   public async handlerRegister(req: any, res: any): Promise<void> {
@@ -68,7 +69,7 @@ class UserController {
         //'clean' user, with all the data form the db
         const user: User = await userService.getUser(userReq.email, userReq.username);
 
-        await bcrypt.compare(userReq.password, user.password, function (err, isSame) {
+        await bcrypt.compare(userReq.password, user.password, async function (err, isSame) {
           //if an error or is not the same password
           if (err || !isSame) {
             res.status(403).send({
@@ -84,10 +85,12 @@ class UserController {
 
           //generates token
           const token = jwtService.generateToken(user);
+          const contactList: User[] = await userService.getUserFriends(user)
 
           res.status(200).send({
             token: token,
             data: user,
+            contacts: contactList,
           })
         })
       } else {
@@ -102,20 +105,19 @@ class UserController {
     }
   }
 
-  private async handleUserChange(req, res)
-  {
+  private async handleUserChange(req, res) {
     try {
       const usrReq = req.body as User;
 
       const doesExist = await userService.userExists(usrReq);
-      if(doesExist) {
+      if (doesExist) {
         res.status(403).send({
           message: "Username or email already in use. Please chose another one."
         })
       } else {
         const isUpdated = await userService.editUserData(usrReq);
 
-        if(isUpdated) {
+        if (isUpdated) {
           const renewToken = jwtService.generateToken(usrReq)
           //fetch the new user's data to give back to the front-end
           const updatedUser = await userService.getUserById(usrReq.id_user)
@@ -142,8 +144,7 @@ class UserController {
    * @param res
    * @private
    */
-  private async randomPosts(req, res)
-  {
+  private async randomPosts(req, res) {
     try {
       //TODO: half random posts, the other half the last post from friends
       const limit = 20
@@ -164,8 +165,7 @@ class UserController {
     }
   }
 
-  private async handleContacts(req, res)
-  {
+  private async handleContacts(req, res) {
     try {
       //authed user
       const userReq: User = req.user;
@@ -180,8 +180,7 @@ class UserController {
     }
   }
 
-  private async handleDeleteFriend(req, res)
-  {
+  private async handleDeleteFriend(req, res) {
     try {
       //authed user that makes the request
       const userReq = req.user as User;
@@ -189,7 +188,7 @@ class UserController {
 
       const isOk = await userService.deleteFriendRelation(userReq, otherUser)
 
-      if(!isOk) {
+      if (!isOk) {
         throw new Error("Can't delete !")
       } else {
         res.sendStatus(200)
@@ -198,6 +197,34 @@ class UserController {
     } catch (e) {
       res.status(500).json({
         message: "Something went wrong when deleting your relationship."
+      })
+    }
+  }
+
+  private async addFriend(req, res) {
+    try {
+      //authed user that makes the request
+      const userReq = req.user as User;
+      const otherUser: number = req.params.id
+
+      if(!await userService.canAddFriend(userReq, otherUser)) {
+        res.status(500).json({
+          message: "You already are friends ! Try to reload this page."
+        })
+      }
+
+      const hasInserted = await userService.addFriendRelation(userReq, otherUser)
+
+      if(!hasInserted) {
+        throw new Error("Can't insert !")
+      } else {
+        res.sendStatus(200)
+      }
+
+
+    } catch (e) {
+      res.status(500).json({
+        message: "Something went wrong when adding your relationship."
       })
     }
   }

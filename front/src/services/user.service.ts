@@ -1,7 +1,7 @@
 import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
 import {inject, Injectable} from "@angular/core";
 import {User} from "../models/User";
-import {catchError, EMPTY, map, Observable, of, Subscription} from "rxjs";
+import {BehaviorSubject, catchError, EMPTY, map, Observable, of, Subscription} from "rxjs";
 import { environment } from '../environnment';
 import AuthService from "./auth.service";
 import {TrainingProgram} from "../models/Programs";
@@ -63,6 +63,12 @@ export class UserService {
   public deleteFriend(friendID: number): Observable<boolean>
   {
     return this.http.delete<boolean>(`${environment.apiUrl}/friends/delete/${friendID}`)
+  }
+
+  public addFriend(friendID: number): Observable<boolean> {
+    const headers = {'headers': { 'content-type': 'application/json' }}
+
+    return this.http.post<boolean>(`${environment.apiUrl}/friends/add/${friendID}`, {friend: friendID}, headers)
   }
 }
 

@@ -76,13 +76,22 @@ export class LoginComponent {
       ).subscribe((res: any) => {
         const token = res.token
         const user = res.data as User
+        const rawContacts = (res.contacts.length > 0 ? res.contacts : []) as User[]
+
+        const finalContactList: number[] = [];
+
+        if(rawContacts.length > 0) {
+          rawContacts.forEach((user: User) => {
+            finalContactList.push(user.id_user)
+          })
+        }
 
         this._snackBar.open(`Hello, ${user.username}`, 'OK', {
           duration: this.duration * 1000,
           panelClass: ["success"]
         });
 
-        this.authService.makeUserLoggedIn(token, user)
+        this.authService.makeUserLoggedIn(token, user, finalContactList)
       })
     }
   }
