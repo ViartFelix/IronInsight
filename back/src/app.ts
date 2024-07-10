@@ -38,7 +38,7 @@ export class App {
     //cors
     this.app.use(cors({
       origin: 'http://localhost:4200',
-      methods: 'GET,POST',
+      methods: 'GET,POST,DELETE',
       allowedHeaders: 'Content-Type,Authorization',
     }));
     //for images

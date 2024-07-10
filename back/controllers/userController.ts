@@ -19,6 +19,7 @@ class UserController {
     router.post('/change-user', this.handleUserChange, auth)
     router.get("/home-programs", this.randomPosts)
     router.get("/friends", this.handleContacts, [auth, jwtDecoderMiddleware])
+    router.delete('/friends/delete/:id' ,this.handleDeleteFriend, [auth, jwtDecoderMiddleware])
   }
 
   public async handlerRegister(req: any, res: any): Promise<void> {
@@ -166,6 +167,7 @@ class UserController {
   private async handleContacts(req, res)
   {
     try {
+      //authed user
       const userReq: User = req.user;
 
       const allFriends: User[] = await userService.getUserFriends(userReq)
@@ -173,8 +175,29 @@ class UserController {
       res.status(200).json(allFriends)
     } catch (e) {
       res.status(500).json({
-        error: e.toString(),
         message: "Something went wrong when fetching your contacts."
+      })
+    }
+  }
+
+  private async handleDeleteFriend(req, res)
+  {
+    try {
+      //authed user that makes the request
+      const userReq = req.user as User;
+      const otherUser: number = req.params.id
+
+      const isOk = await userService.deleteFriendRelation(userReq, otherUser)
+
+      if(!isOk) {
+        throw new Error("Can't delete !")
+      } else {
+        res.sendStatus(200)
+      }
+
+    } catch (e) {
+      res.status(500).json({
+        message: "Something went wrong when deleting your relationship."
       })
     }
   }

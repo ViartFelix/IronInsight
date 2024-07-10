@@ -155,7 +155,7 @@ class UserService {
   }
 
   /**
-   * Returns a list of the user's friends.
+   * Returns a list of the auth user's friends.
    * @param userReq
    */
   public async getUserFriends(userReq: User): Promise<User[]>
@@ -183,6 +183,40 @@ class UserService {
     }
 
     return final
+  }
+
+  /**
+   * Will attempt to delete the relation between two users.
+   * @param userReq
+   * @param idOtherUser
+   */
+  public async deleteFriendRelation(userReq: User, idOtherUser: number): Promise<boolean>
+  {
+    //determines if the delete can be made
+    let isOk = false;
+
+    //used for the two queries
+    const sqlParams = [userReq.id_user, idOtherUser, idOtherUser, userReq.id_user]
+    //comment where clause used for the two sql queries
+    const whereClause: string = "WHERE (id_user_1 = ? AND id_user_2 = ?) OR (id_user_1 = ? AND id_user_2 = ?)"
+
+    //query to determine if the relation can be deleted (checking if only one entry exists)
+    const okQ = await dbService.query("SELECT * FROM friend " + whereClause, sqlParams, function (err, result: any, fields) {
+      //if no error happened, and that only one entry exists
+      if(!err || result.length === 1) {
+        isOk = true;
+      }
+    })
+
+    if(!isOk) throw new Error("Can't delete this relation.")
+
+    return await dbService.query(
+      "DELETE FROM friend " + whereClause,
+      sqlParams,
+      function (err) {
+        return typeof err === 'undefined'
+      }
+    )
   }
 }
 

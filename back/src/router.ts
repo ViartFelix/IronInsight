@@ -52,6 +52,19 @@ class Router
             })
         }
     }
+
+    public delete(url: string, callback: Function, middleware: any|null = null)
+    {
+      if(middleware) {
+        this.app.delete(url, middleware, (req, res) => {
+          callback(req, res);
+        })
+      } else {
+        this.app.delete(url, (req, res) => {
+          callback(req, res);
+        })
+      }
+    }
 }
 
 export const router = new Router();

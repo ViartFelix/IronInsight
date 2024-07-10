@@ -55,10 +55,14 @@ export class UserService {
     return this.http.get<User[]>(`${environment.apiUrl}/friends`).pipe(
       map((data: User[], usr) => data),
       catchError((error: Error) => {
-        console.log(error)
         return EMPTY;
       })
     )
+  }
+
+  public deleteFriend(friendID: number): Observable<boolean>
+  {
+    return this.http.delete<boolean>(`${environment.apiUrl}/friends/delete/${friendID}`)
   }
 }
 
