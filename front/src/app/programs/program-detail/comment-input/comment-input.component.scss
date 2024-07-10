@@ -1,0 +1,22 @@
+.new-comment-container {
+    margin: 16px 0 2rem 2rem;
+}
+
+.example-full-width {
+    width: 100%;
+}
+
+mat-card {
+    padding: 16px;
+    margin: 16px 0;
+}
+
+mat-form-field {
+    width: 100%;
+    margin-bottom: 16px;
+}
+
+button[mat-raised-button] {
+    display: block;
+    margin: auto;
+}

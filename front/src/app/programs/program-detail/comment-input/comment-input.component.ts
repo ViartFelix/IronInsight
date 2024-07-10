@@ -2,20 +2,21 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CommentsService } from '../../../../services/comments.service';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { MatInput } from '@angular/material/input';
+import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatButton } from '@angular/material/button';
+import { MatButtonModule } from '@angular/material/button';
 import Comment from '../../../../models/Comment';
 import { ActivatedRoute } from '@angular/router';
 import AuthService from '../../../../services/auth.service';
 import { BehaviorSubject, catchError, EMPTY, map } from 'rxjs';
 import { User } from '../../../../models/User';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { MatCardModule } from '@angular/material/card';
 
 @Component({
   selector: 'app-comment-input',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, MatInput, MatFormFieldModule, MatButton],
+  imports: [CommonModule, ReactiveFormsModule, MatInputModule, MatFormFieldModule, MatButtonModule, MatCardModule],
   templateUrl: './comment-input.component.html',
   styleUrl: './comment-input.component.scss'
 })

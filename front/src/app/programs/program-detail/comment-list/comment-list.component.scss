@@ -1,10 +1,10 @@
 h3 {
     font-family: 'Roboto', sans-serif;
-    margin-bottom: 16px;
+    margin-bottom: 1.6rem;
 }
 
 .comment {
-    margin-bottom: 16px;
+    margin-bottom: 8px;
 }
 
 mat-card {
@@ -18,8 +18,8 @@ mat-card {
 
 .comment__footer {
     display: flex;
-    justify-content: flex-end;
-    margin-top: 8px;
+    justify-content: flex-start;
+    margin: 8px 0 0 1rem;
     font-size: 0.875rem;
     color: #757575;
 }
