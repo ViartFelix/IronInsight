@@ -1,25 +1,59 @@
 .navbar {
-    background-color: gray;
-    padding: 0.4rem;
+    background: linear-gradient(to bottom, #353535, #adadad);
+    padding: 0.6rem 4rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0.6rem 4rem 0.6rem 4rem;
+    min-height: 6rem;
+
+    &__main {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 10px;
+    }
 
     &__title {
         text-decoration: none;
-        color: black;
+        margin-right: 3rem;
+        h1 {
+            font-family: 'Anton', sans-serif;
+            color: #FFFFFF;
+            font-size: 2.5rem;
+        }
+        :hover {
+            color: #353535;
+        }
     }
 
     &__profile-section {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-flow: column;
-        gap: 0.4rem;
+        &-logged_user {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            gap: 0.4rem;
 
-        .profile-icon {
-            font-size: 3rem;
+            a {
+                display: flex;
+                justify-content: center;
+                width: 3rem;
+            }
+    
+            .profile-icon {
+                font-size: 2rem;
+                width: 2rem;
+                height: 2rem;
+            }
+
+            :hover {
+                color: #353535;
+            }
         }
     }
 }
+
+.navbar a {
+    color: #FFFFFF;
+}
+

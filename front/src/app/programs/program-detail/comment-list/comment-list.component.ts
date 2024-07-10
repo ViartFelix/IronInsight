@@ -2,11 +2,13 @@ import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
 import { CommentsService } from '../../../../services/comments.service';
 import Comment from '../../../../models/Comment';
+import { MatCardModule } from '@angular/material/card';
+import { MatDividerModule } from '@angular/material/divider';
 
 @Component({
   selector: 'app-comment-list',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, MatCardModule, MatDividerModule,],
   templateUrl: './comment-list.component.html',
   styleUrl: './comment-list.component.scss'
 })

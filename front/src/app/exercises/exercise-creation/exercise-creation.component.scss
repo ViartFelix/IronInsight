@@ -8,6 +8,28 @@
     }
 }
 
-.error-message {
-    color: red;
+.file_input {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    span {
+        margin-top: 1rem;
+        display: inherit;
+        align-items: center;
+
+        .error-icon {
+            color: red;
+        }
+
+        .success-icon {
+            color: lightgreen;
+        }
+    }
+}
+
+.mat-mdc-input-element::-webkit-calendar-picker-indicator {
+    display: block;
+    cursor: pointer;
 }

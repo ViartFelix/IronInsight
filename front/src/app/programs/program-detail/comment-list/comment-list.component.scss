@@ -1,17 +1,29 @@
-.comments {
-    &__comment {
-        &__header {
-            font-size: 1.2rem;
-        }
+h3 {
+    font-family: 'Roboto', sans-serif;
+    margin-bottom: 16px;
+}
 
-        &__content {
-            text-decoration: none;
-        }
+.comment {
+    margin-bottom: 16px;
+}
 
-        &__footer {
-            font-style: italic;
-            font-size: 0.8rem;
-            margin: 0 0 0.6rem 0.4rem;
-        }
-    }
+mat-card {
+    padding: 16px;
+}
+
+.comment__content p {
+    margin: 0;
+    font-size: 1rem;
+}
+
+.comment__footer {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 8px;
+    font-size: 0.875rem;
+    color: #757575;
+}
+
+mat-divider {
+    margin-top: 16px;
 }

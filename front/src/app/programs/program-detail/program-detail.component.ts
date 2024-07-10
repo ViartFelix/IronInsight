@@ -9,12 +9,13 @@ import { ExerciseItemComponent } from '../../exercises/exercise-item/exercise-it
 import { CommonModule } from '@angular/common';
 import { CommentListComponent } from './comment-list/comment-list.component';
 import { CommentInputComponent } from './comment-input/comment-input.component';
-import AuthService from '../../../services/auth.service';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatCardModule } from '@angular/material/card';
 
 @Component({
   selector: 'app-program-detail',
   standalone: true,
-  imports: [ExerciseItemComponent, CommonModule, CommentListComponent, CommentInputComponent],
+  imports: [ExerciseItemComponent, CommonModule, CommentListComponent, CommentInputComponent, MatCardModule, MatDividerModule],
   templateUrl: './program-detail.component.html',
   styleUrl: './program-detail.component.scss'
 })

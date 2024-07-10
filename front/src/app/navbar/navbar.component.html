@@ -1,21 +1,25 @@
-<nav class="navbar">
-    <div>
-        <a [routerLink]="'/'" class="navbar__title">
-            <h1>IronInsight</h1>
-        </a>
-        <button [routerLink]="'/'">Accueil</button>
-        <button [routerLink]="'/exercices'">Exercices</button>
-        <button [routerLink]="'/programmes'">Programmes</button>
-        <button [routerLink]="'/contact'">Contact</button>
-        <button [routerLink]="'/inscription'">Inscription</button>
-        <button [routerLink]="'/connexion'">Connexion</button>
-    </div>
-    <div class="navbar__profile-section">
-      @if (authService.isLoggedIn()) {
-        <i class="material-icons profile-icon">account_circle</i>
-        <a [routerLink]="'/profile'">Profil</a>
-      } @else {
-        <p>Veuillez vous <a [routerLink]="'/connexion'">connecter</a></p>
-      }
-    </div>
-</nav>
+<mat-toolbar class="navbar">
+  <div class="navbar__main">
+      <a [routerLink]="'/'" class="navbar__title">
+          <h1 class="title">IronInsight</h1>
+      </a>
+      <a mat-button [routerLink]="'/'">Accueil</a>
+      <a mat-button [routerLink]="'/exercices'">Exercices</a>
+      <a mat-button [routerLink]="'/programmes'">Programmes</a>
+      <a mat-button [routerLink]="'/contact'">Contacts</a>
+  </div>
+  <div class="navbar__profile-section">
+      <ng-container *ngIf="authService.isLoggedIn(); else notLoggedIn">
+        <div class="navbar__profile-section-logged_user">
+          <a mat-icon-button [routerLink]="'/profile'"><mat-icon class="profile-icon">account_circle</mat-icon></a>
+          <a mat-button [routerLink]="'/profile'">Profil</a>
+        </div>
+      </ng-container>
+      <ng-template #notLoggedIn>
+        <div class="empty_user">
+          <a mat-button [routerLink]="'/inscription'">Inscription</a>
+          <a mat-button [routerLink]="'/connexion'">Connexion</a>
+        </div>
+      </ng-template>
+  </div>
+</mat-toolbar>

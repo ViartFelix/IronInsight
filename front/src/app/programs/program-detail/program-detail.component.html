@@ -1,17 +1,28 @@
 <ng-container *ngIf="program">
-    <h1>{{ program.name }} - {{ program.id_program }}</h1>
-    <p>{{ program.description }}</p>
-    <hr />
+    <mat-card>
+        <mat-card-header>
+            <mat-card-title>
+                <h1>{{ program.name }} - {{ program.id_program }}</h1>
+            </mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <p>{{ program.description }}</p>
+        </mat-card-content>
+    </mat-card>
+    
+    <mat-divider></mat-divider>
 
     <div class="exercises">
         <app-exercise-item *ngFor="let exercise of exercises" [exercise]="exercise"></app-exercise-item>
     </div>
-    <hr />
+    
+    <mat-divider></mat-divider>
 
     <div class="comments">
         <app-comment-list [programID]="program.id_program"></app-comment-list>
     </div>
-    <hr />
+    
+    <mat-divider></mat-divider>
 
     <div class="new-comment">
         <app-comment-input></app-comment-input>

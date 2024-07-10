@@ -1,9 +1,14 @@
 <ng-container *ngIf="comments">
     <h3>Commentaires</h3>
-    <div class="comments" *ngFor="let comment of comments">
-        <div class="comments__comment__content">
-            {{ comment.username }} - {{ comment.comment }}
-        </div>
-        <div class="comments__comment__footer">{{ comment.created_at | date }}</div>
+    <div *ngFor="let comment of comments" class="comment">
+        <mat-card>
+            <mat-card-content class="comment__content">
+                <p>{{ comment.username }} - {{ comment.comment }}</p>
+            </mat-card-content>
+            <mat-card-footer class="comment__footer">
+                <small>{{ comment.created_at | date }}</small>
+            </mat-card-footer>
+        </mat-card>
+        <mat-divider></mat-divider>
     </div>
 </ng-container>

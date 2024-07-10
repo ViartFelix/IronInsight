@@ -3,15 +3,18 @@ import { ExercisesService } from '../../../services/exercises.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { debounceTime } from 'rxjs';
 import { Exercise } from '../../../models/Exercise';
 import { Router } from '@angular/router';
 import { fileExtensionValidator } from '../../../validators/fileExtensionValidator';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatButtonModule } from '@angular/material/button';
+import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
 
 @Component({
   selector: 'app-exercise-creation',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule],
+  imports: [CommonModule, ReactiveFormsModule, MatFormFieldModule, MatInputModule, MatButtonModule, MatSelectModule],
   templateUrl: './exercise-creation.component.html',
   styleUrl: './exercise-creation.component.scss'
 })
@@ -39,7 +42,7 @@ export class ExerciseCreationComponent {
 
     this.form = new FormGroup({
       exerciseName: new FormControl('', [Validators.required, Validators.maxLength(50)]),
-      exerciseDuration: new FormControl('', [Validators.required]),
+      exerciseDuration: new FormControl('00:00', [Validators.required]),
       exerciseImage: new FormControl('', [Validators.required, fileExtensionValidator(['jpg', 'png', 'gif', 'jpeg', 'webp'])]),
       exerciseCategory: new FormControl('', [Validators.required]),
       exerciseDifficulty: new FormControl('', [Validators.required])

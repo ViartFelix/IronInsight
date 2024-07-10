@@ -1,13 +1,11 @@
-<div class="item">
-    <div class="item__header">
-        <h3>{{ program.name }}</h3>
-    </div>
+<mat-card class="item">
+    <mat-card-header class="item__header">
+        <mat-card-title>
+            <h3>{{ program.name }}</h3>
+        </mat-card-title>
+    </mat-card-header>
 
-    <div class="item__body">
-        <img src="" alt="program_img">
-    </div>
-
-    <div class="item__footer">
-        <button [routerLink]="['/program-detail', program.id_program]">Voir</button>
-    </div>
-</div>
+    <mat-card-actions class="item__footer">
+        <button mat-button [routerLink]="['/program-detail', program.id_program]">Voir</button>
+    </mat-card-actions>
+</mat-card>
