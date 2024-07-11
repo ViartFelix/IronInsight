@@ -1,13 +1,15 @@
-<div class="item">
-    <div class="item__image">
-        <img [src]="exercise.image" alt="{{ exercise.wording }}">
-    </div>
+<mat-card class="item">
+    <mat-card-header class="item__header">
+        <mat-card-title>
+            <h3>{{ exercise.wording }}</h3>
+        </mat-card-title>
+    </mat-card-header>
 
-    <div class="item__header">
-        <h3>{{ exercise.wording }}</h3>
-    </div>
+    <mat-card-content>
+        <img mat-card-image [src]="exercise.image" alt="{{ exercise.wording }}" class="item__image">
+    </mat-card-content>
 
-    <div class="item__footer">
-        <button [routerLink]="['/exercise-detail', 1]">Voir</button>
-    </div>
-</div>
+    <mat-card-actions class="item__footer">
+        <button mat-raised-button color="primary" [routerLink]="['/exercise-detail', exercise.code_exercise]">Voir</button>
+    </mat-card-actions>
+</mat-card>

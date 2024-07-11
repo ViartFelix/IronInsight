@@ -82,18 +82,42 @@ export class ExercisesService {
         );
     }
 
-  postNewExercise(file: File, exercise: Exercise, cat: string, dif: string): Observable<string> {
-    const formData = new FormData();
-    formData.append('file', file, file.name);
-    formData.append('exercise', JSON.stringify(exercise));
-    formData.append('category', cat);
-    formData.append('difficulty', dif);
+    postNewExercise(file: File, exercise: Exercise, cat: string, dif: string): Observable<string> {
+        const formData = new FormData();
+        formData.append('file', file, file.name);
+        formData.append('exercise', JSON.stringify(exercise));
+        formData.append('category', cat);
+        formData.append('difficulty', dif);
 
-    return this.http.post<string>(`${environment.apiUrl}/new-exercise`, formData).pipe(
-      catchError((error: Error) => {
-        console.error('Error posting new exercise:', error);
-        return EMPTY;
-      })
-    );
-  }
+        return this.http.post<string>(`${environment.apiUrl}/new-exercise`, formData).pipe(
+        catchError((error: Error) => {
+            console.error('Error posting new exercise:', error);
+            return EMPTY;
+        })
+        );
+    }
+
+    searchForCategory(code: string) {
+        return this.http.get<CatAndDiffWording>(`${environment.apiUrl}/category/${code}`).pipe(
+            map((category: CatAndDiffWording) => category),
+            catchError((error: Error) => {
+                console.error(error);
+                return EMPTY;
+            })
+        )
+    }
+
+    searchForDifficulty(code: string) {
+        return this.http.get<CatAndDiffWording>(`${environment.apiUrl}/difficulty/${code}`).pipe(
+            map((difficulty: CatAndDiffWording) => difficulty),
+            catchError((error: Error) => {
+                console.error(error);
+                return EMPTY;
+            })
+        )
+    }
+}
+
+interface CatAndDiffWording {
+    wording: string;
 }

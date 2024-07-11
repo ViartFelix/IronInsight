@@ -1,23 +1,26 @@
 <div>
-    <form [formGroup]="form" action="#" (ngSubmit)="submitFilters()">
-        <label>
-            Nom:
-            <input type="text" formControlName="wording">
-        </label>
-        <label>
-            Catégorie:
-            <select type="text" formControlName="category" [disabled]="!categoriesFilter">
-                <option value="">Aucun</option>
-                <option *ngFor="let category of categoriesFilter" [value]="category.code">{{ category.wording }}</option>
-            </select>
-        </label>
-        <label>
-            Difficulté:
-            <select type="text" formControlName="difficulty" [disabled]="!difficultiesFilter">
-                <option value="">Aucun</option>
-                <option *ngFor="let difficulty of difficultiesFilter" [value]="difficulty.id">{{ difficulty.wording }}</option>
-            </select>
-        </label>
-        <button type="submit">Chercher</button>
+    <form [formGroup]="form" (ngSubmit)="submitFilters()" class="filters-form">
+        <mat-form-field>
+            <mat-label>Nom</mat-label>
+            <input matInput type="text" formControlName="wording">
+        </mat-form-field>
+        
+        <mat-form-field>
+            <mat-label>Catégorie</mat-label>
+            <mat-select formControlName="category" [disabled]="!categoriesFilter">
+                <mat-option value="">Aucun</mat-option>
+                <mat-option *ngFor="let category of categoriesFilter" [value]="category.code">{{ category.wording }}</mat-option>
+            </mat-select>
+        </mat-form-field>
+        
+        <mat-form-field>
+            <mat-label>Difficulté</mat-label>
+            <mat-select formControlName="difficulty" [disabled]="!difficultiesFilter">
+                <mat-option value="">Aucun</mat-option>
+                <mat-option *ngFor="let difficulty of difficultiesFilter" [value]="difficulty.id">{{ difficulty.wording }}</mat-option>
+            </mat-select>
+        </mat-form-field>
+        
+        <button mat-raised-button color="primary" type="submit">Chercher</button>
     </form>
 </div>

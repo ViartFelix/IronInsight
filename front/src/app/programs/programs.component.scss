@@ -1,6 +1,23 @@
+h3 {
+    margin: 3rem 0 3rem 3rem;
+    font-family: 'Anton', sans-serif;
+    margin-bottom: 16px;
+    text-decoration: underline;
+    color: #353535;
+}
+
+button[mat-raised-button] {
+    margin-bottom: 16px;
+}
+
 .programs {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-flow: row;
+}
+
+app-program-item {
+    display: flex;
+    flex-direction: column;
 }

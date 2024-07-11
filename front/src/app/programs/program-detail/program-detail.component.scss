@@ -1,5 +1,5 @@
 mat-card {
-    margin: 16px 0;
+    margin: 2rem 2rem;
     padding: 16px;
 }
 
@@ -18,6 +18,10 @@ mat-card-content {
 
 .exercises, .comments, .new-comment {
     margin: 16px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
 }
 
 mat-divider {

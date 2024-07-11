@@ -62,6 +62,16 @@ class ExerciseService {
     return r as string;
   }
 
+  public async searchForCategory(category: string): Promise<string> {
+    const r = await dbService.query("SELECT wording FROM exercise_category WHERE code = ?;", [category]);
+    return r[0] as string;
+  }
+
+  public async searchForDifficulty(difficulty: string): Promise<string> {
+    const r = await dbService.query("SELECT wording FROM exercise_difficulty WHERE id = ?;", [difficulty]);
+    return r[0] as string;
+  }
+
   /**
    * Converts the data provided to an Exercise model
    * @param data A mySQL row object (if possible)

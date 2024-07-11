@@ -1,12 +1,10 @@
-import {Component, EventEmitter, inject, model, OnInit, Output} from '@angular/core';
+import {Component, inject, OnInit} from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
-import {Observable} from "rxjs";
 import {Exercise} from "../../../../models/Exercise";
 import {NgForOf} from "@angular/common";
 import {ReactiveFormsModule} from "@angular/forms";
 import {MatSort} from "@angular/material/sort";
 import {MatCheckbox} from "@angular/material/checkbox";
-import {ExerciseFilters} from "../../../../models/ExerciseFilters";
 
 @Component({
   selector: 'app-program-new-exercise-dialog',

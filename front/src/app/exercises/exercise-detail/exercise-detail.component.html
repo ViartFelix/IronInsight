@@ -1,1 +1,17 @@
-<div>{{ exercise | json }}</div>
+<mat-card *ngIf="exercise">
+    <div class="left-card">
+        <mat-card-header>
+            <mat-card-title>
+                <h3>{{ exercise.wording }}</h3>
+            </mat-card-title>
+        </mat-card-header>
+    
+        <img mat-card-image [src]="exercise.image" alt="{{ exercise.wording }}">
+    </div>
+
+    <mat-card-content>
+        <p>Catégorie : {{ category }}</p>
+        <p>Difficulté : {{ difficulty }}</p>
+        <p>Durée : {{ exercise.duration }}</p>
+    </mat-card-content>
+</mat-card>

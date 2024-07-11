@@ -14,6 +14,8 @@ class ExerciseController {
         router.get('/exercises-from-program/:id', this.handleAllExercisesFromOneProgram)
         router.get('/exercise-filters', this.handleLoadFilters)
         router.get('/images/:imageName', this.serveImage)
+        router.get('/category/:category', this.handleOneCategory)
+        router.get('/difficulty/:difficulty', this.handleOneDifficulty)
         router.post('/exercise-from-filters', this.handleAllExercisesFromFilters)
         router.post('/new-exercise', this.handleNewExercise, uploadMiddleware)
     }
@@ -33,6 +35,18 @@ class ExerciseController {
     private handleOneExercises(req, res) {
         exerciseService.getExerciseById(req.params.id).then((exercise) => {
             res.send(exercise)
+        })
+    }
+
+    private handleOneCategory(req, res) {
+        exerciseService.searchForCategory(req.params.category).then((category) => {
+            res.send(category)
+        })
+    }
+
+    private handleOneDifficulty(req, res) {
+        exerciseService.searchForDifficulty(req.params.difficulty).then((difficulty) => {
+            res.send(difficulty)
         })
     }
 
