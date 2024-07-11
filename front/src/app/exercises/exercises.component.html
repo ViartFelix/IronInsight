@@ -2,7 +2,7 @@
     <div class="exercises-header">
         <h3>Liste des exercices</h3>
         <div class="exercise-creation">
-            <button *ngIf="authService.isLoggedIn() || 1===1" mat-raised-button [routerLink]="['/exercice-creation']" color="primary">Créer un exercice</button>
+            <button *ngIf="authService.isLoggedIn()" mat-raised-button [routerLink]="['/exercice-creation']" color="primary">Créer un exercice</button>
         </div>
     </div>
     <div class="exercises-filters">
