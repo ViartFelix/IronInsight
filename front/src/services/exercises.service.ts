@@ -47,6 +47,7 @@ export class ExercisesService {
             map((data: Exercise[]) => {
                 return data.map(exercise => ({
                     ...exercise,
+                    code_exercise: exercise.id_exercise ?? exercise.code_exercise,
                     image: `${environment.apiUrl}/images/${exercise.image}`
                 } as Exercise));
             }),
