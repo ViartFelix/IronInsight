@@ -3,7 +3,7 @@
     <div *ngFor="let comment of comments" class="comment">
         <mat-card>
             <mat-card-content class="comment__content">
-                <p>{{ comment.username }} - {{ comment.comment }}</p>
+                <p>{{ comment.username }} <i class="material-icons arrow-icon">arrow_forward_ios</i> {{ comment.comment }}</p>
             </mat-card-content>
             <mat-card-footer class="comment__footer">
                 <small>{{ comment.created_at | date }}</small>

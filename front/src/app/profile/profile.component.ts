@@ -7,9 +7,9 @@ import AuthService from "../../services/auth.service";
 import { MatCard, MatCardContent, MatCardHeader, MatCardTitle, MatCardSubtitle } from "@angular/material/card";
 import {User} from "../../models/User";
 import {MatButton} from "@angular/material/button";
-import {MatSnackBar} from "@angular/material/snack-bar";
 import {MatDialog} from "@angular/material/dialog";
 import {ProfileChangeDialogComponent} from "./profile-change-dialog/profile-change-dialog.component";
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @Component({
   selector: 'app-profile',
@@ -22,7 +22,8 @@ import {ProfileChangeDialogComponent} from "./profile-change-dialog/profile-chan
     MatCardTitle,
     MatCardSubtitle,
     MatCardContent,
-    MatButton
+    MatButton,
+    MatProgressSpinnerModule
   ],
   templateUrl: './profile.component.html',
   styleUrl: './profile.component.scss'

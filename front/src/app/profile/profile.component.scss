@@ -1,0 +1,92 @@
+/* Styles généraux */
+h1, h2, h3 {
+    font-family: 'Anton', sans-serif;
+    color: #333;
+}
+  
+.profile-edit {
+    margin-bottom: 20px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+  
+.profile-edit button {
+    margin-bottom: 10px;
+}
+  
+#records {
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+  
+#pb-container {
+    margin-top: 10px;
+}
+  
+#pb-display {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+}
+  
+#pb-loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+  
+.untold {
+    color: #999;
+}
+  
+.mat-card {
+    margin-bottom: 20px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    overflow: hidden;
+}
+  
+.mat-card-header {
+    background-color: #f0f0f0;
+    padding: 10px;
+}
+  
+.mat-card-content {
+    padding: 10px;
+}
+  
+.mat-card-title {
+    font-weight: bold;
+}
+  
+.mat-card-actions {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 10px;
+}
+  
+.mat-card-actions button {
+    margin-left: 10px;
+}
+  
+.mat-progress-spinner {
+    margin: auto;
+    display: block;
+}
+  
+@media (max-width: 768px) {
+    #pb-display {
+      grid-template-columns: 1fr;
+    }
+}
+
+.profile-page {
+    margin: 2rem;
+}

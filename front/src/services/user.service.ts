@@ -1,7 +1,7 @@
-import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
+import {HttpClient} from '@angular/common/http';
 import {inject, Injectable} from "@angular/core";
 import {User} from "../models/User";
-import {BehaviorSubject, catchError, EMPTY, map, Observable, of, Subscription} from "rxjs";
+import {catchError, EMPTY, map, Observable} from "rxjs";
 import { environment } from '../environnment';
 import AuthService from "./auth.service";
 import {TrainingProgram} from "../models/Programs";

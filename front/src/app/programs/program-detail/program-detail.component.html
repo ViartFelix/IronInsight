@@ -18,13 +18,13 @@
     
     <mat-divider></mat-divider>
 
-    <div class="comments">
-        <app-comment-list [programID]="program.id_program"></app-comment-list>
-    </div>
-    
-    <mat-divider></mat-divider>
-
     <div class="new-comment">
         <app-comment-input></app-comment-input>
+    </div>
+
+    <mat-divider></mat-divider>
+
+    <div class="comments">
+        <app-comment-list [programID]="program.id_program"></app-comment-list>
     </div>
 </ng-container>
