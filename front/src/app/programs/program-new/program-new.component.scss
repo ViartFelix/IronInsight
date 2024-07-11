@@ -1,0 +1,54 @@
+form {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  
+  mat-form-field {
+    width: 100%;
+    margin-bottom: 15px;
+  }
+  
+  textarea {
+    resize: vertical;
+    width: 100%;
+    min-height: 100px;
+  }
+  
+  button[type="button"] {
+    margin-bottom: 15px;
+  }
+  
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  mat-card {
+    margin-bottom: 15px;
+  }
+  
+  mat-card-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  mat-card-content p {
+    margin: 5px 0;
+  }
+  
+  mat-card-content div {
+    display: flex;
+    gap: 10px;
+  }
+  
+  hr {
+    margin: 15px 0;
+  }
+
+  .program-creation {
+    margin: 2rem;
+    padding-bottom: 3rem;
+  }
+  

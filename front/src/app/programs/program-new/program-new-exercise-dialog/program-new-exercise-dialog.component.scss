@@ -1,0 +1,39 @@
+table {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+    border: 1px solid #ddd;
+  }
+  
+  th, td {
+    padding: 8px;
+    text-align: left;
+  }
+  
+  thead {
+    background-color: #f0f0f0;
+  }
+  
+  th {
+    cursor: pointer;
+  }
+  
+  tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  .mat-checkbox {
+    display: inline-block;
+    vertical-align: middle;
+  }
+  
+  .mat-sort-header-container {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+  }
+  
+  .mat-sort-header-button {
+    font-weight: bold;
+  }
+  

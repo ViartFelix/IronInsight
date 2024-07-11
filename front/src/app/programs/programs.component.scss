@@ -1,12 +1,7 @@
 h3 {
-    margin: 2rem 0 2rem 2rem;
     font-family: 'Anton', sans-serif;
     margin-bottom: 16px;
     color: #353535;
-}
-
-button[mat-raised-button] {
-    margin-bottom: 16px;
 }
 
 .programs {
@@ -20,4 +15,11 @@ button[mat-raised-button] {
 app-program-item {
     display: flex;
     flex-direction: column;
+}
+
+.program-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 2rem 2rem 0 2rem;
 }

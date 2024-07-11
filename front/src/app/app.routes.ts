@@ -16,7 +16,7 @@ export const routes: Routes = [
     { path: '', component: HomeComponent },
     { path: 'exercices', component: ExercisesComponent },
     { path: 'exercise-detail/:id', component: ExerciseDetailComponent },
-    { path: 'exercice-creation', component: ExerciseCreationComponent },
+    { path: 'exercice-creation', component: ExerciseCreationComponent, canActivate: [AuthentificatedGuard] },
     { path: 'program-detail/:id', component: ProgramDetailComponent },
     { path: 'programmes', component: ProgramsComponent },
     { path: 'programme-new', component: ProgramNewComponent, canActivate: [AuthentificatedGuard]},
