@@ -1,44 +1,36 @@
-<div>
-  <h1> Mon feed </h1>
+<h2>Mon feed</h2>
 
-  <div class="main">
-    @if(isLoaded) {
-      <div class="single-card">
-        @for(post of homePosts; track $index ) {
-          <mat-card>
-            <mat-card-header>
-              <mat-card-title>{{ post.user.username }}</mat-card-title>
-              <mat-card-subtitle>{{ post.name }} le {{ post.done_at }}</mat-card-subtitle>
-            </mat-card-header>
+<div class="main">
+  <ng-container *ngIf="isLoaded; else notLoaded">
+    <div class="single-card">
+      <mat-card *ngFor="let post of homePosts; let i = index">
+        <mat-card-header>
+          <div mat-card-avatar></div>
+          <mat-card-title>{{ post.user.username }} <i class="material-icons arrow-icon">arrow_forward_ios</i> {{ post.name }} <span class="subtitle_date">- {{ post.done_at | date }}</span></mat-card-title>
+        </mat-card-header>
+        
+        <mat-card-content>
+          <h4>Liste des exercices</h4>
+          <ul>
+            <li *ngFor="let exercise of post.exercises">{{ exercise.wording }}</li>
+          </ul>
+        </mat-card-content>
 
-            <mat-card-content>
-              <h3>Liste exercises</h3>
+        <mat-card-actions>
+          <button mat-button *ngIf="authService.isLoggedIn() && areFriends(post.user.id_user)"
+                  (click)="deleteFriend(post.user.id_user, post.user.username)">
+            Retirer l'ami
+          </button>
+          <button mat-button *ngIf="authService.isLoggedIn() && !areFriends(post.user.id_user)"
+                  (click)="addFriend(post.user.id_user, post.user.username)">
+            Ajouter ami
+          </button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </ng-container>
 
-              <ul>
-                @for(exercise of post.exercises; track $index) {
-                  <li>{{ exercise.wording }}</li>
-                }
-              </ul>
-            </mat-card-content>
-
-          @if(authService.isLoggedIn()) {
-            @if (areFriends(post.user.id_user)) {
-              <mat-card-actions>
-                <button mat-button (click)="deleteFriend(post.user.id_user, post.user.username)">Retirer l'ami</button>
-              </mat-card-actions>
-            } @else {
-              <mat-card-actions>
-                <button mat-button (click)="addFriend(post.user.id_user, post.user.username)">Ajouter ami</button>
-              </mat-card-actions>
-            }
-
-          }
-          </mat-card>
-        }
-
-      </div>
-    } @else {
-      <mat-progress-spinner></mat-progress-spinner>
-    }
-  </div>
+  <ng-template #notLoaded>
+    <mat-progress-spinner diameter="50"></mat-progress-spinner>
+  </ng-template>
 </div>

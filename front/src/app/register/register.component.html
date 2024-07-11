@@ -1,14 +1,21 @@
 <div class="register-main">
-  <form [formGroup]="registerForm" action="#" (ngSubmit)="onRegisterSubmit()">
-    <label for="username">Username: </label>
-    <input id="username" type="text" formControlName="username">
+  <h3>Inscription</h3>
+  <form [formGroup]="registerForm" (ngSubmit)="onRegisterSubmit()">
+    <mat-form-field class="full-width">
+      <mat-label>Username</mat-label>
+      <input matInput id="username" type="text" formControlName="username">
+    </mat-form-field>
 
-    <label for="email">Email: </label>
-    <input id="email" type="email" formControlName="email">
+    <mat-form-field class="full-width">
+      <mat-label>Email</mat-label>
+      <input matInput id="email" type="email" formControlName="email">
+    </mat-form-field>
 
-    <label for="password">Password: </label>
-    <input id="password" type="password" formControlName="password">
+    <mat-form-field class="full-width">
+      <mat-label>Password</mat-label>
+      <input matInput id="password" type="password" formControlName="password">
+    </mat-form-field>
 
-    <button type="submit" [disabled]="!registerForm.valid">Submit</button>
+    <button mat-raised-button color="primary" type="submit" [disabled]="!registerForm.valid">Submit</button>
   </form>
 </div>

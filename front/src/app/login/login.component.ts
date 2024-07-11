@@ -16,7 +16,7 @@ import {catchError, EMPTY, map, of} from 'rxjs';
     ReactiveFormsModule,
     MatFormFieldModule,
     MatInputModule,
-    MatButtonModule
+    MatButtonModule,
   ],
   providers: [
     UserService,

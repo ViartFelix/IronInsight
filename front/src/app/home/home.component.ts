@@ -14,11 +14,13 @@ import {
 import {MatProgressSpinner} from "@angular/material/progress-spinner";
 import AuthService from "../../services/auth.service";
 import {MatSnackBar} from "@angular/material/snack-bar";
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-home',
   standalone: true,
   imports: [
+    CommonModule,
     MatButton,
     MatCard,
     MatCardHeader,

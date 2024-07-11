@@ -1,17 +1,16 @@
 <div class="login">
-  <form [formGroup]="loginForm" action="#" (ngSubmit)="onSubmit()">
-    <mat-form-field class="example-full-width">
+  <h3>Connexion</h3>
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <mat-form-field class="full-width">
       <mat-label>Username or email</mat-label>
-      <input type="email" matInput formControlName="userOrEmail" placeholder="john@iron.com">
+      <input matInput type="email" formControlName="userOrEmail" placeholder="john@iron.com">
     </mat-form-field>
 
-    <mat-form-field class="example-full-width">
+    <mat-form-field class="full-width">
       <mat-label>Password</mat-label>
-      <input type="password" matInput formControlName="password" placeholder="john@iron.com">
+      <input matInput type="password" formControlName="password" placeholder="Password">
     </mat-form-field>
 
-    <button type="submit" mat-button>
-      Connexion
-    </button>
+    <button mat-raised-button color="primary" type="submit">Connexion</button>
   </form>
 </div>

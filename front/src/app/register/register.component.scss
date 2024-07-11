@@ -1,0 +1,23 @@
+.full-width {
+    width: 100%;
+    margin-bottom: 16px;
+}
+
+.register-main {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    flex-flow: column;
+    max-width: 400px;
+    margin: 4rem auto;
+    padding: 16px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+button[mat-raised-button] {
+    display: block;
+    width: 100%;
+    margin-top: 16px;
+}

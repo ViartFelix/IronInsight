@@ -15,6 +15,7 @@ button[mat-raised-button] {
     justify-content: center;
     align-items: center;
     flex-flow: row;
+    flex-wrap: wrap;
 }
 
 app-program-item {

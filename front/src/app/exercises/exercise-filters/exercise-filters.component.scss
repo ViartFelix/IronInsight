@@ -5,12 +5,13 @@
 
 button[mat-raised-button] {
     display: block;
-    margin-top: 16px;
+    margin-top: 0.4rem;
 }
 
 .filters-form {
     display: flex;
     justify-content: flex-start;
+    align-items: flex-start;
     margin-left: 3rem;
     gap: 3rem;
 }
