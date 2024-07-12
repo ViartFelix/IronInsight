@@ -1,6 +1,26 @@
 
 # IronInsight
 
+## Préparation
+Avant de d'installer les dépendances, il est nécessaire d'avoir un fichier ``.env`` à la racine du dossier 'back/'.
+Ce fichier doit contenir les informations suivantes:
+
+- DB_HOST
+- DB_USER
+- DB_PASS
+- DB_NAME
+- JWT_SECRET
+
+Un exemple de fichier ``.env``:
+```.env
+DB_HOST=localhost
+DB_USER=root
+DB_PASS=
+DB_NAME=ironinsight
+
+JWT_SECRET=9c389bc147026a14fa2c5920dc17c0da66e36bc35f1d4d0033929aab65531955
+```
+
 ## Démarrage
 Une fois le projet cloné, préparez l'installation en suivant les prérequis
 
