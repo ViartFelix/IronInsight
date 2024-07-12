@@ -83,10 +83,16 @@ class ProgramService {
    */
   public async getUserLikesFromProgram(program: TrainingProgram) {
     //raw list of users ids that have like the post
-    return await dbService.query(
+    const rawIds = await dbService.query(
       "SELECT id_user FROM likes WHERE id_program = ?",
       [program.id_program]
-    ) as number[]
+    ) as any[]
+
+    const final: number[] = rawIds.map((row) => {
+      return row.id_user
+    });
+
+    return final;
   }
 
   /**

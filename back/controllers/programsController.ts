@@ -6,6 +6,8 @@ import User from "../models/User";
 import {jwtService} from "../services/JwtService";
 import Comment from "../models/Comment";
 import {dbService} from "../services/db-service";
+import {jwtDecoderMiddleware} from "../middlewares/jwtDecoderMiddleware";
+import {userService} from "../services/UserService";
 
 class ProgramsController {
   constructor() {
@@ -15,6 +17,8 @@ class ProgramsController {
     router.get("/programs", this.handleAllPrograms)
     router.get('/program/:id', this.handleOneProgram)
     router.post('/program-add', this.handleCreateProgram, auth)
+    router.post('/program/:id/like', this.handleLike, [auth, jwtDecoderMiddleware])
+    router.post('/program/:id/dislike', this.handleDislike, [auth, jwtDecoderMiddleware])
   }
 
   private handleAllPrograms(req, res) {
@@ -50,7 +54,61 @@ class ProgramsController {
     }
   }
 
+  private async handleLike(req, res)
+  {
+    try {
+      const userReq = req.auth as User;
+      const postId = req.params.id;
+      const targetPost = await programService.getOneProgram(postId);
 
+      if(await userService.hasLikedProgram(targetPost, userReq))
+      {
+        res.status(500).send({
+          message: "You already liked that post !"
+        })
+
+        return;
+      } else {
+        await userService.likePost(targetPost, userReq)
+
+        res.sendStatus(200)
+
+        return;
+      }
+    } catch (e) {
+      return res.status(500).send({
+        message: 'Unknown error when liking post'
+      });
+    }
+  }
+
+  private async handleDislike(req, res)
+  {
+    try {
+      const userReq = req.auth as User;
+      const postId = req.params.id;
+      const targetPost = await programService.getOneProgram(postId);
+
+      if(!await userService.hasLikedProgram(targetPost, userReq))
+      {
+        res.status(500).send({
+          message: "You cannot dislike a comment you didn't like before."
+        })
+
+        return;
+      } else {
+        await userService.dislikePost(targetPost, userReq)
+
+        res.sendStatus(200)
+
+        return;
+      }
+    } catch (e) {
+      return res.status(500).send({
+        message: 'Unknown error when disliking post'
+      });
+    }
+  }
 }
 
 export const programsController = new ProgramsController();

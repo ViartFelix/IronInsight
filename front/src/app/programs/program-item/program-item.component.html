@@ -1,11 +1,22 @@
 <mat-card class="item">
-    <mat-card-header class="item__header">
-        <mat-card-title>
-            <h3>{{ program.name }}</h3>
-        </mat-card-title>
-    </mat-card-header>
+  <mat-card-header class="item__header">
+    <mat-card-title>
+      <h3>{{ program.name }}</h3>
+    </mat-card-title>
+  </mat-card-header>
 
-    <mat-card-actions class="item__footer">
-        <button mat-button [routerLink]="['/program-detail', program.id_program]">Voir</button>
-    </mat-card-actions>
+  <mat-card-actions class="item__footer">
+    <button mat-button [routerLink]="['/program-detail', program.id_program]">Voir</button>
+    <div class="actions-btns">
+      <span>{{ program.user_likes.length }} like{{ program.user_likes.length > 1 ? "s" : "" }}</span>
+      @if(authService.isLoggedIn()) {
+        @if(program.user_likes.includes(userID)) {
+          <button class="do-btn" mat-button (click)="dislikePost(program.id_program)">Je n'aime plus</button>
+        } @else {
+          <button class="do-btn" mat-button (click)="likePost(program.id_program)">J'aime</button>
+        }
+      }
+    </div>
+
+  </mat-card-actions>
 </mat-card>

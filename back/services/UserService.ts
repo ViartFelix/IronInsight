@@ -263,6 +263,46 @@ class UserService {
 
     return isOk
   }
+
+  /**
+   * Checks if the user has already like the post or not
+   * @param program
+   * @param user
+   */
+  public async hasLikedProgram(program: TrainingProgram, user: User): Promise<boolean>
+  {
+    const result = await dbService.query(
+      "SELECT * FROM likes " +
+      "WHERE id_program = ? AND id_user = ?",
+      [program.id_program, user.id_user]
+    ) as Array<any>;
+
+    return result.length > 0;
+  }
+
+  /**
+   * Will attempt to like the post that a user requested
+   * @param program
+   * @param user
+   */
+  public async likePost(program: TrainingProgram, user: User)
+  {
+    await dbService.query("INSERT INTO likes " +
+      "(id_program, id_user) VALUES (?,?)",
+      [program.id_program, user.id_user])
+  }
+
+  /**
+   * Will attempt to dislike the post that a user requested
+   * @param program
+   * @param user
+   */
+  public async dislikePost(program: TrainingProgram, user: User)
+  {
+    await dbService.query("DELETE FROM likes " +
+      "WHERE id_program = ? AND id_user = ?",
+      [program.id_program, user.id_user])
+  }
 }
 
 export const userService = new UserService();
