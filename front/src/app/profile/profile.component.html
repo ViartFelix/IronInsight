@@ -1,12 +1,10 @@
 <div class="profile-page">
-  <h3>Profil</h3>
+  <div class="profile-container-edit">
+    <h3>Profil</h3>
+    <button mat-raised-button color="primary" (click)="profileChangeOpen()"> Modifier mon profil</button>
+  </div>
+
   <div class="profile-edit">
-    <button mat-raised-button color="primary" (click)="profileChangeOpen()">
-      Modifier mon profil
-    </button>
-
-    <hr>
-
     <h2>Mes infos</h2>
 
     <div>
@@ -27,8 +25,6 @@
       <p>Compte créé le: {{ user.created_at | date:'dd/MM/yyyy' }}</p>
     </div>
   </div>
-
-  <hr>
 
   <div id="records">
     <h2>Mes records</h2>

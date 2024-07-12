@@ -1,24 +1,27 @@
-<h1>Mes amis</h1>
+<div class="main-contact">
+  <h1>Mes amis</h1>
 
-<section class="main">
-  @if(isFetching) {
-    <div class="is-loading">
-      <mat-progress-spinner></mat-progress-spinner>
-    </div>
-  } @else {
-    <div class="all-contacts">
-      @for(friend of allContacts; track $index) {
-        <mat-card>
-          <mat-card-header>
-            <mat-card-title>{{ friend.username }}</mat-card-title>
-          </mat-card-header>
-          <mat-card-actions>
-            <button mat-button (click)="deleteFriend(friend.id_user, friend.username)">
-              Retirer l'ami
-            </button>
-          </mat-card-actions>
-        </mat-card>
-      }
-    </div>
-  }
-</section>
+  <section class="main">
+    @if(isFetching) {
+      <div class="is-loading">
+        <mat-progress-spinner></mat-progress-spinner>
+      </div>
+    } @else {
+      <div class="all-contacts">
+        @for(friend of allContacts; track $index) {
+          <mat-card>
+            <mat-card-header>
+              <mat-card-title>{{ friend.username }}</mat-card-title>
+            </mat-card-header>
+            <mat-card-actions>
+              <button mat-button (click)="deleteFriend(friend.id_user, friend.username)">
+                Retirer l'ami
+              </button>
+            </mat-card-actions>
+          </mat-card>
+        }
+      </div>
+    }
+  </section>
+
+</div>

@@ -84,8 +84,26 @@ export class ProgramNewComponent {
     });
   }
 
+  private showError(message: string)
+  {
+    this.snackBar.open(message, 'OK', {
+      duration: 30000,
+      panelClass: ["error"]
+    })
+  }
+
   public onSubmit(): void
   {
+    if(this._checked_exos.length === 0) {
+      this.showError('Veuilllez sélectionner au moins 1 exercise.')
+      return;
+    }
+
+    if(this._new_program.invalid) {
+      this.showError('Un champ ou plus a une erreur. Veuillez vérifiez vos champs.')
+      return;
+    }
+
     //what will be send to the server
     const toSend = {
       name: this._new_program.value.programName,

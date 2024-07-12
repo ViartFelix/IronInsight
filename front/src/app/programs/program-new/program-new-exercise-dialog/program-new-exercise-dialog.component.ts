@@ -1,10 +1,18 @@
 import {Component, inject, OnInit} from '@angular/core';
-import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
+import {
+  MAT_DIALOG_DATA,
+  MatDialogActions,
+  MatDialogClose,
+  MatDialogContent,
+  MatDialogRef
+} from "@angular/material/dialog";
 import {Exercise} from "../../../../models/Exercise";
-import {NgForOf} from "@angular/common";
+import {NgForOf, NgIf} from "@angular/common";
 import {ReactiveFormsModule} from "@angular/forms";
 import {MatSort} from "@angular/material/sort";
 import {MatCheckbox} from "@angular/material/checkbox";
+import {MatButton} from "@angular/material/button";
+import {MatProgressSpinner} from "@angular/material/progress-spinner";
 
 @Component({
   selector: 'app-program-new-exercise-dialog',
@@ -13,7 +21,13 @@ import {MatCheckbox} from "@angular/material/checkbox";
     NgForOf,
     ReactiveFormsModule,
     MatSort,
-    MatCheckbox
+    MatCheckbox,
+    MatDialogContent,
+    MatButton,
+    MatDialogActions,
+    MatDialogClose,
+    MatProgressSpinner,
+    NgIf
   ],
   templateUrl: './program-new-exercise-dialog.component.html',
   styleUrl: './program-new-exercise-dialog.component.scss'
@@ -46,6 +60,11 @@ export class ProgramNewExerciseDialogComponent implements OnInit {
     } else {
       this.allChecked.push(exo);
     }
+  }
+
+  public closeDialog()
+  {
+    this.dialogRef.close()
   }
 }
 

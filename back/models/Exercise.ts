@@ -3,4 +3,7 @@ export default interface Exercise {
     wording: string;
     duration?: string;
     image?: File;
+
+    difficulty: string;
+    category: string;
 }

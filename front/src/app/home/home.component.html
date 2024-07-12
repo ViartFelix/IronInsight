@@ -8,7 +8,7 @@
           <div mat-card-avatar></div>
           <mat-card-title>{{ post.user.username }} <i class="material-icons arrow-icon">arrow_forward_ios</i> {{ post.name }} <span class="subtitle_date">- {{ post.done_at | date }}</span></mat-card-title>
         </mat-card-header>
-        
+
         <mat-card-content>
           <h4>Liste des exercices</h4>
           <ul>
@@ -16,16 +16,19 @@
           </ul>
         </mat-card-content>
 
-        <mat-card-actions>
-          <button mat-button *ngIf="authService.isLoggedIn() && areFriends(post.user.id_user)"
-                  (click)="deleteFriend(post.user.id_user, post.user.username)">
-            Retirer l'ami
-          </button>
-          <button mat-button *ngIf="authService.isLoggedIn() && !areFriends(post.user.id_user)"
-                  (click)="addFriend(post.user.id_user, post.user.username)">
-            Ajouter ami
-          </button>
-        </mat-card-actions>
+        @if(authService.isLoggedIn()) {
+          <mat-card-actions>
+            <button mat-button *ngIf="areFriends(post.user.id_user)"
+                    (click)="deleteFriend(post.user.id_user, post.user.username)">
+              Retirer l'ami
+            </button>
+            <button mat-button *ngIf="!areFriends(post.user.id_user)"
+                    (click)="addFriend(post.user.id_user, post.user.username)">
+              Ajouter ami
+            </button>
+          </mat-card-actions>
+        }
+
       </mat-card>
     </div>
   </ng-container>

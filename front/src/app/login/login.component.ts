@@ -8,6 +8,7 @@ import {MatSnackBar} from "@angular/material/snack-bar";
 import AuthService from "../../services/auth.service";
 import {User} from "../../models/User";
 import {catchError, EMPTY, map, of} from 'rxjs';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-login',
@@ -33,7 +34,8 @@ export class LoginComponent {
   constructor(
     @Inject(UserService) private userService: UserService,
     @Inject(AuthService) private authService: AuthService,
-    private _snackBar: MatSnackBar
+    private _snackBar: MatSnackBar,
+    private router: Router
   ) {
   }
 
@@ -92,6 +94,8 @@ export class LoginComponent {
         });
 
         this.authService.makeUserLoggedIn(token, user, finalContactList)
+
+        this.router.navigate(["/"])
       })
     }
   }

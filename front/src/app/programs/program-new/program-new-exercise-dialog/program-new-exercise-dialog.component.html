@@ -1,4 +1,4 @@
-<div>
+<mat-dialog-content>
   <table matSort>
     <thead>
       <tr>
@@ -14,9 +14,13 @@
         <td><mat-checkbox [value]="e.code_exercise!.toString()" [checked]="allChecked.includes(e)" (change)="checkManage(e)" ></mat-checkbox></td>
         <td>{{ e.wording }}</td>
         <td>{{ e.duration }}</td>
-        <td> 3 </td>
-        <td> 1 </td>
+        <td> {{ e.category }} </td>
+        <td> {{ e.difficulty }} </td>
       </tr>
     </tbody>
   </table>
-</div>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+  <button mat-button type="button" (click)="closeDialog()">Confirmer</button>
+</mat-dialog-actions>

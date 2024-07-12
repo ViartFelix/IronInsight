@@ -7,9 +7,11 @@ class ExerciseService {
   constructor() {
   }
 
-  public async getAllExercises(): Promise<Exercise> {
-    const r = await dbService.query("SELECT * FROM exercise");
-    return r as Exercise;
+  public async getAllExercises(): Promise<Exercise[]> {
+    const r = await dbService.query("SELECT exercise.*, exercise_category.wording as category, exercise_difficulty.wording as difficulty FROM exercise " +
+      "JOIN exercise_category ON exercise.category=exercise_category.code " +
+      "JOIN exercise_difficulty ON exercise.difficulty=exercise_difficulty.id");
+    return r as Exercise[];
   }
 
   public async getExerciseById(id: number): Promise<Exercise> {
@@ -82,7 +84,9 @@ class ExerciseService {
       id_exercise: data.id_exercise ?? data.code_exercise,
       wording: data.wording,
       duration: data.duration,
-      image: data.image
+      image: data.image,
+      difficulty: data.difficulty,
+      category: data.category
     } as Exercise
   }
 }

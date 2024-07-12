@@ -4,7 +4,6 @@ import auth from "../middlewares/authMiddleware";
 import {jwtService} from "../services/JwtService";
 import User from "../models/User";
 import bcrypt from "bcrypt";
-import jwt from "jsonwebtoken";
 import TrainingProgram from "../models/TrainingProgram";
 import {jwtDecoderMiddleware} from "../middlewares/jwtDecoderMiddleware";
 
@@ -211,6 +210,8 @@ class UserController {
         res.status(500).json({
           message: "You already are friends ! Try to reload this page."
         })
+
+        return;
       }
 
       const hasInserted = await userService.addFriendRelation(userReq, otherUser)
@@ -219,9 +220,8 @@ class UserController {
         throw new Error("Can't insert !")
       } else {
         res.sendStatus(200)
+        return;
       }
-
-
     } catch (e) {
       res.status(500).json({
         message: "Something went wrong when adding your relationship."
