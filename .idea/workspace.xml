@@ -4,7 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="de7ca3ed-f100-490d-a07e-8e730243af48" name="Changes" comment="(+) tweaks in css and server-side" />
+    <list default="true" id="de7ca3ed-f100-490d-a07e-8e730243af48" name="Changes" comment="(+) update readme">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/controllers/commentController.ts" beforeDir="false" afterPath="$PROJECT_DIR$/back/controllers/commentController.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/controllers/programsController.ts" beforeDir="false" afterPath="$PROJECT_DIR$/back/controllers/programsController.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/models/Comment.ts" beforeDir="false" afterPath="$PROJECT_DIR$/back/models/Comment.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/models/TrainingProgram.ts" beforeDir="false" afterPath="$PROJECT_DIR$/back/models/TrainingProgram.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/services/CommentService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/back/services/CommentService.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/services/ProgramService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/back/services/ProgramService.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/models/Comment.ts" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/models/Comment.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/models/Programs.ts" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/models/Programs.ts" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -168,6 +178,7 @@
       <workItem from="1720545099359" duration="27000" />
       <workItem from="1720639266847" duration="13332000" />
       <workItem from="1720812524032" duration="2906000" />
+      <workItem from="1720816842831" duration="2453000" />
     </task>
     <task id="LOCAL-00001" summary="(+) revert back">
       <option name="closed" value="true" />
@@ -321,7 +332,15 @@
       <option name="project" value="LOCAL" />
       <updated>1720815589387</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="(+) update readme">
+      <option name="closed" value="true" />
+      <created>1720817021320</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1720817021320</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -367,7 +386,8 @@
     <MESSAGE value="(+) delete friend front-end ok" />
     <MESSAGE value="(+) can add and delete friend on homepage" />
     <MESSAGE value="(+) tweaks in css and server-side" />
-    <option name="LAST_COMMIT_MESSAGE" value="(+) tweaks in css and server-side" />
+    <MESSAGE value="(+) update readme" />
+    <option name="LAST_COMMIT_MESSAGE" value="(+) update readme" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

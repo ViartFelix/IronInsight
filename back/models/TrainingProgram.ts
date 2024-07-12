@@ -14,4 +14,6 @@ export default interface TrainingProgram {
   //only for completed trainings
   done_at: Date | undefined;
   time: TrainingTime | object | undefined,
+
+  user_likes: number[],
 }

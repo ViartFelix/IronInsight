@@ -14,4 +14,6 @@ export interface TrainingProgram {
   done_at: Date | undefined;
   //object because the back-end uses a custom class that return an object to represent time taken
   time: object | undefined,
+
+  user_likes: number[],
 }

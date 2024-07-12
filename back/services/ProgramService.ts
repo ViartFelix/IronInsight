@@ -1,7 +1,7 @@
 import {dbService} from "./db-service";
 import Program from "../models/TrainingProgram";
-import User from "../models/User";
 import TrainingProgram from "../models/TrainingProgram";
+import User from "../models/User";
 import {userService} from "./UserService";
 import Exercise from "../models/Exercise";
 import {exerciseService} from "./ExerciseService";
@@ -12,14 +12,26 @@ class ProgramService {
   constructor() {
   }
 
-  public async getAllPrograms(): Promise<Program> {
-    const r = await dbService.query("SELECT * FROM training_program");
-    return r as Program;
+  public async getAllPrograms(): Promise<Program[]> {
+    const final: Program[] = [];
+
+    const rawPrograms = await dbService.query("SELECT * FROM training_program") as Program[];
+
+    for(let row of rawPrograms) {
+      row.user_likes = await this.getUserLikesFromProgram(row)
+      final.push(row)
+    }
+
+    return final;
   }
 
   public async getOneProgram(id: string): Promise<Program> {
     const r = await dbService.query("SELECT * FROM training_program WHERE id_program = ?", [id]);
-    return r[0] as Program;
+    const target = r[0] as TrainingProgram;
+
+    target.user_likes = await this.getUserLikesFromProgram(target)
+
+    return target as Program;
   }
 
   /**
@@ -63,6 +75,18 @@ class ProgramService {
     } catch (err) {
       return false;
     }
+  }
+
+  /**
+   * Returns a list of user's ids that have liked the program
+   * @param program
+   */
+  public async getUserLikesFromProgram(program: TrainingProgram) {
+    //raw list of users ids that have like the post
+    return await dbService.query(
+      "SELECT id_user FROM likes WHERE id_program = ?",
+      [program.id_program]
+    ) as number[]
   }
 
   /**
