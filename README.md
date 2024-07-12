@@ -19,7 +19,7 @@ npm install --legacy-peer-deps
 
 ```shell
 npm run start
-"Backend starting...";
+"Connexion avec la base de données...";
 ```
 
 #### Répertoire frontend :
@@ -30,7 +30,7 @@ npm install --legacy-peer-deps
 
 ```shell
 npm run start
-"Webpack compiling and starting frontend...";
+"Application generation complete...";
 ```
 
 ### Lancement
