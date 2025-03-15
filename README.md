@@ -1,6 +1,10 @@
 
 # IronInsight
 
+## Introduction
+**IronInsight** est un projet collaboratif entre [Raphaël Azevedo](https://github.com/RaphaelAZ) et [Félix Viart](https://github.com/ViartFelix).
+Ce project consiste en un back-end en ExpressJS et un front-end en AngluarJS. Ces deux éléments ont été codés principalement en TypeScript.
+
 ## Préparation
 Avant de d'installer les dépendances, il est nécessaire d'avoir un fichier ``.env`` à la racine du dossier 'back/'.
 Ce fichier doit contenir les informations suivantes:
